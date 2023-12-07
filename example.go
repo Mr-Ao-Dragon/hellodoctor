@@ -12,8 +12,8 @@ func main() {
 	fc.StartHttp(HandleHttpRequest)
 }
 
-// 处理 HTTP 请求的函数
-func HandleHttpRequest(ctx context.Context, w http.ResponseWriter, req *http.Request) error {
+// HandleHttpRequest 处理 HTTP 请求的函数
+func HandleHttpRequest(ctx context.Context, w http.ResponseWriter, req *http.Request) (err error) {
 	// 设置响应的状态码为200
 	w.WriteHeader(http.StatusOK)
 	// 设置响应头的Content-Type为text/plain

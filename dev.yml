@@ -1,0 +1,59 @@
+edition: "2.0.0"
+name: hello-doctor-dev
+access: "default"
+vars: # 全局变量
+  service:
+    name: "hellodoctor"
+    description: 'hello world by serverless devs'
+
+Environment:
+  - name: access
+    value: default
+  - name: in-develop-environment
+    value: true
+
+resources:
+  health-check:
+    name: health-check
+    component: fc
+    actions:
+      pre-deploy:
+        - run: GO111MODULE=on go get github.com/aliyun/fc-runtime-go-sdk
+          path: ./health-check
+        - run: GO111MODULE=on GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o
+            target/health-check health-check.go
+          path: ./health-check
+        - run: chmod a+x health-check
+          path: ./health-check/target
+      success-deploy:
+        - run: rm health-check
+          path: ./health-check/target
+      props:
+        region: ${env('REGION')}
+        service:
+          name: health-check
+        functionName: health-check
+        description: 健康检查
+        runtime: go1
+        code: ./health-check/target
+        handler: main
+        memorySize: 128
+        cpu: 0.05
+        timeout: 120
+        triggers:
+        - triggerName: httpsTrigger
+          triggerType: https
+          description: https入口
+          domainName: ${env('APIDOMAINDEV')}
+          config:
+            authType: anonymous
+            methods:
+              - GET
+      customDomains:
+        - domainName: ${env('APIDOMAINDEV')}
+          protocol: HTTPS
+          routeConfigs:
+            - certId: ${env('CERTID')}
+            - path: /health-check
+              methods:
+                - GET

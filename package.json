@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@serverless-devs/core": "^0.1.66"
+  }
+}
