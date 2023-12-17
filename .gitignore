@@ -2,3 +2,6 @@
 /.s/
 examples/
 example.go
+/package-lock.json
+node_modules/
+secrets/
