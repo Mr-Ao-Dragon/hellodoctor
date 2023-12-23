@@ -15,7 +15,7 @@
 #   有问题快来钉钉群问一下吧：33947367
 # ------------------------------------
 edition: 1.0.0
-name: hello-world-app
+name: hello-doctor
 # access 是当前应用所需要的密钥信息配置：
 # 密钥配置可以参考：https://www.serverless-devs.com/serverless-devs/command/config
 # 密钥使用顺序可以参考：https://www.serverless-devs.com/serverless-devs/tool#密钥使用顺序与规范
@@ -26,9 +26,16 @@ vars: # 全局变量
   service:
     name: "hellodoctor"
     description: 'hello world by serverless devs'
-
+Environments: # 环境变量配置
+  Variables:
+    - name: region
+      value: cn-hangzhou
+    - name: service
+      value:
+        name: hellodoctor
+        description: 'hello world by serverless devs'
 services:
-  helloworld: # 业务名称/模块名称
+  hello doctor: # 业务名称/模块名称
     # 如果只想针对 helloworld 下面的业务进行相关操作，可以在命令行中加上 helloworld，例如：
     # 只对helloworld进行构建：s helloworld build
     # 如果不带有 helloworld ，而是直接执行 s build，工具则会对当前Yaml下，所有和 helloworld 平级的业务模块（如有其他平级的模块，例如下面注释的next-function），按照一定顺序进行 build 操作
@@ -83,10 +90,19 @@ services:
 #    # 如果想单独部署当前服务与函数，可以执行 s + 模块名/业务名 + deploy，例如：s next-function deploy
 #    # 如果想单独部署当前函数，可以执行 s + 模块名/业务名 + deploy function，例如：s next-function deploy function
 #    # 更多命令可参考：https://www.serverless-devs.com/fc/readme#文档相关
-#    component: fc
-#    props:
-#      region: ${vars.region}
-#      service: ${vars.service} # 应用整体的服务配置
-#      function: # 定义一个新的函数
-#        name: next-function-example
-#        description: 'hello world by serverless devs'
+    component: init
+      component: fc
+      actions:
+        pre-deploy:
+          - run: GO111MODULE=on go get github.com/aliyun/fc-runtime-go-sdk
+            path:./init
+          - run: GO111MODULE=on GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o target/main main.go
+            path:./init
+
+      props:
+        region: ${vars.region}
+        service: ${vars.service} # 应用整体的服务配置
+        function: # 定义一个新的函数
+        name: init
+        description: 'init fc for hellodoctor'
+        runtime: go1
