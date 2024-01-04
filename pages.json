@@ -1,0 +1,198 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+				//#ifdef H5
+				,"app-plus": {
+					"titleNView": false //禁用原生导航栏
+				}
+				//#endif
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor":"#19be6b"
+				//#ifdef H5
+				,"app-plus": {
+					"titleNView": false //禁用原生导航栏
+				}
+				//#endif
+			}
+		},
+		{
+			"path": "pages/user/about",
+			"style": {
+				"navigationBarTitleText": "关于我们"
+			}
+		},
+		{
+			"path": "pages/user/more",
+			"style": {
+				"navigationBarTitleText": "更多资料"
+			}
+		},
+		{
+			"path": "pages/user/hexiao",
+			"style": {
+				"navigationBarTitleText": "核销订单"
+			}
+		},
+		{
+			"path": "pages/user/userinfo",
+			"style": {
+				"navigationBarTitleText": "用户详情"
+			}
+		},
+		{
+			"path": "pages/yuyue/index",
+			"style": {
+				"navigationBarTitleText": "预约项目列表"
+				//#ifdef H5
+				,"app-plus": {
+					"titleNView": false //禁用原生导航栏
+				}
+				//#endif
+			}
+		},
+		{
+			"path": "pages/yuyue/class",
+			"style": {
+				"navigationBarTitleText": "分类"
+			}
+		},
+		{
+			"path": "pages/yuyue/info",
+			"style": {
+				"navigationBarTitleText": "预约详情"
+			}
+		},
+		{
+			"path": "pages/yuyue/time",
+			"style": {
+				"navigationBarTitleText": "预约时间"
+			}
+		},
+		{
+			"path": "pages/yuyue/order",
+			"style": {
+				"navigationBarTitleText": "预约订单"
+			}
+		},
+		{
+			"path": "pages/pay/payok",
+			"style": {
+				"navigationBarTitleText": "预约成功"
+			}
+		},
+		{
+			"path": "pages/pay/paylist",
+			"style": {
+				"navigationBarTitleText": "支付记录"
+			}
+		},
+		{
+			"path": "pages/order/myorder",
+			"style": {
+				"navigationBarTitleText": "我的订单"
+			}
+		},
+		{
+			"path": "pages/order/myorder_info",
+			"style": {
+				"navigationBarTitleText": "订单详情"
+			} 
+		},
+		{
+			"path": "pages/hexiao/list",
+			"style": {
+				"navigationBarTitleText": "核销记录"
+			} 
+		},
+		{
+			"path": "pages/texter/noti_info",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
+			"path": "pages/texter/text_xieyi",
+			"style": {
+				"navigationBarTitleText": "详情"
+			}
+		},
+		{
+			"path": "pages/invitation/invitation",
+			"style": {
+				"navigationBarTitleText": "邀请",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor":"#19be6b"
+			}
+		},
+		{
+			"path": "pages/invitation/list",
+			"style": {
+				"navigationBarTitleText": "列表",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor":"#19be6b"
+			}
+		},
+		{
+			"path": "pages/invitation/code",
+			"style": {
+				"navigationBarTitleText": "二维码",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor":"#19be6b"
+			}
+		},
+		{
+			"path": "pages/invitation/shenqing",
+			"style": {
+				"navigationBarTitleText": "推广员申请",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor":"#19be6b"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "通用预约系统",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#19be6b",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/img/footer/home.png",
+				"selectedIconPath": "static/img/footer/home_cur.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/yuyue/index",
+				"iconPath": "static/img/footer/yy.png",
+				"selectedIconPath": "static/img/footer/yy_cur.png",
+				"text": "预约"
+			},
+			{
+				"pagePath": "pages/user/index",
+				"iconPath": "static/img/footer/wd.png",
+				"selectedIconPath": "static/img/footer/wd_cur.png",
+				"text": "我的"
+			}
+		]
+	}
+}
