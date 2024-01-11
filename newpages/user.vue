@@ -1,41 +1,40 @@
 <template>
   <view>
 
-    <view class="usertop zhuti_bg" @click="tiao('userinfo')" style="overflow: hidden;border-bottom-left-radius:20px;border-bottom-right-radius:20px;">
+    <view class="usertop zhuti_bg"  style="overflow: hidden;border-bottom-left-radius:20px;border-bottom-right-radius:20px;">
       <view class="u-flex u-col-center u-row-center" style="width:100%;margin-top:25px;">
         <image src="../static/img/user/mo.png" style="width: 50px;height:50px;border-radius:50%;border:3px solid #FFFFFF;" />
           <view class="u-flex-col u-margin-left-10" style="width:65%;">
             <text class="u-font-28 u-font-bold u-color-white">{{name?name:'请登录'}}</text>
-            <text class="u-font-24 u-color-white u-margin-top-10">UID：{{id?id:'0'}}</text>
           </view>
       </view>
     </view>
 
-    <view class="userlist u-flex-col u-margin-top-20" style="margin-top: 190rpx;">
-      <view class="userli u-flex u-row-between u-bg-white" @click="tiao('')">
+    <view class="userlist u-flex-col u-margin-top-20" >
+      <view class="userli u-flex u-row-between u-bg-white" @click="goto(0)">
         <view class="iconlist u-flex u-row-center u-col-center">
           <i class="icon u-font-44 zhuti_color">&#xe63c;</i>
         </view>
-        <view class="user_cent">
+        <view class="user_cent" >
           <span class="u-font-28 u-color-balck3">我的预约</span>
         </view>
         <text class="icon u-color-balck9">&#xe623;</text>
       </view>
-      <view class="userli u-flex u-row-between" @click="tiao('')">
+      <view class="userli u-flex u-row-between" @click="goto(1)">
         <view class="iconlist u-flex u-row-center u-col-center">
           <text class="icon u-font-38 zhuti_color">&#xe60b;</text>
         </view>
         <view class="user_cent">
-          <text class="u-font-28 u-color-balck3">预约管理</text>
+          <text class="u-font-28 u-color-balck3">预约管理(医生端)</text>
         </view>
         <text class="icon u-color-balck9">&#xe623;</text>
       </view>
-      <view class="userli u-flex u-row-between" @click="tiao('')">
+      <view class="userli u-flex u-row-between" @click="goto(2)">
         <view class="iconlist u-flex u-row-center u-col-center">
           <text class="icon u-font-38 zhuti_color">&#xe6fd;</text>
         </view>
         <view class="user_cent">
-          <text class="u-font-28 u-color-balck3">用户管理</text>
+          <text class="u-font-28 u-color-balck3">用户管理（管理端）</text>
         </view>
         <text class="icon u-color-balck9">&#xe623;</text>
       </view>
@@ -49,15 +48,21 @@ export default {
     return {
       title: 'Hello',
       headimg: '',
-      name: '',
+      name: '用户',
       token: '',
       role: ""//角色，1医生2患者3管理员
     }
   },
   onShow() {
-    this.GetToken();
+    // this.GetToken();
   },
   methods: {
+    goto(i){
+      const url = ['list','list_doc','list_admin']
+      uni.navigateTo({
+        url:`/newpages/${url[i]}`
+      })
+    },
     GetToken() {
       var _this = this;
       uni.getStorage({

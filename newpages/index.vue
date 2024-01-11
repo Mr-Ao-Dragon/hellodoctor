@@ -32,7 +32,7 @@
         <text class="icon zhuti_color u-font-28">&#xe6be;</text>
         <span class="u-font-28 u-color-balck3 u-margin-left-10">热门服务</span>
       </view>
-      <view v-for="(item,index) in list" :key="index" class="u-padding-20 u-flex border-bootom-1" @click="tiao('../yuyue/info?id='+item.id)">
+      <view v-for="(item,index) in list" :key="index" class="u-padding-20 u-flex border-bootom-1" @click="gotoReserve(item.id)">
         <image :src="item.img" style="width: 200rpx;height: 140rpx;border-radius: 20rpx;" mode=""></image>
         <view class="u-flex-col u-margin-left-20 clix u-row-between">
           <text class="u-font-28 u-color-balck3">{{item.title}}</text>
@@ -85,65 +85,65 @@ export default {
   },
   onLoad(option) {
 
-    //微信公众号登录
-    let href = window.location.href;
-    if (href.includes("cn/?code")) {  //url包括 com/?code 证明为从微信跳转回来的
-      var url = href.substring(0, href.length - 2); //vue自动在末尾加了 #/ 符号，截取去掉
-      var jingPosit = url.indexOf("cn/") + 3; //获取域名结束的位置
-      var urlLeft = url.substring(0, jingPosit);//url左侧部分
-      var urlRight = url.substring(jingPosit, url.length); //url右侧部分
-      var url = urlLeft + "#/" + urlRight;
-      window.location = url;//拼接跳转
-      console.log(url); return false;
-    }
-    if (href.includes("com/?code")) {  //url包括 com/?code 证明为从微信跳转回来的
-      var url = href.substring(0, href.length - 2); //vue自动在末尾加了 #/ 符号，截取去掉
-      var jingPosit = url.indexOf("com/") + 4; //获取域名结束的位置
-      var urlLeft = url.substring(0, jingPosit);//url左侧部分
-      var urlRight = url.substring(jingPosit, url.length); //url右侧部分
-      var url = urlLeft + "#/" + urlRight;
-      window.location = url;//拼接跳转
-      console.log(url); return false;
-    }
-    if (href.includes("net/?code")) {  //url包括 net/?code 证明为从微信跳转回来的
-      var url = href.substring(0, href.length - 2); //vue自动在末尾加了 #/ 符号，截取去掉
-      var jingPosit = url.indexOf("net/") + 4; //获取域名结束的位置
-      var urlLeft = url.substring(0, jingPosit);//url左侧部分
-      var urlRight = url.substring(jingPosit, url.length); //url右侧部分
-      var url = urlLeft + "#/" + urlRight;
-      window.location = url;//拼接跳转
-      console.log(url); return false;
-    }
-    //todo 疑似是邀请码 可以去掉
-    if (option.code) {
-      this.wxcode = option.code;
-      this.getopenid();
-      return false;
-    }
+    // //微信公众号登录
+    // let href = window.location.href;
+    // if (href.includes("cn/?code")) {  //url包括 com/?code 证明为从微信跳转回来的
+    //   var url = href.substring(0, href.length - 2); //vue自动在末尾加了 #/ 符号，截取去掉
+    //   var jingPosit = url.indexOf("cn/") + 3; //获取域名结束的位置
+    //   var urlLeft = url.substring(0, jingPosit);//url左侧部分
+    //   var urlRight = url.substring(jingPosit, url.length); //url右侧部分
+    //   var url = urlLeft + "#/" + urlRight;
+    //   window.location = url;//拼接跳转
+    //   console.log(url); return false;
+    // }
+    // if (href.includes("com/?code")) {  //url包括 com/?code 证明为从微信跳转回来的
+    //   var url = href.substring(0, href.length - 2); //vue自动在末尾加了 #/ 符号，截取去掉
+    //   var jingPosit = url.indexOf("com/") + 4; //获取域名结束的位置
+    //   var urlLeft = url.substring(0, jingPosit);//url左侧部分
+    //   var urlRight = url.substring(jingPosit, url.length); //url右侧部分
+    //   var url = urlLeft + "#/" + urlRight;
+    //   window.location = url;//拼接跳转
+    //   console.log(url); return false;
+    // }
+    // if (href.includes("net/?code")) {  //url包括 net/?code 证明为从微信跳转回来的
+    //   var url = href.substring(0, href.length - 2); //vue自动在末尾加了 #/ 符号，截取去掉
+    //   var jingPosit = url.indexOf("net/") + 4; //获取域名结束的位置
+    //   var urlLeft = url.substring(0, jingPosit);//url左侧部分
+    //   var urlRight = url.substring(jingPosit, url.length); //url右侧部分
+    //   var url = urlLeft + "#/" + urlRight;
+    //   window.location = url;//拼接跳转
+    //   console.log(url); return false;
+    // }
+    // //todo 疑似是邀请码 可以去掉
+    // if (option.code) {
+    //   this.wxcode = option.code;
+    //   this.getopenid();
+    //   return false;
+    // }
 
-    //todo 疑似登录相关
-    this.iswx = this.$iswx;
-    var that = this;
-    if (this.iswx == 2) {
-      var apiUrl = location.href.split("#")[0];
-      uni.request({
-        url: that.$puburl + 'resource/Wxlogin/getSignPackage',
-        data: {
-          url: encodeURIComponent(apiUrl),//当前页面的域名
-          api: ['scanQRCode', 'checkJsApi'],//调用的方法去接口列表里找
-        },
-        success: function (res) {
-          var wxData = res.data.data.data;
-          that.wx_sanCode(wxData)
-        }
-      })
-    }
+    // //todo 疑似登录相关
+    // this.iswx = this.$iswx;
+    // var that = this;
+    // if (this.iswx == 2) {
+    //   var apiUrl = location.href.split("#")[0];
+    //   uni.request({
+    //     url: that.$puburl + 'resource/Wxlogin/getSignPackage',
+    //     data: {
+    //       url: encodeURIComponent(apiUrl),//当前页面的域名
+    //       api: ['scanQRCode', 'checkJsApi'],//调用的方法去接口列表里找
+    //     },
+    //     success: function (res) {
+    //       var wxData = res.data.data.data;
+    //       that.wx_sanCode(wxData)
+    //     }
+    //   })
+    // }
     //获取初始资料
     this.getData();
     //是否为微信，可以先留着
-    this.iswx = this.$iswx;//1网页 2微信
+    // this.iswx = this.$iswx;//1网页 2微信
     //获取token
-    this.GetToken();
+    // this.GetToken();
 
   },
   onPullDownRefresh() {
@@ -157,6 +157,11 @@ export default {
     }, 1000);
   },
   methods: {
+    gotoReserve:function(id){
+      uni.navigateTo({
+        url:"/newpages/reserve?id="+id
+      })
+    },
     //扫码
     //todo 扫码登录 不知何用，后续可删除
     wx_sanCode: function (wxData) {
@@ -304,35 +309,35 @@ export default {
 
     getData() {
       //获取首页数据
-      this.$api.indeximg().then((res) => {
-        //todo:轮播图和list的获取
-        this.lunbo = [
-          {
-            "id": 2,
-            "title": "轮播图1",
-            "img": "../../static/lunbo1.jpg",
-            "type": 1,
-            "url": "#",
-            "style": 1
-          }
-        ]
-        this.list = [
-          {
-            "id": 16,
-            "title": "王医生",
-            "mobile": "13688885555",
-            "img": "../../static/avatar.jpg",
-            "address": "15分钟一个患者",
-            "lat": "1",
-            "lng": "1",
-            "is_info": 1,
-            "recommended": "",
-            "val": 0,
-            "opst": 1
-          }
-        ]
-      })
+      // this.$api.indeximg().then((res) => {
+      //   //todo:轮播图和list的获取
 
+      // })
+      this.lunbo = [
+        {
+          "id": 2,
+          "title": "轮播图1",
+          "img": "../static/lunbo1.jpg",
+          "type": 1,
+          "url": "#",
+          "style": 1
+        }
+      ]
+      this.list = [
+        {
+          "id": 16,
+          "title": "王医生",
+          "mobile": "13688885555",
+          "img": "../static/avatar.jpg",
+          "address": "15分钟一个患者",
+          "lat": "1",
+          "lng": "1",
+          "is_info": 1,
+          "recommended": "",
+          "val": 0,
+          "opst": 1
+        }
+      ]
     },
     tiao(url) {
       uni.navigateTo({
