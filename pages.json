@@ -1,0 +1,54 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index"
+		},
+		{
+			"path": "pages/user"
+		},
+		{
+			"path": "pages/info_user"
+		},
+		{
+			"path": "pages/info_reserve"
+		},
+		{
+			"path": "pages/list_admin"
+		},
+		{
+			"path": "pages/list_doc"
+		},
+		{
+			"path": "pages/list"
+		},
+		{
+			"path": "pages/reserve"
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "通源堂预约",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#666666",
+		"selectedColor": "#19be6b",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/index",
+				"iconPath": "static/img/footer/home.png",
+				"selectedIconPath": "static/img/footer/home_cur.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/user",
+				"iconPath": "static/img/footer/wd.png",
+				"selectedIconPath": "static/img/footer/wd_cur.png",
+				"text": "我的"
+			}
+		]
+	}
+}

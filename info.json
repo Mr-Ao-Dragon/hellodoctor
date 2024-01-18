@@ -1,0 +1,41 @@
+{
+  "data": {
+    "lunbo": [
+      {
+        "id": 4,
+        "img": "https://ty.ohyu.cn/storage/admin_images/20240110/2c19d4ab17d55f793e0d13317aaf5d99.png",
+        "acid": 16
+      }
+    ],
+    "list": {
+      "id": 16,
+      "title": "海岛出海游-项目一30人",
+      "img": "https://ty.ohyu.cn/storage/admin_images/20240110/6ec20dc40a754f2a40f90e5cdc8b54fa.jpg",
+      "allimg": null,
+      "money": "20.00",
+      "pv": 200,
+      "dayno": 0,
+      "bao": 201,
+      "address": "海岛xx",
+      "intro": null,
+      "lat": "1",
+      "lng": "1",
+      "texter": "<p><b><font color=\"#c71585\">海岛出海游-项目一30人</font></b></p><p><br></p><p>注意事项：</p><p>1、多人游玩请带好物品</p><p>2、出发会清点人数</p><p>3、坐船出海</p>",
+      "addtime": "2024-01-10 16:26:25",
+      "status": 1,
+      "name": "王先生",
+      "mobile": "13688885555",
+      "paiid": 20,
+      "istui": 1,
+      "is_info": 1,
+      "zno": 30,
+      "classid": 17,
+      "recommended": "",
+      "yueno": 0,
+      "start": 0,
+      "ordno": 1
+    },
+    "opst": 2,
+    "classarr": []
+  }
+}
