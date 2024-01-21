@@ -1,5 +1,5 @@
 {
-	"pages": [ 
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/index"
 		},
@@ -38,13 +38,21 @@
 		"borderStyle": "black",
 		"list": [
 			{
+<<<<<<< HEAD
 				"pagePath": "pages/index",
+=======
+				"pagePath": "newpages/index",
+>>>>>>> de7a383 (update alpha page)
 				"iconPath": "static/img/footer/home.png",
 				"selectedIconPath": "static/img/footer/home_cur.png",
 				"text": "首页"
 			},
 			{
+<<<<<<< HEAD
 				"pagePath": "pages/user",
+=======
+				"pagePath": "newpages/user",
+>>>>>>> de7a383 (update alpha page)
 				"iconPath": "static/img/footer/wd.png",
 				"selectedIconPath": "static/img/footer/wd_cur.png",
 				"text": "我的"
