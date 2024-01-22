@@ -1,6 +1,6 @@
 <template>
 
-  <view class="w-time-picker" :class="{'show':show}">
+  <view class="w-time-picker" :class="{'show':show}" :style="{display:show?'block':'none'}">
     <view class="w-time-days">
       <scroll-view scroll-x>
         <view class="w-time-scroll">

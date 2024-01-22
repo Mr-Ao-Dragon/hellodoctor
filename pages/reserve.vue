@@ -16,10 +16,15 @@
       </view>
       <view class="three">
         <view>预约时间</view>
-        <uni-datetime-picker name="time" returnType="timestamp" :start=nowDate :end="nowDate + (3600 * 24 * 1000*7)" v-model="time" :clear-icon="false" />
+        <view @click="showPicker=!showPicker">{{ timeword?timeword:"选择预约时间" }}</view>
       </view>
+
       <view class="four">
         <button form-type="submit">提交</button>
+      </view>
+
+      <ziohtimepicker :start-time="'8:30'" :end-time="'17:30'" :step="15" :after-hours="2" :show="showPicker" @cancel="showPicker=!showPicker" @confirm="confirmTime" />
+      <view :class="{shadowClass:showPicker}" @click="showPicker=!showPicker">
       </view>
     </form>
   </view>
@@ -27,14 +32,17 @@
   
   <script>
 import request from '../api/request'
+import ziohtimepicker from '../components/ziohtimepicker.vue'
 
 export default {
+  components: { ziohtimepicker },
   data() {
     return {
       name: "",
       id: null,
       time: null,
-      nowDate: null,
+      timeword: null,
+      showPicker: false
     }
   },
   methods: {
@@ -51,26 +59,43 @@ export default {
           title: '请输入正确的手机号',
           icon: 'none'
         })
-      } else{
+      } else {
         request.postReserve({
-          name:e.detail.value.name,
-          mobile:e.detail.value.mobile,
-          id:this.id,
-          time:this.time
+          name: e.detail.value.name,
+          mobile: e.detail.value.mobile,
+          id: this.id,
+          time: this.time
         })
       }
     },
-    onLoad(options) {
-      this.nowDate = new Date().getTime()
-      console.log(options)
-      this.id = options.id
-      this.name = options.name
+    confirmTime(e) {
+      this.showPicker = !this.showPicker
+      this.timeword = e.substring(5, 16)
+      this.time = new Date(e).getTime()
+
+      console.log({ e, word: this.timeword, time: this.time })
     }
+  },
+  onLoad(options) {
+    this.nowDate = new Date().getTime()
+    console.log(options)
+    this.id = options.id
+    this.name = options.name
   }
 }
   </script>
   
   <style lang="scss" scoped>
+.shadowClass {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
 .body {
   margin: 8px;
   padding: 8px;
