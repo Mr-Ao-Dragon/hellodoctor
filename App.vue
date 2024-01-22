@@ -10,14 +10,7 @@ const loginLink = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${w
 
 export default {
   async onload(options) {
-    if (options && options.code) {
-      const res = await request.postLogin(code)
-      uni.setStorageSync('token', res.access_token)
-      uni.setStorageSync('expries_in', res.expries_in)
-    }
-    else {
-    //   window.location.href = loginLink
-    }
+    
   },
   onShow() {
     const token = uni.getStorageSync('token')
