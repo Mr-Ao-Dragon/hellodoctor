@@ -1,24 +1,53 @@
 <template>
   <view>
 
-    <view class="usertop zhuti_bg"  style="overflow: hidden;border-bottom-left-radius:20px;border-bottom-right-radius:20px;">
+    <view class="usertop zhuti_bg" style="overflow: hidden;border-bottom-left-radius:20px;border-bottom-right-radius:20px;">
       <view class="u-flex u-col-center u-row-center" style="width:100%;margin-top:25px;">
         <image src="../static/img/user/mo.png" style="width: 50px;height:50px;border-radius:50%;border:3px solid #FFFFFF;" />
-          <view class="u-flex-col u-margin-left-10" style="width:65%;">
-            <text class="u-font-28 u-font-bold u-color-white">{{name}}</text>
-          </view>
+        <view class="u-flex-col u-margin-left-10" style="width:65%;">
+          <text class="u-font-28 u-font-bold u-color-white">{{name}}</text>
+        </view>
       </view>
     </view>
 
-    <view class="userlist u-flex-col u-margin-top-20" >
+    <view class="userlist u-flex-col u-margin-top-20">
       <view class="userli u-flex u-row-between u-bg-white" @click="goto(0)">
         <view class="iconlist u-flex u-row-center u-col-center">
           <i class="icon u-font-44 zhuti_color">&#xe63c;</i>
         </view>
-        <view class="user_cent" >
+        <view class="user_cent">
           <span class="u-font-28 u-color-balck3">我的预约</span>
         </view>
         <text class="icon u-color-balck9">&#xe623;</text>
+      </view>
+      <view class="bar">
+        <view class="col" @click="goto(0)">
+          <text class="icon u-font-42 zhuti_color">&#xe855;</text>
+          <text class="t">
+            已下单
+          </text>
+        </view>
+        <view class="col" @click="goto(0)">
+          <text class="icon u-font-42 zhuti_color">&#xe83e;</text>
+
+          <text class="t">
+            待核销
+          </text>
+        </view>
+        <view class="col" @click="goto(0)">
+          <text class="icon u-font-42 zhuti_color">&#xe821;</text>
+
+          <text class="t">
+            已完成
+          </text>
+        </view>
+        <view class="col" @click="goto(0)">
+          <text class="icon u-font-42 zhuti_color">&#xe85a;</text>
+
+          <text class="t">
+            已取消
+          </text>
+        </view>
       </view>
       <view class="userli u-flex u-row-between" @click="goto(1)">
         <view class="iconlist u-flex u-row-center u-col-center">
@@ -57,10 +86,10 @@ export default {
     // this.GetToken();
   },
   methods: {
-    goto(i){
-      const url = ['list','list_doc','list_admin']
+    goto(i) {
+      const url = ['list', 'list_doc', 'list_admin']
       uni.navigateTo({
-        url:`/pages/${url[i]}`
+        url: `/pages/${url[i]}`
       })
     },
     GetToken() {
@@ -99,7 +128,24 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 25%;
+    padding: 24px 0;
+    .t{
+      padding-top:12px ;
+    }
+  }
+}
 page {
   background-color: #f6f6f6;
 }
