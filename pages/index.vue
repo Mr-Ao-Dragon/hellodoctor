@@ -15,13 +15,13 @@
       <view class="u-flex u-row-between u-row-center u-padding-20 u-col-center">
         <text class="icon zhuti_color u-font-28">&#xe852;</text>
         <view class="noticent">
-          <swiper :vertical="true"  :autoplay="true" style="height: 40rpx;line-height: 40rpx;">
-            <swiper-item class="u-font-dan-sheng"  v-for="(item,index) in noti" :key="index">
+          <swiper :vertical="true" :autoplay="true" style="height: 40rpx;line-height: 40rpx;">
+            <swiper-item class="u-font-dan-sheng" v-for="(item,index) in noti" :key="index">
               <text class="u-font-28 u-color-balck3 u-font-dan-sheng" style="width: 620rpx;">{{item}}</text>
             </swiper-item>
           </swiper>
         </view>
-        
+
       </view>
     </view>
 
@@ -54,20 +54,36 @@ import request from '../api/request';
 export default {
   data() {
     return {
-      lunbo:[],
-      noti:[],
-      list:[],
-      ready:false
+      lunbo: [],
+      noti: [],
+      list: [],
+      ready: false,
+      wxLoginData: {
+        appid: '',//填写appid
+        redirect_uri: '',//填写这个网页的地址
+        response_type: 'code',
+        scope: 'snsapi_userinfo',
+      }
+
     }
   },
-  async onLoad() {
+  async onLoad(options) {
     await this.getData();
     this.ready = true;
+    if (options && options.code) {
+      const res = await request.postLogin(code)
+      uni.setStorageSync('token', res.access_token)
+      uni.setStorageSync('expries_in', res.expries_in)
+    }
+    else {
+      // const loginLink = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${wxLoginData.appid}&redirect_uri=${wxLoginData.redirect_uri}&response_type=${wxLoginData.response_type}&scope=${wxLoginData.scope}#wechat_redirect`
+      //   window.location.href = loginLink
+    }
   },
   methods: {
-    gotoReserve:function(item){
+    gotoReserve: function (item) {
       uni.navigateTo({
-        url:`/pages/reserve?id=${item.id}&name=${item.name}`
+        url: `/pages/reserve?id=${item.id}&name=${item.name}`
       })
     },
     async getData() {
@@ -80,14 +96,14 @@ export default {
       this.noti = ["诊所上班时间：9:00"]
       this.list = [
         {
-          name:"王业生",
-          avatar:"../static/avatar.jpg",
-          id:1
+          name: "王业生",
+          avatar: "../static/avatar.jpg",
+          id: 1
         },
         {
-          name:"王医生",
-          avatar:"../static/avatar.jpg",
-          id:1
+          name: "王医生",
+          avatar: "../static/avatar.jpg",
+          id: 1
         }
       ]
     },
