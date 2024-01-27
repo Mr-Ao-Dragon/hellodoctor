@@ -11,11 +11,11 @@ require (
 
 require (
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/flatbuffers v1.11.0 // indirect
-	github.com/hashicorp/golang-lru v0.5.4 // indirect
-	github.com/sirupsen/logrus v1.9.0 // indirect
+	github.com/google/flatbuffers v23.5.26+incompatible // indirect
+	github.com/hashicorp/golang-lru v1.0.2 // indirect
+	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/stretchr/testify v1.7.1 // indirect
 	github.com/t-tomalak/logrus-easy-formatter v0.0.0-20190827215021-c074f06c5816 // indirect
 	golang.org/x/sys v0.16.0 // indirect
-	google.golang.org/protobuf v1.26.0 // indirect
+	google.golang.org/protobuf v1.32.0 // indirect
 )
