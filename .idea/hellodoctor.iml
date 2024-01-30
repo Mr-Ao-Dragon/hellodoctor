@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
-  <component name="Go" enabled="true" />
+  <component name="Go" enabled="true">
+    <buildTags>
+      <option name="cgo" value="NO" />
+      <option name="compiler" value="gc" />
+    </buildTags>
+  </component>
 </module>
