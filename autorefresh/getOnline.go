@@ -1,8 +1,8 @@
-
 package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/Mr-Ao-Dragon/hellodoctor/mrao_wechat"
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"net/http"
@@ -19,6 +19,7 @@ type errorContext struct {
 }
 
 func HandleHttpRequest(w http.ResponseWriter) error {
+	fmt.Println("hello")
 	AKReturn, EIReturn, err := mrao_wechat.GetAccessToken(os.Getenv("AppId"), os.Getenv("AppSecret"), false)
 	AK := AK{
 		AK:        AKReturn,
