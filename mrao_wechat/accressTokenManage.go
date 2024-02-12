@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -29,6 +30,7 @@ func GetAccessToken(AppId, AppSecret string, ForceRefresh bool) (AccessToken str
 		GrantType:    "authorization_code", // 授权类型
 		ForceRefresh: ForceRefresh,
 	}
+	log.Printf("Request:%v", Request)
 	// 将Request对象转换为JSON格式的请求体
 	RequestBody, err := json.Marshal(Request)
 	if err != nil {
@@ -59,7 +61,7 @@ func GetAccessToken(AppId, AppSecret string, ForceRefresh bool) (AccessToken str
 		return "", 0, err
 	}
 	// 延迟关闭响应体
-	defer func(Body io.ReadCloser)(err error) {
+	defer func(Body io.ReadCloser) (err error) {
 		err = Body.Close()
 		if err != nil {
 			return err

@@ -6,7 +6,7 @@ import (
 )
 
 func handleRequest(ctx context.Context, w http.ResponseWriter, req *http.Request) error {
-	getRangeRe
+	return nil
 }
 func main() {
 

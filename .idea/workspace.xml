@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32042dd8-f111-4a78-8afc-f57e28f7cbbb" name="更改" comment="修正idea爆黄">
+    <list default="true" id="32042dd8-f111-4a78-8afc-f57e28f7cbbb" name="更改" comment="新增数据库动作">
+      <change afterPath="$PROJECT_DIR$/usercenter/login/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/token/token.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/token/token.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usercenter/register/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter/register/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usercenter/register/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/usercenter/register/databaseAction.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file:///usr/lib64/go/1.21" />
   <component name="Git.Settings">
@@ -21,10 +28,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2bo3fHlBIzr0plkYc9A6ELGXkzF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +39,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultGoTemplateProperty": "Go Application",
     "Go 构建.go build getOnline.go.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -47,16 +55,19 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "application.passwordSafe"
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="go build getOnline.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="hellodoctor" />
+      <target name="@@@LOCAL@@@" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <package value="github.com/Mr-Ao-Dragon/hellodoctor" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/autorefresh/getOnline.go" />
       <output_directory value="$PROJECT_DIR$/target" />
+      <option name="build_on_remote_target" value="true" />
+      <option name="run" value="false" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -71,17 +82,26 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修正idea爆黄" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正idea爆黄" />
+    <MESSAGE value="新增数据库动作" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增数据库动作" />
   </component>
   <component name="VgoProject">
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
+        <entry key="GOSUMDB" value="gosum.io+ece6e7565+AY5qEHUk/qmHc5btzW45JVoENfazw8LielDsaI+lEbq6" />
+      </map>
+    </environment>
     <settings-migrated>true</settings-migrated>
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
+    {
+    },
     {
     }
   ],
-  "lastFilter": {
+  &quot;lastFilter&quot;: {
   }
-}]]></component>
+}</component>
 </project>
