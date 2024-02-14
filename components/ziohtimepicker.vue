@@ -99,7 +99,7 @@ export default {
     confirm() {
       if (this.time != "") {
         let tabItem = this.dayList[this.tabIndex];
-        let result = tabItem.year + "-" + tabItem.month + "-" + tabItem.day + " " + this.time.label + ":00";
+        let result = tabItem.year + "-" + tabItem.month + "-" + tabItem.day + " " + this.time.label;
         this.$emit("confirm", result);
       } else {
         uni.showToast({
@@ -160,13 +160,13 @@ export default {
       this.timeList = [];
       while (startTimestamp <= endTimestamp) {
         let timestamp = new Date(startTimestamp);
-        if (this.forMatNumber(timestamp.getHours()) === 12
-          && this.forMatNumber(timestamp.getMinutes()) !== '00') {
-
-        } else if (this.forMatNumber(timestamp.getHours()) === 13) {
+        const hour = this.forMatNumber(timestamp.getHours())
+        const min = this.forMatNumber(timestamp.getMinutes())
+        if (hour === 12) {
+        } else if (hour === 13) {
         } else {
           this.timeList.push({
-            label: this.forMatNumber(timestamp.getHours()) + ":" + this.forMatNumber(timestamp.getMinutes()),
+            label: `${hour}:${min}-${Number(min)==45?Number(hour)+1:hour}:${Number(min)==45?'00':Number(min)+15}`,
             disabled: isToday ? (curTimestamp + afterSeconds) > startTimestamp : false
           });
         }
@@ -246,7 +246,6 @@ export default {
       flex-wrap: wrap;
       padding: 20upx 10upx;
       justify-content: start;
-      
     }
 
     .w-time-item {
