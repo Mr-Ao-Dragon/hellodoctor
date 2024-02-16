@@ -79,6 +79,7 @@ func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int6
 	UpdateRowChange.PrimaryKey = UpdatePk
 	UpdateRowChange.PutColumn("LoginTime", NowUnix)
 	UpdateRowChange.PutColumn("ExpiresIn", expiresIn)
+	UpdateRowChange.PutColumn("SystemToken", systemToken)
 	UpdateRowRequest.UpdateRowChange = UpdateRowChange
 	_, err = client.UpdateRow(UpdateRowRequest)
 	if err != nil {

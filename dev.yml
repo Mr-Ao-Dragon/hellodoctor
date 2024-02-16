@@ -4,7 +4,6 @@ access: "default"
 vars: # 全局变量
   service:
     name: "hellodoctor"
-    description: 'hello world by serverless devs'
 
 Environment:
   - name: access
@@ -29,7 +28,7 @@ resources:
         - run: rm health-check
           path: ./health-check/target
       props:
-        region: ${env('REGION')}
+        region: ${env('region')}
         service:
           name: health-check
         functionName: health-check
@@ -44,16 +43,55 @@ resources:
         - triggerName: httpsTrigger
           triggerType: https
           description: https入口
-          domainName: ${env('APIDOMAINDEV')}
+          domainName: ${env('domain')}
           config:
             authType: anonymous
             methods:
               - GET
       customDomains:
-        - domainName: ${env('APIDOMAINDEV')}
+        - domainName: ${env('domain')}
           protocol: HTTPS
           routeConfigs:
-            - certId: ${env('CERTID')}
-            - path: /health-check
+            - certId: ${env('certid')}
+            - path: /v1/health-check
               methods:
                 - GET
+  login:
+    name: login
+    component: fc3
+    actions:
+      pre-deploy:
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o
+            target/login main.go
+          path: ./user/login/main.go
+        - run: chmod a+x login
+          path: ./target
+      success-deploy:
+        - run: rm login
+          path: ./target
+    props:
+      region: ${env('FC_REGION')}
+      service:
+        name: login
+        description: 用户登录
+        runtime: go1
+        code: ./target
+        cpu: 0.04
+        memorySize: 128
+        timeout: 120
+        triggers:
+          - triggerName: httpTrigger
+            triggerType: http
+            config:
+              authType: anonymous
+              methods:
+                - GET
+    customDomains:
+      - domainName: ${env('domain')}
+        protocol: HTTPS
+        routeConfigs:
+          - certId: ${env('certid')}
+          - path: /v1/user/login
+            methods:
+              - GET
+
