@@ -4,6 +4,9 @@
 			"path": "pages/index"
 		},
 		{
+			"path": "pages/info_doc"
+		},
+		{
 			"path": "pages/user"
 		},
 		{

@@ -83,7 +83,7 @@ export default {
   methods: {
     gotoReserve: function (item) {
       uni.navigateTo({
-        url: `/pages/reserve?id=${item.id}&name=${item.name}`
+        url: `/pages/info_doc?id=${item.id}&name=${item.name}`
       })
     },
     async getData() {
