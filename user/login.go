@@ -22,10 +22,10 @@ func Login(OpenID string) (systemAccessToken string, expiresIn int64, err error)
 }
 func CodeToOpenID(code string) (OpenID string, err error) {
 	OfficialAccountApp, err := officialAccount.NewOfficialAccount(&officialAccount.UserConfig{
-		AppID:  os.Getenv("AppId"), // 公众号、小程序的appid
-		Secret: os.Getenv("AppSecret"),
-		Token:  os.Getenv("Token"),
-		AESKey: os.Getenv("AESKey"),
+		AppID:  os.Getenv("AppId"),     // 公众号、小程序的appid
+		Secret: os.Getenv("AppSecret"), // 公众号、小程序的appsecret
+		Token:  "0000",                 // 不需要使用但要求填写
+		AESKey: "0000",                 // 不需要使用但要求填写
 		Log: officialAccount.Log{
 			Level: "debug",
 		},

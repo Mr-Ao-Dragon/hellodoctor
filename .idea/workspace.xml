@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="开启go111mod支持">
-      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/remote-targets.xml" beforeDir="false" />
+    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="继续修复s.yaml,添加权限行">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/register/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/token/token.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/user/openid.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/user/openid_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/action/login/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/action/register/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/register.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,30 +29,69 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mraodragon&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.goide.configuration.GoProjectSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/user/login.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "Shell Script.vendor.executor": "Run",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/target",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.goide.configuration.GoProjectSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$/user" />
       <recent name="$PROJECT_DIR$/user/login" />
     </key>
+  </component>
+  <component name="RunManager" selected="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/user/login">
+    <configuration name="go build github.com/Mr-Ao-Dragon/hellodoctor/user/login" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="hellodoctor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="CGO_ENABLED" value="0" />
+      </envs>
+      <kind value="PACKAGE" />
+      <package value="github.com/Mr-Ao-Dragon/hellodoctor/user/login" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/user/login/main.go" />
+      <output_directory value="$PROJECT_DIR$/target" />
+      <option name="run" value="false" />
+      <method v="2">
+        <option name="RunConfigurationTask" enabled="true" run_configuration_name="vendor" run_configuration_type="ShConfigurationType" />
+      </method>
+    </configuration>
+    <configuration name="vendor" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="go mod vendor" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/usr/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="false" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/user/login" />
+      <item itemvalue="Shell Script.vendor" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -78,7 +106,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="开启go111mod支持" />
-    <option name="LAST_COMMIT_MESSAGE" value="开启go111mod支持" />
+    <MESSAGE value="继续修复s.yaml,添加权限行" />
+    <option name="LAST_COMMIT_MESSAGE" value="继续修复s.yaml,添加权限行" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -90,6 +119,8 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {

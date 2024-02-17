@@ -109,6 +109,7 @@ func AddUser(OpenID string, systemToken string) (isSusses bool, expiresIn int64,
 	putRowChange.AddColumn("LoginTime", NowUnix)
 	putRowChange.AddColumn("ExpiresIn", expiresIn)
 	putRowChange.AddColumn("SystemToken", systemToken)
+	putRowChange.AddColumn("permission", 0)
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowRequest.PutRowChange = putRowChange
 	putRowRequest.PutRowChange.PrimaryKey = putPk
