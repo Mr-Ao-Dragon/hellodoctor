@@ -17,7 +17,7 @@ resources:
       memorySize: 128
       environmentVariables:
         AppId: ${env('AppId')}
-        AccessKeyId: ${env{'AccessKeyId')}
+        AccessKeyId: ${env('AccessKeyId')}
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
         AccessKeySecret: ${env('AccessKeySecret')}
