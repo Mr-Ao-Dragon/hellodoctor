@@ -5,7 +5,7 @@ resources:
   login:
     component: fc3
     props:
-      region: cn-beijing
+      region: $env{{'region'}}
       description: ''
       timeout: 60
       diskSize: 512
@@ -16,13 +16,13 @@ resources:
       instanceConcurrency: 20
       memorySize: 128
       environmentVariables:
-        AppId: env{{'AppId'}}
-        AccessKeyId: env{{'AccessKeyId'}}
+        AppId: $env{{'AppId'}}
+        AccessKeyId: $env{{'AccessKeyId'}}
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
-        AccessKeySecret: env{{'AccessKeySecret'}}
-        EndPoint: env{{'EndPoint'}}
-        AppSecret: env{{'AppSecret'}}
+        AccessKeySecret: $env{{'AccessKeySecret'}}
+        EndPoint: $env{{'EndPoint'}}
+        AppSecret: $env{{'AppSecret'}}
       code: target/user_login
       triggers:
         - triggerConfig:
