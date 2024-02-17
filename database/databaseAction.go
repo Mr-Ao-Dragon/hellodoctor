@@ -120,3 +120,27 @@ func AddUser(OpenID string, systemToken string) (isSusses bool, expiresIn int64,
 		return true, time.Now().Unix(), nil
 	}
 }
+func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	UpdateRowRequest := new(tablestore.UpdateRowRequest)
+	UpdateRowChange := new(tablestore.UpdateRowChange)
+	UpdateRowChange.TableName = "user"
+	UpdatePk := new(tablestore.PrimaryKey)
+	UpdatePk.AddPrimaryKeyColumn("OpenID", OpenID)
+	UpdateRowChange.PrimaryKey = UpdatePk
+	UpdateRowChange.PutColumn("permission", PermLevel)
+	UpdateRowRequest.UpdateRowChange = UpdateRowChange
+	_, err = client.UpdateRow(UpdateRowRequest)
+	if err != nil {
+		return false, err
+	} else {
+		return true, nil
+	}
+}
