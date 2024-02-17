@@ -5,7 +5,7 @@ resources:
   login:
     component: fc3
     props:
-      region: env{{'region'}}
+      region: cn-beijing
       description: ''
       timeout: 60
       diskSize: 512

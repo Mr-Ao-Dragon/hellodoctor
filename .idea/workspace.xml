@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="继续修复s.yaml,添加权限行">
+    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="继续修复s.yaml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/s.yaml.local" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/test.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +108,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="开启go111mod支持" />
     <MESSAGE value="继续修复s.yaml,添加权限行" />
-    <option name="LAST_COMMIT_MESSAGE" value="继续修复s.yaml,添加权限行" />
+    <MESSAGE value="继续修复s.yaml" />
+    <option name="LAST_COMMIT_MESSAGE" value="继续修复s.yaml" />
   </component>
   <component name="VgoProject">
     <environment>
