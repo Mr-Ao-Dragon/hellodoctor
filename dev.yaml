@@ -37,7 +37,7 @@ resources:
       pre-deploy:
         - run: mkdir target
           path: ./
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && go mod tidy && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/main user/login/main.go"
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && go mod tidy && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/login user/login/main.go"
           path: ./
         - run: chmod a+x login
           path: ./target
