@@ -22,7 +22,7 @@ resources:
         AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
         AppSecret: ${env('AppSecret')}
-      code: target/user_login
+      code: target/login
       triggers:
         - triggerConfig:
             methods:
@@ -35,12 +35,9 @@ resources:
           triggerType: http
     actions:
       pre-deploy:
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && go mod tidy && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o target/ main.go"
-          path: /kaniko/tmp/workspace/user/login
         - run: mkdir target
-          path: /kaniko/tmp/workspace/
+          path: ./
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && go mod tidy && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/main user/login/main.go"
+          path: ./
         - run: chmod a+x login
-          path: /kaniko/tmp/workspace/target
-      success-deploy:
-        - run: rm login
-          path: /kaniko/tmp/workspace/target
+          path: ./target
