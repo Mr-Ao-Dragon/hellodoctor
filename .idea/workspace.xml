@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="修正构建路径">
+    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="完善权限系统">
       <change afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/admin/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +123,8 @@
     <MESSAGE value="继续尝试修复yaml" />
     <MESSAGE value="编写权限动作，清理冗余代码" />
     <MESSAGE value="修正构建路径" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正构建路径" />
+    <MESSAGE value="完善权限系统" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善权限系统" />
   </component>
   <component name="VgoProject">
     <environment>
