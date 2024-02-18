@@ -122,6 +122,32 @@ func AddUser(OpenID string, systemToken string) (isSusses bool, expiresIn int64,
 		return true, time.Now().Unix(), nil
 	}
 }
+func QueryPermission(OpenID string) (PermissionLevel string, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRowRequest := new(tablestore.GetRowRequest)
+	criteria := new(tablestore.SingleRowQueryCriteria)
+	putPk := new(tablestore.PrimaryKey)
+	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	criteria.PrimaryKey = putPk
+	criteria.TableName = "user"
+	getRowRequest.SingleRowQueryCriteria = criteria
+	criteria.ColumnsToGet = []string{"permission"}
+	queryResult, err := client.GetRow(getRowRequest)
+	if err != nil {
+		return "", err
+	}
+	if queryResult == nil {
+		return "", errors.New("用户不存在")
+	}
+	return queryResult.Columns[0].Value.(string), nil
+}
 func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
@@ -162,6 +188,7 @@ func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
 	criteria.PrimaryKey = putPk
 	criteria.TableName = "user"
 	getRowRequest.SingleRowQueryCriteria = criteria
+	criteria.ColumnsToGet = []string{"ExpiresIn", "SystemToken"}
 	Result, err := client.GetRow(getRowRequest)
 	if Result == nil {
 		err = errors.New("查询用户信息失败，查询结果为空")
@@ -172,14 +199,14 @@ func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
 		return false, err
 	}
 	Column := Result.Columns
-	expiresIn := Column[0].Value
-	SystemToken := Column[1].Value
+	expiresIn := Column[0].Value.(int64)
+	SystemToken := Column[1].Value.(string)
 	if SystemToken != Token {
 		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户凭据无效")
 		log.Fatalf(err.Error())
 		return false, err
 	}
-	if expiresIn.(int64) <= time.Now().Unix() {
+	if expiresIn <= time.Now().Unix() {
 		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户登录态过期")
 		log.Fatalf(err.Error())
 		return false, err

@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="继续尝试修复yaml">
-      <change afterPath="$PROJECT_DIR$/user/admin/main.go" afterDir="false" />
+    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="修正构建路径">
+      <change afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/main.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin/main.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +61,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user/admin" />
       <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$/user" />
       <recent name="$PROJECT_DIR$/user/login" />
@@ -122,7 +121,9 @@
     <MESSAGE value="继续修复s.yaml" />
     <MESSAGE value="开始权限系统编写" />
     <MESSAGE value="继续尝试修复yaml" />
-    <option name="LAST_COMMIT_MESSAGE" value="继续尝试修复yaml" />
+    <MESSAGE value="编写权限动作，清理冗余代码" />
+    <MESSAGE value="修正构建路径" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正构建路径" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -132,8 +133,12 @@
     </environment>
     <settings-migrated>true</settings-migrated>
   </component>
-  <component name="WfRunsListSearchHistory">{
-  &quot;history&quot;: [
+  <component name="WfRunsListSearchHistory"><![CDATA[{
+  "history": [
+    {
+    },
+    {
+    },
     {
     },
     {
@@ -143,7 +148,7 @@
     {
     }
   ],
-  &quot;lastFilter&quot;: {
+  "lastFilter": {
   }
-}</component>
+}]]></component>
 </project>
