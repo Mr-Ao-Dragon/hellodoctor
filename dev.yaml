@@ -52,6 +52,7 @@ resources:
     props:
       region: ${env('region')}
       domainName: ${env('domain')}
+      protocol: HTTPS
       routeConfig:
         routes:
           - path: /v1/user/login
