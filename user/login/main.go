@@ -49,7 +49,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, e
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Register(OpenID)
 	}
 	if err != nil {
-		return "{\"statusCode\": 401,\n\"body\": {\"error\": \"User does not exist\"}}", err
+		return "{\"statusCode\": 401,\n\"body\": \"{\"error\": \"User does not exist\"}\"}", err
 	}
 
 	// Create response structure
