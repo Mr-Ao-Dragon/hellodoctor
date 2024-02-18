@@ -23,6 +23,7 @@ resources:
         EndPoint: ${env('EndPoint')}
         AppSecret: ${env('AppSecret')}
       handler: main
+      Disk: 512
       code: target/login
       triggers:
         - triggerConfig:
