@@ -88,8 +88,8 @@ resources:
         maxVersion: TLSv1.3
       certConfig:
         certName: ${env('certName')}
-        certId: ${env('certId')}
-#       certificate: ${env('certPem')}
-#       privateKey: ${env('certKey')}
+#         certId: ${env('certId')}
+      certificate: ${env('certPem')}
+      privateKey: ${env('certKey')}
     authConfig:
       authType: anonymous
