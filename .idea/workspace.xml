@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="完善权限系统">
-      <change afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
+    <list default="true" id="c205a603-1bdc-42ce-9e91-a4c0d02354c4" name="更改" comment="配置handler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +21,7 @@
   </component>
   <component name="GOROOT" url="file:///usr/lib64/go/1.21" />
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -115,6 +113,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="开启go111mod支持" />
     <MESSAGE value="继续修复s.yaml,添加权限行" />
@@ -124,7 +133,13 @@
     <MESSAGE value="编写权限动作，清理冗余代码" />
     <MESSAGE value="修正构建路径" />
     <MESSAGE value="完善权限系统" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善权限系统" />
+    <MESSAGE value="小修补" />
+    <MESSAGE value="使用绝对路径" />
+    <MESSAGE value="优化程序效率" />
+    <MESSAGE value="。。。" />
+    <MESSAGE value="不再tidy" />
+    <MESSAGE value="配置handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="配置handler" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -134,8 +149,8 @@
     </environment>
     <settings-migrated>true</settings-migrated>
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
     },
     {
@@ -149,7 +164,7 @@
     {
     }
   ],
-  "lastFilter": {
+  &quot;lastFilter&quot;: {
   }
-}]]></component>
+}</component>
 </project>
