@@ -35,6 +35,12 @@ resources:
           triggerType: http
     actions:
       pre-deploy:
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm use go1.21.7 && ${current}"
+          path: ./
+        - run: go mod vendor
+          path: ./
+        - run: go mod tidy
+          path: ./
         - run: go version
           path: ./
         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o target/login main.go
