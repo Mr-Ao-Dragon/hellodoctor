@@ -1,6 +1,8 @@
 package database
 
 import (
+	"errors"
+	"log"
 	"os"
 	"time"
 
@@ -143,4 +145,44 @@ func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	} else {
 		return true, nil
 	}
+}
+func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRowRequest := new(tablestore.GetRowRequest)
+	criteria := new(tablestore.SingleRowQueryCriteria)
+	putPk := new(tablestore.PrimaryKey)
+	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	criteria.PrimaryKey = putPk
+	criteria.TableName = "user"
+	getRowRequest.SingleRowQueryCriteria = criteria
+	Result, err := client.GetRow(getRowRequest)
+	if Result == nil {
+		err = errors.New("查询用户信息失败，查询结果为空")
+		log.Fatalf(err.Error())
+		return false, err
+	}
+	if err != nil {
+		return false, err
+	}
+	Column := Result.Columns
+	expiresIn := Column[0].Value
+	SystemToken := Column[1].Value
+	if SystemToken != Token {
+		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户凭据无效")
+		log.Fatalf(err.Error())
+		return false, err
+	}
+	if expiresIn.(int64) <= time.Now().Unix() {
+		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户登录态过期")
+		log.Fatalf(err.Error())
+		return false, err
+	}
+	return true, nil
 }
