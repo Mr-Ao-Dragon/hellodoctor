@@ -91,5 +91,5 @@ resources:
 #         certId: ${env('certId')}
         certificate: ${env('certPem')}
         privateKey: ${env('certKey')}
-    authConfig:
-      authType: anonymous
+      authConfig:
+        authType: anonymous
