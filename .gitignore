@@ -3,3 +3,4 @@
 playground/
 target/
 /vendor/
+.github/workflows/package.yml
