@@ -8,7 +8,6 @@ resources:
       region: ${env('region')}
       description: ''
       timeout: 60
-      diskSize: 512
       internetAccess: true
       functionName: login
       runtime: go1
@@ -37,9 +36,9 @@ resources:
     actions:
       pre-deploy:
       - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o target/login main.go
-        path: user/login/main.go
+        path: hellodoctor/user/login
       - run: chmod a+x login
         path: target
       success-deploy:
-        - run: rm login
-          path: target
+      - run: rm login
+        path: target
