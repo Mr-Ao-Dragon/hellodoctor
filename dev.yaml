@@ -22,6 +22,7 @@ resources:
         AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
         AppSecret: ${env('AppSecret')}
+        handler: main
       code: target/login
       triggers:
         - triggerConfig:
