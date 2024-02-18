@@ -35,6 +35,8 @@ resources:
           triggerType: http
     actions:
       pre-deploy:
+        - run: go version
+          path: ./
         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o target/login main.go
           path: user/login
         - run: chmod a+x login
