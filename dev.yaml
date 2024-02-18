@@ -86,7 +86,7 @@ resources:
           - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
           - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
       maxVersion: TLSv1.3
-    certConfig:
+    CertConfig:
       certName: ${env('certName')}
       certId: ${env('certId')}
     authConfig:
