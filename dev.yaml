@@ -35,7 +35,7 @@ resources:
           triggerType: http
     actions:
       pre-deploy:
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm use go1.21.7"
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7"
           path: ./
         - run: go mod vendor
           path: ./
