@@ -27,7 +27,7 @@ type ReposeStruct struct {
 	Body       ReposeBody `json:"body"`
 }
 
-// HandleHttpRequest handles the HTTP request and returns the response.
+// HandleHttpRequest TODO: 整理此处代码，目前版本代码可读性较差
 func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, err error) {
 	// Convert code to OpenID
 	OpenID, err := user.CodeToOpenID(event.QueryParameters.Code)
@@ -63,7 +63,6 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, e
 
 	// Convert JSON to string
 	Repose = string(ReposeByte)
-
 	return
 }
 

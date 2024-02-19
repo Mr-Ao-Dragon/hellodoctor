@@ -37,6 +37,21 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	}
 }
 
+//func TokenToOpenID(Token string) (OpenID string) {
+//	client := tablestore.NewClientWithConfig(
+//		os.Getenv("AccessKeyId"),
+//		os.Getenv("AccessKeySecret"),
+//		os.Getenv("EndPoint"),
+//		os.Getenv("InstanceName"),
+//		"",
+//		nil,
+//	)
+//	getRowRequest := new(tablestore.GetRowRequest)
+//	criteria := new(tablestore.SingleRowQueryCriteria)
+//	criteria.TableName = "user"
+//
+//}
+
 // UserLogin 用户登录
 func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int64, expressed bool, err error) {
 	checkUserExist, err := QueryUserExist(OpenID)

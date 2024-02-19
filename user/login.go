@@ -2,6 +2,7 @@ package user
 
 import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 	"os"
 
 	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount"
@@ -17,7 +18,7 @@ func Login(OpenID string) (systemAccessToken string, expiresIn int64, err error)
 	if retry == 3 && err != nil {
 		return "", 0, err
 	}
-	systemAccessToken, err = GenToken(16)
+	systemAccessToken, err = gen.Token(16)
 	return
 }
 func CodeToOpenID(code string) (OpenID string, err error) {
