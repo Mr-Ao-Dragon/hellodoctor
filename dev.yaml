@@ -89,7 +89,7 @@ resources:
       certConfig:
         certName: ${env('certName')}
 #         certId: ${env('certId')}
-        certificate: ${env('certPem')}
-        privateKey: ${env('certKey')}
+        certificate: oss://${env('certBucket')}/${env('certPem')}
+        privateKey: oss://${env('certBucket')}/${env('certKey')}
       authConfig:
         authType: anonymous
