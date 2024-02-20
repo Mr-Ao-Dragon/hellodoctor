@@ -1,0 +1,32 @@
+resources:
+  basic:
+    component: fc3
+    props:
+      region: ${env('region')}
+      timeout: 60
+      internetAccess: true
+      functionName: login
+      runtime: go1
+      cpu: 0.05
+      instanceConcurrency: 20
+      memorySize: 128
+      environmentVariables:
+        AppId: ${env('AppId')}
+        AccessKeyId: ${env('AccessKeyId')}
+        LD_LIBRARY_PATH: >-
+          /code:/code/lib:/usr/local/lib:/opt/lib
+        AccessKeySecret: ${env('AccessKeySecret')}
+        EndPoint: ${env('EndPoint')}
+        AppSecret: ${env('AppSecret')}
+      handler: main
+      diskSize: 512
+      triggers:
+        - triggerConfig:
+            methods:
+              - GET
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: ''
+          qualifier: LATEST
+          triggerType: http

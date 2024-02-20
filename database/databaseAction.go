@@ -37,20 +37,74 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	}
 }
 
-//func TokenToOpenID(Token string) (OpenID string) {
-//	client := tablestore.NewClientWithConfig(
-//		os.Getenv("AccessKeyId"),
-//		os.Getenv("AccessKeySecret"),
-//		os.Getenv("EndPoint"),
-//		os.Getenv("InstanceName"),
-//		"",
-//		nil,
-//	)
-//	getRowRequest := new(tablestore.GetRowRequest)
-//	criteria := new(tablestore.SingleRowQueryCriteria)
-//	criteria.TableName = "user"
-//
-//}
+func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRowRequest := new(tablestore.GetRowRequest)
+	criteria := new(tablestore.SingleRowQueryCriteria)
+	putPk := new(tablestore.PrimaryKey)
+	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	criteria.PrimaryKey = putPk
+	criteria.TableName = "user"
+	getRowRequest.SingleRowQueryCriteria = criteria
+	criteria.ColumnsToGet = []string{"permission"}
+	queryResult, err := client.GetRow(getRowRequest)
+	if err != nil {
+		return 0, err
+	}
+	if queryResult == nil {
+		return 0, errors.New("用户不存在")
+	}
+	return queryResult.Columns[0].Value.(int8), nil
+}
+
+func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRowRequest := new(tablestore.GetRowRequest)
+	criteria := new(tablestore.SingleRowQueryCriteria)
+	putPk := new(tablestore.PrimaryKey)
+	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	criteria.PrimaryKey = putPk
+	criteria.TableName = "user"
+	getRowRequest.SingleRowQueryCriteria = criteria
+	criteria.ColumnsToGet = []string{"ExpiresIn", "SystemToken"}
+	Result, err := client.GetRow(getRowRequest)
+	if Result == nil {
+		err = errors.New("查询用户信息失败，查询结果为空")
+		log.Fatalf(err.Error())
+		return false, err
+	}
+	if err != nil {
+		return false, err
+	}
+	Column := Result.Columns
+	expiresIn := Column[0].Value.(int64)
+	SystemToken := Column[1].Value.(string)
+	if SystemToken != Token {
+		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户凭据无效")
+		log.Fatalf(err.Error())
+		return false, err
+	}
+	if expiresIn <= time.Now().Unix() {
+		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户登录态过期")
+		log.Fatalf(err.Error())
+		return false, err
+	}
+	return true, nil
+}
 
 // UserLogin 用户登录
 func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int64, expressed bool, err error) {
@@ -137,32 +191,7 @@ func AddUser(OpenID string, systemToken string) (isSusses bool, expiresIn int64,
 		return true, time.Now().Unix(), nil
 	}
 }
-func QueryPermission(OpenID string) (PermissionLevel string, err error) {
-	client := tablestore.NewClientWithConfig(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
-		os.Getenv("EndPoint"),
-		os.Getenv("InstanceName"),
-		"",
-		nil,
-	)
-	getRowRequest := new(tablestore.GetRowRequest)
-	criteria := new(tablestore.SingleRowQueryCriteria)
-	putPk := new(tablestore.PrimaryKey)
-	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
-	criteria.PrimaryKey = putPk
-	criteria.TableName = "user"
-	getRowRequest.SingleRowQueryCriteria = criteria
-	criteria.ColumnsToGet = []string{"permission"}
-	queryResult, err := client.GetRow(getRowRequest)
-	if err != nil {
-		return "", err
-	}
-	if queryResult == nil {
-		return "", errors.New("用户不存在")
-	}
-	return queryResult.Columns[0].Value.(string), nil
-}
+
 func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
@@ -186,45 +215,4 @@ func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	} else {
 		return true, nil
 	}
-}
-func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
-	client := tablestore.NewClientWithConfig(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
-		os.Getenv("EndPoint"),
-		os.Getenv("InstanceName"),
-		"",
-		nil,
-	)
-	getRowRequest := new(tablestore.GetRowRequest)
-	criteria := new(tablestore.SingleRowQueryCriteria)
-	putPk := new(tablestore.PrimaryKey)
-	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
-	criteria.PrimaryKey = putPk
-	criteria.TableName = "user"
-	getRowRequest.SingleRowQueryCriteria = criteria
-	criteria.ColumnsToGet = []string{"ExpiresIn", "SystemToken"}
-	Result, err := client.GetRow(getRowRequest)
-	if Result == nil {
-		err = errors.New("查询用户信息失败，查询结果为空")
-		log.Fatalf(err.Error())
-		return false, err
-	}
-	if err != nil {
-		return false, err
-	}
-	Column := Result.Columns
-	expiresIn := Column[0].Value.(int64)
-	SystemToken := Column[1].Value.(string)
-	if SystemToken != Token {
-		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户凭据无效")
-		log.Fatalf(err.Error())
-		return false, err
-	}
-	if expiresIn <= time.Now().Unix() {
-		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户登录态过期")
-		log.Fatalf(err.Error())
-		return false, err
-	}
-	return true, nil
 }
