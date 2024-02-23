@@ -5,10 +5,10 @@ import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 )
 
-func Register(OpenID string) (systemAccessToken string, expiresIn int64, err error) {
+func Register(OpenID string, PermissionLevel int8) (systemAccessToken string, expiresIn int64, err error) {
 	retry := 0
 	for isFinish := false; !isFinish || err == nil || retry >= 3 || OpenID == ""; {
-		isFinish, expiresIn, err = database.AddUser(OpenID, systemAccessToken)
+		isFinish, expiresIn, err = database.AddUser(OpenID, PermissionLevel, systemAccessToken)
 		retry++
 	}
 	if retry == 3 && err != nil {

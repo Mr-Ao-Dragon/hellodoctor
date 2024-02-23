@@ -160,8 +160,7 @@ func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int6
 	}
 }
 
-// AddUser 添加用户
-func AddUser(OpenID string, systemToken string) (isSusses bool, expiresIn int64, err error) {
+func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses bool, expiresIn int64, err error) {
 	NowUnix := time.Now().Unix()
 	expiresIn = NowUnix + (86400 * 30)
 	client := tablestore.NewClientWithConfig(
@@ -180,7 +179,7 @@ func AddUser(OpenID string, systemToken string) (isSusses bool, expiresIn int64,
 	putRowChange.AddColumn("LoginTime", NowUnix)
 	putRowChange.AddColumn("ExpiresIn", expiresIn)
 	putRowChange.AddColumn("SystemToken", systemToken)
-	putRowChange.AddColumn("permission", 0)
+	putRowChange.AddColumn("permission", PermissionLevel)
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowRequest.PutRowChange = putRowChange
 	putRowRequest.PutRowChange.PrimaryKey = putPk

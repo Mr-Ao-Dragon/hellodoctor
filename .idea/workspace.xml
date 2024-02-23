@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="改进随机数生成，完成编写权限主方法">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修正输入输出错误">
+      <change afterPath="$PROJECT_DIR$/user/doctor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/veify/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/register.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +133,10 @@
     <MESSAGE value="继续修复缩进故障" />
     <MESSAGE value="迁移证书到对象存储" />
     <MESSAGE value="改进随机数生成，完成编写权限主方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="改进随机数生成，完成编写权限主方法" />
+    <MESSAGE value="更新.gitignore" />
+    <MESSAGE value="fix: 更新流水线配置" />
+    <MESSAGE value="fix: 修正输入输出错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修正输入输出错误" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -139,6 +148,12 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
+    {
+    },
+    {
+    },
     {
     },
     {
