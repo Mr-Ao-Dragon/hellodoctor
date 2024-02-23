@@ -275,7 +275,7 @@ resources:
           privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
         authConfig:
           authType: anonymous
-  perm:
+  verify:
     component: fc3
     # extend:
     #   name: basic
