@@ -88,8 +88,8 @@ resources:
       certConfig:
         certName: ${env('certName')}
 #         certId: ${env('certId')}
-        certificate: oss://${env('PemUrl')}
-        privateKey: oss://${env('KeyUrl')}
+        certificate: oss://${env('region')}/${env('certBucket')}/${env('certPem')}
+        privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
       authConfig:
         authType: anonymous
   perm:
