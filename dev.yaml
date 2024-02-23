@@ -304,7 +304,7 @@ resources:
       triggers:
         - triggerConfig:
             methods:
-              - get
+              - GET
             authType: anonymous
             disableURLInternet: false
           triggerName: defaultTrigger
