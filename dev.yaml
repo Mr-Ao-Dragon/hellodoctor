@@ -320,7 +320,7 @@ resources:
           path: ./
         - run: chmod a+x verify
           path: ./target
-  perm-domain:
+  verify-domain:
     component: fc3-domain
     props:
       region: ${env('region')}

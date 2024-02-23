@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 微信服务器验证">
-      <change afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veify/main.go" beforeDir="false" />
-    </list>
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: Yaml字段重复" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +131,8 @@
     <MESSAGE value="fix: 修正桶错误" />
     <MESSAGE value="fix: 修正文件路径" />
     <MESSAGE value="add: 微信服务器验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 微信服务器验证" />
+    <MESSAGE value="fix: Yaml字段重复" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: Yaml字段重复" />
   </component>
   <component name="VgoProject">
     <environment>
