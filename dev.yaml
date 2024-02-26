@@ -25,7 +25,7 @@ resources:
         AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
         AppSecret: ${env('AppSecret')}
-      handler: main
+      handler: login
       diskSize: 512
       code: target/login
       triggers:
@@ -116,7 +116,7 @@ resources:
         AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
         AppSecret: ${env('AppSecret')}
-      handler: main
+      handler: perm
       diskSize: 512
       code: target/perm
       triggers:
@@ -184,20 +184,20 @@ resources:
         privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
       authConfig:
         authType: anonymous
-    perm:
-      component: fc3
+  perm:
+    component: fc3
       # extend:
       #   name: basic
         # ignore:
-      props:
-        region: ${env('region')}
-        description: ''
-        timeout: 60
-        internetAccess: true
-        functionName: perm
-        runtime: go1
-        cpu: 0.05
-        instanceConcurrency: 20
+    props:
+      region: ${env('region')}
+      description: ''
+      timeout: 60
+      internetAccess: true
+      functionName: perm
+      runtime: go1
+      cpu: 0.05
+      instanceConcurrency: 20
         memorySize: 128
         environmentVariables:
           AppId: ${env('AppId')}
@@ -207,7 +207,7 @@ resources:
           AccessKeySecret: ${env('AccessKeySecret')}
           EndPoint: ${env('EndPoint')}
           AppSecret: ${env('AppSecret')}
-        handler: main
+        handler: perm
         diskSize: 512
         code: target/perm
         triggers:
@@ -298,7 +298,7 @@ resources:
         AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
         AppSecret: ${env('AppSecret')}
-      handler: main
+      handler: verify
       diskSize: 512
       code: target/verify
       triggers:

@@ -215,3 +215,28 @@ func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 		return true, nil
 	}
 }
+
+func UpToDoctor(OpenID string, doctorName string, doctorProfile string) (err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	putRowRequest := new(tablestore.PutRowRequest)
+	putRowChange := new(tablestore.PutRowChange)
+	putRowChange.TableName = "doctor"
+	putRowChange.PrimaryKey = new(tablestore.PrimaryKey)
+	putRowChange.PrimaryKey.AddPrimaryKeyColumn("OpenID", OpenID)
+	putRowChange.AddColumn("doctorAvatar", "https://")
+	putRowChange.AddColumn("doctorName", doctorName)
+	putRowChange.AddColumn("doctorProfile", doctorProfile)
+	putRowRequest.PutRowChange = putRowChange
+	_, err = client.PutRow(putRowRequest)
+	if err != nil {
+		return err
+	}
+	return nil
+}
