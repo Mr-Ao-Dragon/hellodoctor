@@ -88,97 +88,6 @@ resources:
         maxVersion: TLSv1.3
       certConfig:
         certName: ${env('certName')}
-#         certId: ${env('certId')}
-        certificate: oss://${env('region')}/${env('certBucket')}/${env('certPem')}
-        privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
-      authConfig:
-        authType: anonymous
-  perm:
-    component: fc3
-    # extend:
-    #   name: basic
-      # ignore:
-    props:
-      region: ${env('region')}
-      description: ''
-      timeout: 60
-      internetAccess: true
-      functionName: perm
-      runtime: go1
-      cpu: 0.05
-      instanceConcurrency: 20
-      memorySize: 128
-      environmentVariables:
-        AppId: ${env('AppId')}
-        AccessKeyId: ${env('AccessKeyId')}
-        LD_LIBRARY_PATH: >-
-          /code:/code/lib:/usr/local/lib:/opt/lib
-        AccessKeySecret: ${env('AccessKeySecret')}
-        EndPoint: ${env('EndPoint')}
-        AppSecret: ${env('AppSecret')}
-      handler: perm
-      diskSize: 512
-      code: target/perm
-      triggers:
-        - triggerConfig:
-            methods:
-              - POST
-            authType: anonymous
-            disableURLInternet: false
-          triggerName: defaultTrigger
-          description: ''
-          qualifier: LATEST
-          triggerType: http
-    actions:
-      pre-deploy:
-        - run: mkdir -p target
-          path: ./
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go"
-#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
-          path: ./
-        - run: chmod a+x login
-          path: ./target
-  perm-domain:
-    component: fc3-domain
-    props:
-      region: ${env('region')}
-      domainName: ${env('domain')}
-      protocol: HTTPS
-      routeConfig:
-        routes:
-          - path: /v1/perm/set
-            functionName: perm
-            qualifier: LATEST
-      wafConfig:
-        enableWAF: false
-      tlsConfig:
-        minVersion: TLSv1.2
-        cipherSuites:
-          - TLS_RSA_WITH_AES_128_CBC_SHA
-          - TLS_RSA_WITH_AES_256_CBC_SHA
-          - TLS_RSA_WITH_AES_128_GCM_SHA256
-          - TLS_RSA_WITH_AES_256_GCM_SHA384
-          - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
-          - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
-          - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
-          - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
-          - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-          - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-          - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-          - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-          - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
-          - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
-          - TLS_RSA_WITH_RC4_128_SHA
-          - TLS_RSA_WITH_3DES_EDE_CBC_SHA
-          - TLS_RSA_WITH_AES_128_CBC_SHA256
-          - TLS_ECDHE_ECDSA_WITH_RC4_128_SHA
-          - TLS_ECDHE_RSA_WITH_RC4_128_SHA
-          - TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA
-          - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-          - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-        maxVersion: TLSv1.3
-      certConfig:
-        certName: ${env('certName')}
         certificate: oss://${env('region')}/${env('certBucket')}/${env('certPem')}
         privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
       authConfig:
@@ -219,15 +128,6 @@ resources:
           description: ''
           qualifier: LATEST
           triggerType: http
-  actions:
-    pre-deploy:
-      - run: mkdir -p target
-        path: ./
-      - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go"
-#       - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
-        path: ./
-      - run: chmod a+x perm
-        path: ./target
   perm-domain:
     component: fc3-domain
     props:
@@ -273,6 +173,15 @@ resources:
         privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
       authConfig:
         authType: anonymous
+  actions:
+    pre-deploy:
+      - run: mkdir -p target
+        path: ./
+      - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go"
+#       - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
+        path: ./
+      - run: chmod a+x perm
+        path: ./target
   verify:
     component: fc3
     # extend:
