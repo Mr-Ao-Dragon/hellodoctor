@@ -120,10 +120,10 @@ resources:
       code: target/perm
       triggers:
         - triggerConfig:
-          methods:
-            - POST
-          authType: anonymous
-          disableURLInternet: false
+            methods:
+              - POST
+            authType: anonymous
+            disableURLInternet: false
           triggerName: defaultTrigger
           description: ''
           qualifier: LATEST
