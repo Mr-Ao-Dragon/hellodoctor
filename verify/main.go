@@ -28,6 +28,7 @@ type StructEvent struct {
 
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
 	tempArray := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, event.QueryParameters.EchoStr}
+	log.Printf("tempArray: %v", tempArray)
 	sort.Strings(tempArray)
 	sha1String := strings.Join(tempArray, "")
 	log.Printf("sha1String: %s", sha1String)
