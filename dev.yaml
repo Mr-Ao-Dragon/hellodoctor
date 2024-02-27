@@ -25,6 +25,7 @@ resources:
       handler: login
       diskSize: 512
       code: target/login
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -67,6 +68,7 @@ resources:
       handler: perm
       diskSize: 512
       code: target/perm
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -108,6 +110,7 @@ resources:
       handler: verify
       diskSize: 512
       code: target/verify
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -150,6 +153,7 @@ resources:
       handler: doctor-list
       diskSize: 512
       code: target/doctor-list
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
