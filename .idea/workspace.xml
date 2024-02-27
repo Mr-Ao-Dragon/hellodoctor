@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add:添加调试日志">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 同步xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +133,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="继续修复缩进故障" />
     <MESSAGE value="迁移证书到对象存储" />
     <MESSAGE value="改进随机数生成，完成编写权限主方法" />
     <MESSAGE value="更新.gitignore" />
@@ -157,7 +157,8 @@
     <MESSAGE value="update: 添加缺失的doctor-list:" />
     <MESSAGE value="fix: yaml语法错误" />
     <MESSAGE value="add:添加调试日志" />
-    <option name="LAST_COMMIT_MESSAGE" value="add:添加调试日志" />
+    <MESSAGE value="update: 同步xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 同步xml" />
   </component>
   <component name="VgoProject">
     <environment>

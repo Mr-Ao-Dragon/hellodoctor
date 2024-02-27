@@ -25,7 +25,7 @@ resources:
       handler: login
       diskSize: 512
       code: target/login
-      logConfig: auto
+#       logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -68,7 +68,7 @@ resources:
       handler: perm
       diskSize: 512
       code: target/perm
-      logConfig: auto
+#       logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -84,6 +84,7 @@ resources:
         - run: mkdir -p target
           path: ./
         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go"
+#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go
           path: ./
         - run: chmod a+x perm
           path: ./target
@@ -110,7 +111,7 @@ resources:
       handler: verify
       diskSize: 512
       code: target/verify
-      logConfig: auto
+#       logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -126,7 +127,7 @@ resources:
         - run: mkdir -p target
           path: ./
         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/verify verify/main.go"
-  #       - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
+#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
           path: ./
         - run: chmod a+x verify
           path: ./target
@@ -153,7 +154,7 @@ resources:
       handler: doctor-list
       diskSize: 512
       code: target/doctor-list
-      logConfig: auto
+#       logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -168,7 +169,8 @@ resources:
       pre-deploy:
         - run: mkdir -p target
           path: ./
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go"
+#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go"
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go
           path: ./
         - run: chmod a+x doctor-list
           path: ./target
