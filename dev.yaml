@@ -185,6 +185,9 @@ resources:
           - path: /v1/perm/set
             functionName: perm
             qualifier: LATEST
+          - verify:
+            path: /v1/verify
+            functionName: verify
           - path: /v1/doctor/index/list
             functionName: doctor-list
             qualifier: LATEST
