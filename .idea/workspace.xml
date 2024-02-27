@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: yaml重复">
-      <change afterPath="$PROJECT_DIR$/index/doctorlist/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/doctor/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修正yaml错误">
       <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/doctor.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +141,9 @@
     <MESSAGE value="fix: handler配置错误" />
     <MESSAGE value="fix: 缩进错误" />
     <MESSAGE value="fix: yaml重复" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: yaml重复" />
+    <MESSAGE value="add: 部分医生操作&#10;fix: 修正handler错误" />
+    <MESSAGE value="fix: 修正yaml错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修正yaml错误" />
   </component>
   <component name="VgoProject">
     <environment>
