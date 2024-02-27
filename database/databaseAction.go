@@ -9,6 +9,12 @@ import (
 	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
 )
 
+type SingleDoctorDataStruct struct {
+	Name   string `json:"name"`
+	Avatar string `json:"avatar"`
+	Id     string `json:"id"`
+}
+
 // QueryUserExist 根据OpenID查询用户是否存在
 func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	client := tablestore.NewClientWithConfig(
@@ -239,4 +245,60 @@ func UpToDoctor(OpenID string, doctorName string, doctorProfile string) (err err
 		return err
 	}
 	return nil
+}
+
+func ListDoctor() (queryResult []SingleDoctorDataStruct, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKe yId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRangeRequest := &tablestore.GetRangeRequest{}
+	rangeRowQueryCriteria := &tablestore.RangeRowQueryCriteria{}
+	rangeRowQueryCriteria.TableName = "doctor"
+	rangeRowQueryCriteria.StartPrimaryKey = &tablestore.PrimaryKey{}
+	rangeRowQueryCriteria.StartPrimaryKey.AddPrimaryKeyColumn("OpenID", tablestore.VT_INF_MIN)
+	rangeRowQueryCriteria.EndPrimaryKey = &tablestore.PrimaryKey{}
+	rangeRowQueryCriteria.EndPrimaryKey.AddPrimaryKeyColumn("OpenID", tablestore.VT_INF_MAX)
+	rangeRowQueryCriteria.AddColumnToGet("Name")
+	rangeRowQueryCriteria.AddColumnToGet("Avatar")
+	rangeRowQueryCriteria.AddColumnToGet("id")
+	rangeRowQueryCriteria.Direction = tablestore.FORWARD
+	rangeRowQueryCriteria.MaxVersion = 1
+	getRangeRequest.RangeRowQueryCriteria = rangeRowQueryCriteria
+	getRangeResp, err := client.GetRange(getRangeRequest)
+	rows := getRangeResp.Rows
+	var resultData []SingleDoctorDataStruct
+	for _, row := range rows {
+		var name, avatar, id string
+		for _, col := range row.Columns {
+			switch col.ColumnName {
+			case "Name":
+				name = col.Value.(string)
+				if name != "" { // 可以在这里添加条件来确保 Name 已找到
+					break
+				}
+			case "Avatar":
+				avatar = col.Value.(string)
+			}
+		}
+		for _, PK := range row.PrimaryKey.PrimaryKeys {
+			if PK.ColumnName == "OpenID" {
+				id = PK.Value.(string)
+				break
+			}
+		}
+		if name != "" && avatar != "" && id != "" {
+			singleData := SingleDoctorDataStruct{
+				Name:   name,
+				Avatar: avatar,
+				Id:     id,
+			}
+			resultData = append(resultData, singleData)
+		}
+	}
+	return resultData, nil
 }
