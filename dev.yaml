@@ -189,7 +189,8 @@ resources:
             path: /v1/verify
             functionName: verify
             qualifier: LATEST
-          - path: /v1/doctor/index/list
+          - doctor-list:
+            path: /v1/doctor/index/list
             functionName: doctor-list
             qualifier: LATEST
       wafConfig:
