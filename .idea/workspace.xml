@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 继续修复缩进问题">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 添加缺失的路由" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +118,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="定义协议" />
     <MESSAGE value="定义修正部署问题" />
     <MESSAGE value="添加证书定义" />
     <MESSAGE value="修复缩进" />
@@ -146,7 +142,8 @@
     <MESSAGE value="fix: 修正缩进错误" />
     <MESSAGE value="update: 合并配置文件" />
     <MESSAGE value="update: 继续修复缩进问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 继续修复缩进问题" />
+    <MESSAGE value="update: 添加缺失的路由" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 添加缺失的路由" />
   </component>
   <component name="VgoProject">
     <environment>
