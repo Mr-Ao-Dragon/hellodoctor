@@ -1,18 +1,20 @@
 package user
 
 import (
+	"os"
+
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
-	"os"
 
 	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount"
 )
 
-func Login(OpenID string) (systemAccessToken string, expiresIn int64, err error) {
+func Login(authStruct *AuthStruct) (systemAccessToken string, expiresIn int64, err error) {
+
 	retry := 0
 	var expressed bool
-	for isFinish := false; !isFinish || err == nil || retry >= 3 || OpenID == "" || expressed == true; {
-		isFinish, expiresIn, expressed, err = database.UserLogin(OpenID, systemAccessToken)
+	for isFinish := false; !isFinish || err == nil || retry >= 3 || authStruct == nil || expressed == true; {
+		isFinish, expiresIn, expressed, err = database.UserLogin(authStruct)
 		retry++
 	}
 	if retry == 3 && err != nil {

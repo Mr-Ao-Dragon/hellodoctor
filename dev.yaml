@@ -174,8 +174,49 @@ resources:
           path: ./
         - run: chmod a+x doctor-list
           path: ./target
-
-
+  doctor-one-info:
+    component: fc3
+    props:
+      region: ${env('region')}
+      description: ''
+      timeout: 60
+      internetAccess: true
+      functionName: doctor-one-info
+      runtime: go1
+      cpu: 0.05
+      instanceConcurrency: 20
+      memorySize: 128
+      environmentVariables:
+        AppId: ${env('AppId')}
+        AccessKeyId: ${env('AccessKeyId')}
+        LD_LIBRARY_PATH: >-
+          /code:/code/lib:/usr/local/lib:/opt/lib
+        AccessKeySecret: ${env('AccessKeySecret')}
+        EndPoint: ${env('EndPoint')}
+        AppSecret: ${env('AppSecret')}
+      handler: doctor-one-info
+      diskSize: 512
+      code: target/doctor-one-info
+#       logConfig: auto
+      triggers:
+        - triggerConfig:
+            methods:
+              - POST
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: ''
+          qualifier: LATEST
+          triggerType: http
+    actions:
+      pre-deploy:
+        - run: mkdir -p doctor-one-info
+          path: ./
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-one-info user/doctor/oneInfo/main.go"
+#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go
+          path: ./
+        - run: chmod a+x doctor-one-info
+          path: ./target
 # http配置
   http-domain:
     component: fc3-domain
@@ -196,6 +237,9 @@ resources:
             qualifier: LATEST
           - path: /v1/doctor/index/list
             functionName: doctor-list
+            qualifier: LATEST
+          - path: /v1/doctor/one_info
+            functionName: doctor-one-info
             qualifier: LATEST
       wafConfig:
         enableWAF: false

@@ -4,19 +4,30 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 添加本地部署配置">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 将失误提交到云端的本地配置还原">
+      <change afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/type.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/doctor.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/doctor/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -50,7 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go Application",
+    "DefaultGoTemplateProperty": "Go File",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -62,7 +73,7 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon",
+    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/tool/datastruct/fc3.go",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -72,6 +83,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
+      <recent name="$PROJECT_DIR$/tool/datastruct" />
+      <recent name="$PROJECT_DIR$/user" />
       <recent name="$PROJECT_DIR$/index/doctorlist" />
       <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$/tool/gen" />
@@ -132,7 +145,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="改进随机数生成，完成编写权限主方法" />
     <MESSAGE value="更新.gitignore" />
     <MESSAGE value="fix: 更新流水线配置" />
     <MESSAGE value="fix: 修正输入输出错误" />
@@ -157,7 +169,8 @@
     <MESSAGE value="add:添加调试日志" />
     <MESSAGE value="update: 同步xml" />
     <MESSAGE value="update: 添加本地部署配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 添加本地部署配置" />
+    <MESSAGE value="fix: 将失误提交到云端的本地配置还原" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 将失误提交到云端的本地配置还原" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -169,6 +182,8 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {

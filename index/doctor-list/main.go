@@ -6,13 +6,14 @@ import (
 	"net/http"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 )
 
 type QueryResult struct {
-	Code int                               `json:"code"`
-	Msg  string                            `json:"msg"`
-	Data []database.SingleDoctorDataStruct `json:"data"`
+	Code int                           `json:"code"`
+	Msg  string                        `json:"msg"`
+	Data []user.SingleDoctorDataStruct `json:"data"`
 }
 type structEvent struct {
 }

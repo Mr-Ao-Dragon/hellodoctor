@@ -6,14 +6,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
 )
-
-type SingleDoctorDataStruct struct {
-	Name   string `json:"name"`
-	Avatar string `json:"avatar"`
-	Id     string `json:"id"`
-}
 
 // QueryUserExist 根据OpenID查询用户是否存在
 func QueryUserExist(OpenID string) (queryResult bool, err error) {
@@ -111,10 +106,55 @@ func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
 	}
 	return true, nil
 }
+func QueryDoctor(OpenID string) (result *user.SingleDoctorDataStruct, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRowRequest := new(tablestore.GetRowRequest)
+	criteria := new(tablestore.SingleRowQueryCriteria)
+	getPk := new(tablestore.PrimaryKey)
+	getPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	criteria.PrimaryKey = getPk
+	criteria.TableName = "doctor"
+	criteria.AddColumnToGet("name")
+	criteria.AddColumnToGet("avatar")
+	getRowRequest.SingleRowQueryCriteria = criteria
+	queryResult, err := client.GetRow(getRowRequest)
+	if err != nil {
+		return nil, err
+	}
+	Column := queryResult.Columns
+	var name string
+	var avatar string
+	var index int
+	for ; index < len(Column); index++ {
+		if Column[index].ColumnName == "name" {
+			name = Column[index].Value.(string)
+		} else if Column[index].ColumnName == "avatar" {
+			avatar = Column[index].Value.(string)
+		}
+		if index >= 3 && (name == "" || avatar == "") {
+			err = errors.New("查询用户信息失败，数据损坏，请联系管理员")
+			log.Fatalf(err.Error())
+			return nil, err
+		}
+	}
+	result = &user.SingleDoctorDataStruct{
+		Name:   name,
+		Avatar: avatar,
+		Id:     OpenID,
+	}
+	return result, nil
+}
 
 // UserLogin 用户登录
-func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int64, expressed bool, err error) {
-	checkUserExist, err := QueryUserExist(OpenID)
+func UserLogin(AuthData *user.AuthStruct) (isSusses bool, expiresIn int64, expressed bool, err error) {
+	checkUserExist, err := QueryUserExist(AuthData.OpenID)
 	NowUnix := time.Now().Unix()
 	expiresIn = NowUnix + (86400 * 30)
 	if checkUserExist == false {
@@ -131,7 +171,7 @@ func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int6
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
 	putPk := new(tablestore.PrimaryKey)
-	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	putPk.AddPrimaryKeyColumn("OpenID", AuthData.OpenID)
 	criteria.PrimaryKey = putPk
 	getRowRequest.SingleRowQueryCriteria = criteria
 	getRowRequest.SingleRowQueryCriteria.TableName = "user"
@@ -140,11 +180,15 @@ func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int6
 		return false, NowUnix, true, err
 	}
 	desiredColumnNumber := 0
-	queryExpiresInResult := queryExpiresIn.Columns[desiredColumnNumber]
+	var queryExpiresInResult = queryExpiresIn.Columns
+	for ; desiredColumnNumber < len(queryExpiresInResult); desiredColumnNumber++ {
+		if queryExpiresInResult[desiredColumnNumber].ColumnName == "ExpiresIn" {
+			expiresIn = queryExpiresInResult[desiredColumnNumber].Value.(int64)
+		}
+	}
 	if queryExpiresInResult == nil {
 		return false, NowUnix, true, nil
 	}
-	expiresIn = queryExpiresInResult.Value.(int64)
 	if expiresIn >= 86400 {
 		return true, expiresIn, false, nil
 	}
@@ -152,11 +196,11 @@ func UserLogin(OpenID string, systemToken string) (isSusses bool, expiresIn int6
 	UpdateRowChange := new(tablestore.UpdateRowChange)
 	UpdateRowChange.TableName = "user"
 	UpdatePk := new(tablestore.PrimaryKey)
-	UpdatePk.AddPrimaryKeyColumn("OpenID", OpenID)
+	UpdatePk.AddPrimaryKeyColumn("OpenID", AuthData.OpenID)
 	UpdateRowChange.PrimaryKey = UpdatePk
 	UpdateRowChange.PutColumn("LoginTime", NowUnix)
 	UpdateRowChange.PutColumn("ExpiresIn", expiresIn)
-	UpdateRowChange.PutColumn("SystemToken", systemToken)
+	UpdateRowChange.PutColumn("SystemToken", AuthData.SystemToken)
 	UpdateRowRequest.UpdateRowChange = UpdateRowChange
 	_, err = client.UpdateRow(UpdateRowRequest)
 	if err != nil {
@@ -222,7 +266,7 @@ func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	}
 }
 
-func UpToDoctor(OpenID string, doctorName string, doctorProfile string) (err error) {
+func UpToDoctor(dataStruct *user.SingleDoctorDataStruct) (err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
@@ -235,10 +279,10 @@ func UpToDoctor(OpenID string, doctorName string, doctorProfile string) (err err
 	putRowChange := new(tablestore.PutRowChange)
 	putRowChange.TableName = "doctor"
 	putRowChange.PrimaryKey = new(tablestore.PrimaryKey)
-	putRowChange.PrimaryKey.AddPrimaryKeyColumn("OpenID", OpenID)
-	putRowChange.AddColumn("doctorAvatar", "https://")
-	putRowChange.AddColumn("doctorName", doctorName)
-	putRowChange.AddColumn("doctorProfile", doctorProfile)
+	putRowChange.PrimaryKey.AddPrimaryKeyColumn("OpenID", dataStruct.Id)
+	putRowChange.AddColumn("doctorAvatar", dataStruct.Avatar)
+	putRowChange.AddColumn("doctorName", dataStruct.Name)
+	putRowChange.AddColumn("doctorProfile", dataStruct.Profile)
 	putRowRequest.PutRowChange = putRowChange
 	_, err = client.PutRow(putRowRequest)
 	if err != nil {
@@ -247,7 +291,7 @@ func UpToDoctor(OpenID string, doctorName string, doctorProfile string) (err err
 	return nil
 }
 
-func ListDoctor() (queryResult []SingleDoctorDataStruct, err error) {
+func ListDoctor() (queryResult []user.SingleDoctorDataStruct, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKe yId"),
 		os.Getenv("AccessKeySecret"),
@@ -266,14 +310,15 @@ func ListDoctor() (queryResult []SingleDoctorDataStruct, err error) {
 	rangeRowQueryCriteria.AddColumnToGet("Name")
 	rangeRowQueryCriteria.AddColumnToGet("Avatar")
 	rangeRowQueryCriteria.AddColumnToGet("id")
+	rangeRowQueryCriteria.AddColumnToGet("Profile")
 	rangeRowQueryCriteria.Direction = tablestore.FORWARD
 	rangeRowQueryCriteria.MaxVersion = 1
 	getRangeRequest.RangeRowQueryCriteria = rangeRowQueryCriteria
 	getRangeResp, err := client.GetRange(getRangeRequest)
 	rows := getRangeResp.Rows
-	var resultData []SingleDoctorDataStruct
+	var resultData []user.SingleDoctorDataStruct
 	for _, row := range rows {
-		var name, avatar, id string
+		var name, avatar, id, profile string
 		for _, col := range row.Columns {
 			switch col.ColumnName {
 			case "Name":
@@ -283,6 +328,11 @@ func ListDoctor() (queryResult []SingleDoctorDataStruct, err error) {
 				}
 			case "Avatar":
 				avatar = col.Value.(string)
+				if avatar != "" { // 可以在这里添加条件来确保 Avatar 已找到
+					break
+				}
+			case "Profile":
+				profile = col.Value.(string)
 			}
 		}
 		for _, PK := range row.PrimaryKey.PrimaryKeys {
@@ -292,10 +342,11 @@ func ListDoctor() (queryResult []SingleDoctorDataStruct, err error) {
 			}
 		}
 		if name != "" && avatar != "" && id != "" {
-			singleData := SingleDoctorDataStruct{
-				Name:   name,
-				Avatar: avatar,
-				Id:     id,
+			singleData := user.SingleDoctorDataStruct{
+				Name:    name,
+				Avatar:  avatar,
+				Id:      id,
+				Profile: profile,
 			}
 			resultData = append(resultData, singleData)
 		}
