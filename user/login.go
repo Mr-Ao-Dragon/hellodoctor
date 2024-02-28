@@ -4,12 +4,13 @@ import (
 	"os"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 
 	"github.com/ArtisanCloud/PowerWeChat/v3/src/officialAccount"
 )
 
-func Login(authStruct *AuthStruct) (systemAccessToken string, expiresIn int64, err error) {
+func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expiresIn int64, err error) {
 
 	retry := 0
 	var expressed bool

@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 将失误提交到云端的本地配置还原">
-      <change afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/type.go" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 添加单个医生查询">
+      <change afterPath="$PROJECT_DIR$/tool/datastruct/AuthData.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tool/datastruct/doctorData.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/doctor.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/doctor/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/type.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/tool/datastruct/fc3.go",
+    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/tool/datastruct/AuthData.go",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -145,7 +143,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="更新.gitignore" />
     <MESSAGE value="fix: 更新流水线配置" />
     <MESSAGE value="fix: 修正输入输出错误" />
     <MESSAGE value="fix: 修正桶错误" />
@@ -170,7 +167,8 @@
     <MESSAGE value="update: 同步xml" />
     <MESSAGE value="update: 添加本地部署配置" />
     <MESSAGE value="fix: 将失误提交到云端的本地配置还原" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 将失误提交到云端的本地配置还原" />
+    <MESSAGE value="add: 添加单个医生查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 添加单个医生查询" />
   </component>
   <component name="VgoProject">
     <environment>

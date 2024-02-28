@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
 func QueryDoctor(OpenID string) (jsonByte []byte, err error) {
@@ -18,7 +19,7 @@ func QueryDoctor(OpenID string) (jsonByte []byte, err error) {
 	return jsonByte, nil
 }
 
-func UpToDoctor(AuthData *AuthStruct, dataStruct *SingleDoctorDataStruct) (err error) {
+func UpToDoctor(AuthData *datastruct.AuthStruct, dataStruct *datastruct.SingleDoctorDataStruct) (err error) {
 	_, _, err = Login(AuthData)
 	if err != nil {
 		return err

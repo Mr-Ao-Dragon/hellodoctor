@@ -213,7 +213,7 @@ resources:
         - run: mkdir -p doctor-one-info
           path: ./
         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-one-info user/doctor/oneInfo/main.go"
-#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go
+#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-one-info user/doctor/oneInfo/main.go
           path: ./
         - run: chmod a+x doctor-one-info
           path: ./target

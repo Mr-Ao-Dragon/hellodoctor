@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/Mr-Ao-Dragon/hellodoctor/user"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
 )
 
@@ -106,7 +106,7 @@ func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
 	}
 	return true, nil
 }
-func QueryDoctor(OpenID string) (result *user.SingleDoctorDataStruct, err error) {
+func QueryDoctor(OpenID string) (result *datastruct.SingleDoctorDataStruct, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
@@ -144,7 +144,7 @@ func QueryDoctor(OpenID string) (result *user.SingleDoctorDataStruct, err error)
 			return nil, err
 		}
 	}
-	result = &user.SingleDoctorDataStruct{
+	result = &datastruct.SingleDoctorDataStruct{
 		Name:   name,
 		Avatar: avatar,
 		Id:     OpenID,
@@ -153,7 +153,7 @@ func QueryDoctor(OpenID string) (result *user.SingleDoctorDataStruct, err error)
 }
 
 // UserLogin 用户登录
-func UserLogin(AuthData *user.AuthStruct) (isSusses bool, expiresIn int64, expressed bool, err error) {
+func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64, expressed bool, err error) {
 	checkUserExist, err := QueryUserExist(AuthData.OpenID)
 	NowUnix := time.Now().Unix()
 	expiresIn = NowUnix + (86400 * 30)
@@ -266,7 +266,7 @@ func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	}
 }
 
-func UpToDoctor(dataStruct *user.SingleDoctorDataStruct) (err error) {
+func UpToDoctor(dataStruct *datastruct.SingleDoctorDataStruct) (err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
@@ -291,7 +291,7 @@ func UpToDoctor(dataStruct *user.SingleDoctorDataStruct) (err error) {
 	return nil
 }
 
-func ListDoctor() (queryResult []user.SingleDoctorDataStruct, err error) {
+func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKe yId"),
 		os.Getenv("AccessKeySecret"),
@@ -316,7 +316,7 @@ func ListDoctor() (queryResult []user.SingleDoctorDataStruct, err error) {
 	getRangeRequest.RangeRowQueryCriteria = rangeRowQueryCriteria
 	getRangeResp, err := client.GetRange(getRangeRequest)
 	rows := getRangeResp.Rows
-	var resultData []user.SingleDoctorDataStruct
+	var resultData []datastruct.SingleDoctorDataStruct
 	for _, row := range rows {
 		var name, avatar, id, profile string
 		for _, col := range row.Columns {
@@ -342,7 +342,7 @@ func ListDoctor() (queryResult []user.SingleDoctorDataStruct, err error) {
 			}
 		}
 		if name != "" && avatar != "" && id != "" {
-			singleData := user.SingleDoctorDataStruct{
+			singleData := datastruct.SingleDoctorDataStruct{
 				Name:    name,
 				Avatar:  avatar,
 				Id:      id,

@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
@@ -39,7 +40,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, e
 		return "", err
 	}
 	Token, err := gen.Token(16)
-	AuthData := &user.AuthStruct{
+	AuthData := &datastruct.AuthStruct{
 		OpenID:      OpenID,
 		SystemToken: Token,
 	}
