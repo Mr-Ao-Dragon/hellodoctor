@@ -4,9 +4,11 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/Mr-Ao-Dragon/hellodoctor/database"
-	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
+
+	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
+	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 )
 
 type StructEvent struct {
@@ -33,7 +35,11 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 	if err != nil {
 		return "", err
 	}
-	isSusses, err := database.QueryLogin(Request.TargetOpenID, Request.SystemToken)
+	authData := &datastruct.AuthStruct{
+		SystemToken: Request.SystemToken,
+		OpenID:      Request.OperatorOpenID,
+	}
+	isSusses, err := database.QueryLogin(authData)
 	if isSusses == false {
 		ReposeErr := ReposeErrBody{Code: 403, Body: "未登录，拒绝访问"}
 		ReposeErrBody, _ := json.Marshal(ReposeErr)

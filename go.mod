@@ -6,6 +6,7 @@ require (
 	github.com/ArtisanCloud/PowerWeChat/v3 v3.1.22
 	github.com/aliyun/aliyun-tablestore-go-sdk v1.7.14
 	github.com/aliyun/fc-runtime-go-sdk v0.2.7
+	github.com/jinzhu/copier v0.4.0
 	github.com/panjf2000/ants/v2 v2.9.0
 	golang.org/x/net v0.21.0
 )

@@ -6,8 +6,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
+
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 )
 
 // QueryUserExist 根据OpenID查询用户是否存在
@@ -65,7 +67,7 @@ func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
 	return queryResult.Columns[0].Value.(int8), nil
 }
 
-func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
+func QueryLogin(authStruct *datastruct.AuthStruct) (isSusses bool, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
@@ -77,7 +79,7 @@ func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
 	putPk := new(tablestore.PrimaryKey)
-	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
+	putPk.AddPrimaryKeyColumn("OpenID", authStruct.OpenID)
 	criteria.PrimaryKey = putPk
 	criteria.TableName = "user"
 	getRowRequest.SingleRowQueryCriteria = criteria
@@ -94,13 +96,13 @@ func QueryLogin(OpenID string, Token string) (isSusses bool, err error) {
 	Column := Result.Columns
 	expiresIn := Column[0].Value.(int64)
 	SystemToken := Column[1].Value.(string)
-	if SystemToken != Token {
-		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户凭据无效")
+	if SystemToken != authStruct.SystemToken {
+		err = errors.New("查询用户信息失败，OpenID为" + authStruct.OpenID + "的用户凭据无效")
 		log.Fatalf(err.Error())
 		return false, err
 	}
 	if expiresIn <= time.Now().Unix() {
-		err = errors.New("查询用户信息失败，OpenID为" + OpenID + "的用户登录态过期")
+		err = errors.New("查询用户信息失败，OpenID为" + authStruct.OpenID + "的用户登录态过期")
 		log.Fatalf(err.Error())
 		return false, err
 	}
@@ -352,4 +354,29 @@ func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 		}
 	}
 	return resultData, nil
+}
+func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStruct) (reserveID int32, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	putRowRequest := new(tablestore.PutRowRequest)
+	putRowChange := new(tablestore.PutRowChange)
+	putRowChange.TableName = "reserve"
+	putRowChange.PrimaryKey = new(tablestore.PrimaryKey)
+	reserveID = gen.UniqueReserveID()
+	putRowChange.PrimaryKey.AddPrimaryKeyColumn("ID", reserveID)
+	putRowChange.AddColumn("DoctorID", newReserve.DoctorID)
+	putRowChange.AddColumn("Mobile", newReserve.Mobile)
+	putRowChange.AddColumn("Name", newReserve.Name)
+	putRowChange.AddColumn("Time", newReserve.Time)
+	putRowChange.AddColumn("Token", AuthData.OpenID)
+	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
+	putRowRequest.PutRowChange = putRowChange
+	_, err = client.PutRow(putRowRequest)
+	return reserveID, nil
 }

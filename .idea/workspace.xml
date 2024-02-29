@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 添加单个医生查询">
-      <change afterPath="$PROJECT_DIR$/tool/datastruct/AuthData.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/datastruct/doctorData.go" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常">
+      <change afterPath="$PROJECT_DIR$/reserve/post.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reserve/type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tool/datastruct/reserveData.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/doctor.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/datastruct/doctorData.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/doctorData.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/gen/random.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/gen/random.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +56,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -71,21 +82,21 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/tool/datastruct/AuthData.go",
+    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/reserve/post/main.go",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editing.templates",
+    "settings.editor.selected.configurable": "preferences.sourceCode.HTML",
     "settings.editor.splitter.proportion": "0.27372262"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
+      <recent name="$PROJECT_DIR$/reserve/post" />
+      <recent name="$PROJECT_DIR$/reserve" />
       <recent name="$PROJECT_DIR$/tool/datastruct" />
       <recent name="$PROJECT_DIR$/user" />
       <recent name="$PROJECT_DIR$/index/doctorlist" />
-      <recent name="$PROJECT_DIR$/database" />
-      <recent name="$PROJECT_DIR$/tool/gen" />
     </key>
   </component>
   <component name="RunManager" selected="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)">
@@ -114,13 +125,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.14475.38" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
@@ -143,8 +147,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: 更新流水线配置" />
-    <MESSAGE value="fix: 修正输入输出错误" />
     <MESSAGE value="fix: 修正桶错误" />
     <MESSAGE value="fix: 修正文件路径" />
     <MESSAGE value="add: 微信服务器验证" />
@@ -168,7 +170,9 @@
     <MESSAGE value="update: 添加本地部署配置" />
     <MESSAGE value="fix: 将失误提交到云端的本地配置还原" />
     <MESSAGE value="add: 添加单个医生查询" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 添加单个医生查询" />
+    <MESSAGE value="fix: 解除循环依赖" />
+    <MESSAGE value="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -180,6 +184,12 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
+    {
+    },
+    {
+    },
     {
     },
     {

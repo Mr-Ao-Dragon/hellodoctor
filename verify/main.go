@@ -63,5 +63,4 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 }
 func main() {
 	fc.Start(HandleHttpRequest)
-
 }
