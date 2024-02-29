@@ -8,6 +8,7 @@ import (
 )
 
 func PostReserve(reserve *datastruct.AddReserve, authStruct *datastruct.AuthStruct) (NewReserve *datastruct.SingleReserve, err error) {
+
 	reserveID, err := database.AddReserve(reserve, authStruct)
 	if err != nil {
 		return nil, err

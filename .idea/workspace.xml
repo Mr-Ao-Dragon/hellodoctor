@@ -8,20 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常">
-      <change afterPath="$PROJECT_DIR$/reserve/post.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reserve/type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/datastruct/reserveData.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reserve/get.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/datastruct/doctorData.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/doctorData.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/gen/random.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/gen/random.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/datastruct/reserveData.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/reserveData.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,28 +58,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
-    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/reserve/post/main.go",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.HTML",
-    "settings.editor.splitter.proportion": "0.27372262"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor&quot;: &quot;Run&quot;,
+    &quot;Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mraodragon/repos/hellodoctor/reserve/post/main.go&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.HTML&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.27372262&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
       <recent name="$PROJECT_DIR$/reserve/post" />
@@ -184,6 +174,8 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {

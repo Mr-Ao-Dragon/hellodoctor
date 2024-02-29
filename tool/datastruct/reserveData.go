@@ -27,4 +27,5 @@ type SingleReserve struct {
 	Name       string `json:"name"`       // 预约者名称
 	Status     int8   `json:"status"`     // 状态
 	Time       int64  `json:"time"`       // 预约目标时间戳
+	OpenID     string `json:"open_id"`    // 预约者OpenID
 }
