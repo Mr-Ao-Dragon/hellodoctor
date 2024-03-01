@@ -255,10 +255,53 @@ resources:
       pre-deploy:
         - run: mkdir -p target
           path: ./
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/post/main.go"
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/get/main.go"
 #         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/post/main.go
           path: ./
         - run: chmod a+x post-reverse
+          path: ./target
+  get-reverse:
+    component: fc3
+    props:
+      region: ${env('region')}
+      description: ''
+      timeout: 60
+      internetAccess: true
+      functionName: get-reverse
+      runtime: go1
+      cpu: 0.05
+      instanceConcurrency: 20
+      memorySize: 128
+      environmentVariables:
+        AppId: ${env('AppId')}
+        AccessKeyId: ${env('AccessKeyId')}
+        LD_LIBRARY_PATH: >-
+          /code:/code/lib:/usr/local/lib:/opt/lib
+        AccessKeySecret: ${env('AccessKeySecret')}
+        EndPoint: ${env('EndPoint')}
+        AppSecret: ${env('AppSecret')}
+      handler: get-reverse
+      diskSize: 512
+      code: target/get-reverse
+#       logConfig: auto
+      triggers:
+        - triggerConfig:
+            methods:
+              - POST
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: '获取订单列表'
+          qualifier: LATEST
+          triggerType: http
+    actions:
+      pre-deploy:
+        - run: mkdir -p target
+          path: ./
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/get-reverse reserve/get/main.go"
+#         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/post/main.go
+          path: ./
+        - run: chmod a+x get-reverse
           path: ./target
 # http配置
   http-domain:
@@ -286,6 +329,9 @@ resources:
             qualifier: LATEST
           - path: /v1/rese/new
             functionName: post-reverse
+            qualifier: LATEST
+          - path: /v1/rese/list
+            functionName: get-reverse
             qualifier: LATEST
       wafConfig:
         enableWAF: false
