@@ -96,7 +96,7 @@ export default {
       this.noti = ["诊所上班时间：9:00"]
       this.list = [
         {
-          name: "王业生",
+          name: "王医生",
           avatar: "../static/avatar.jpg",
           id: 1
         },
