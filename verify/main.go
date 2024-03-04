@@ -43,6 +43,9 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 	localSignature := hex.EncodeToString(hashed.Sum(nil))
 	log.Printf("localSignature: %s", localSignature)
 	if localSignature == event.QueryParameters.Signature {
+		log.Printf("Signature is correct!")
+		log.Printf("remote Signture is: %s", event.QueryParameters.Signature)
+		log.Printf("local Signature is: %s", localSignature)
 		reposeStruct := reposeJson{
 			Code: http.StatusOK,
 			Body: event.QueryParameters.EchoStr,
@@ -52,6 +55,9 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		err = nil
 		return
 	} else {
+		log.Printf("Signature is not correct")
+		log.Printf("remote Signture is: %s", event.QueryParameters.Signature)
+		log.Printf("local Signature is: %s", localSignature)
 		reposeStruct := reposeJson{
 			Code: http.StatusBadRequest,
 			Body: "",
