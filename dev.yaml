@@ -16,12 +16,12 @@ resources:
       memorySize: 128
       environmentVariables:
         AppId: ${env('AppId')}
+        AppSecret: ${env('AppSecret')}
         AccessKeyId: ${env('AccessKeyId')}
+        AccessKeySecret: ${env('AccessKeySecret')}
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
-        AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
-        AppSecret: ${env('AppSecret')}
       handler: login
       diskSize: 512
       code: target/login
@@ -59,12 +59,13 @@ resources:
       memorySize: 128
       environmentVariables:
         AppId: ${env('AppId')}
+        AppSecret: ${env('AppSecret')}
         AccessKeyId: ${env('AccessKeyId')}
+        AccessKeySecret: ${env('AccessKeySecret')}
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
-        AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
-        AppSecret: ${env('AppSecret')}
+
       handler: perm
       diskSize: 512
       code: target/perm
@@ -101,13 +102,7 @@ resources:
       instanceConcurrency: 20
       memorySize: 128
       environmentVariables:
-        AppId: ${env('AppId')}
-        AccessKeyId: ${env('AccessKeyId')}
-        LD_LIBRARY_PATH: >-
-          /code:/code/lib:/usr/local/lib:/opt/lib
-        AccessKeySecret: ${env('AccessKeySecret')}
-        EndPoint: ${env('EndPoint')}
-        AppSecret: ${env('AppSecret')}
+        Token: ${env('token')}
       handler: verify
       diskSize: 512
       code: target/verify
@@ -126,7 +121,7 @@ resources:
       pre-deploy:
         - run: mkdir -p target
           path: ./
-        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/verify verify/main.go"
+        - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.21.7 && gvm use go1.21.7 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags='-s -w' -o=target/verify verify/main.go"
 #         - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
           path: ./
         - run: chmod a+x verify
@@ -144,13 +139,11 @@ resources:
       instanceConcurrency: 20
       memorySize: 128
       environmentVariables:
-        AppId: ${env('AppId')}
         AccessKeyId: ${env('AccessKeyId')}
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
         AccessKeySecret: ${env('AccessKeySecret')}
         EndPoint: ${env('EndPoint')}
-        AppSecret: ${env('AppSecret')}
       handler: doctor-list
       diskSize: 512
       code: target/doctor-list

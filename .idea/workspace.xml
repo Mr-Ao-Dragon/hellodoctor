@@ -8,17 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 将 openID 放入token字符串内">
-      <change afterPath="$PROJECT_DIR$/tool/dataProcess/string.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/externalDependencies.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kubernetes-settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/register.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/register.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +118,7 @@
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
+        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -174,9 +167,9 @@
     <MESSAGE value="fix: 解除循环依赖" />
     <MESSAGE value="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常" />
     <MESSAGE value="update: 新增订单批量查询" />
-    <MESSAGE value="typo: 静态数据源错误" />
     <MESSAGE value="update: 将 openID 放入token字符串内" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 将 openID 放入token字符串内" />
+    <MESSAGE value="typo: 静态数据源错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="typo: 静态数据源错误" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -188,6 +181,8 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {

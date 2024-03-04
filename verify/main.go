@@ -5,7 +5,8 @@ import (
 	"crypto/sha1"
 	"encoding/hex"
 	"encoding/json"
-	"log"
+	"net/http"
+	"os"
 	"sort"
 	"strings"
 
@@ -27,38 +28,31 @@ type StructEvent struct {
 }
 
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
-	tempArray := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, event.QueryParameters.EchoStr}
-	log.Printf("tempArray: %v", tempArray)
-	sort.Strings(tempArray)
-	sha1String := strings.Join(tempArray, "")
-	log.Printf("sha1String: %s", sha1String)
-	// HashedInput := sha1.Sum([]byte(sha1String))
-	sha1Hasher := sha1.New()
-	sha1Hasher.Write([]byte(sha1String))
-	log.Printf("sha1String: %s", sha1Hasher)
-	sha1String = hex.EncodeToString(sha1Hasher.Sum([]byte("")))
-	log.Printf("sha1String: %s", sha1String)
-	if sha1String == event.QueryParameters.Signature {
-		body := reposeJson{
-			Code: 200,
-			Body: sha1String,
+	Token := os.Getenv("Token")
+	strSlice := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, Token}
+	sort.Strings(strSlice)
+	sortedStr := strings.Join(strSlice, "")
+	hashed := sha1.New()
+	hashed.Write([]byte(sortedStr))
+	localSignature := hex.EncodeToString(hashed.Sum(nil))
+	if localSignature == event.QueryParameters.Signature {
+		reposeStruct := reposeJson{
+			Code: http.StatusOK,
+			Body: event.QueryParameters.EchoStr,
 		}
-		reposeBody, err := json.Marshal(body)
-		log.Printf("reposeBody: %s", reposeBody)
-		if err != nil {
-			return "", err
-		}
-		return string(reposeBody), nil
+		reposeByte, _ := json.Marshal(reposeStruct)
+		repose = string(reposeByte)
+		err = nil
+		return
 	} else {
-		body := reposeJson{
-			Code: 400,
-			Body: "error",
+		reposeStruct := reposeJson{
+			Code: http.StatusBadRequest,
+			Body: "",
 		}
-		reposeBody, err := json.Marshal(body)
-		if err != nil {
-			return "", err
-		}
-		return string(reposeBody), nil
+		reposeByte, _ := json.Marshal(reposeStruct)
+		repose = string(reposeByte)
+		err = nil
+		return
 	}
 }
 func main() {
