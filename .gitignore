@@ -1,3 +1,9 @@
 node_modules
 vendor
 .mxDev
+*dev.y*
+*test.y*
+*release.yaml
+*-flow.yml
+env.sh
+env.ps1
