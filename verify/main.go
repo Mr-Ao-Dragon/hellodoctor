@@ -31,6 +31,7 @@ type StructEvent struct {
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
 	Token := os.Getenv("Token")
 	strSlice := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, Token}
+	log.Printf("strSlice: %v", strSlice)
 	log.Printf("Token: %s", Token)
 	log.Printf("Timestamp: %s", event.QueryParameters.Timestamp)
 	log.Printf("EchoStr: %s", event.QueryParameters.EchoStr)
