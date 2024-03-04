@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 新增订单批量查询">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 将 openID 放入token字符串内">
       <change afterPath="$PROJECT_DIR$/tool/dataProcess/string.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/externalDependencies.xml" beforeDir="false" />
@@ -151,7 +151,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add: 微信服务器验证" />
     <MESSAGE value="fix: Yaml字段重复" />
     <MESSAGE value="fix: Yaml代码路径配置错误" />
     <MESSAGE value="fix: http method配置错误" />
@@ -176,7 +175,8 @@
     <MESSAGE value="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常" />
     <MESSAGE value="update: 新增订单批量查询" />
     <MESSAGE value="typo: 静态数据源错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="typo: 静态数据源错误" />
+    <MESSAGE value="update: 将 openID 放入token字符串内" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 将 openID 放入token字符串内" />
   </component>
   <component name="VgoProject">
     <environment>

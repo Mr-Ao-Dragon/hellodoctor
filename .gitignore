@@ -4,3 +4,4 @@ playground/
 /vendor/
 *-flow.yaml
 *-flow.yml
+*env.sh
