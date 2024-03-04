@@ -25,7 +25,7 @@ resources:
       handler: login
       diskSize: 512
       code: target/login
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -69,7 +69,7 @@ resources:
       handler: perm
       diskSize: 512
       code: target/perm
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -106,7 +106,7 @@ resources:
       handler: verify
       diskSize: 512
       code: target/verify
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -147,7 +147,7 @@ resources:
       handler: doctor-list
       diskSize: 512
       code: target/doctor-list
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -190,7 +190,7 @@ resources:
       handler: doctor-one-info
       diskSize: 512
       code: target/doctor-one-info
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -233,7 +233,7 @@ resources:
       handler: post-reverse
       diskSize: 512
       code: target/post-reverse
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
@@ -276,7 +276,7 @@ resources:
       handler: get-reverse
       diskSize: 512
       code: target/get-reverse
-#       logConfig: auto
+      logConfig: auto
       triggers:
         - triggerConfig:
             methods:
