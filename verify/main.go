@@ -50,7 +50,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		// 	Body: event.QueryParameters.EchoStr,
 		// }
 		// reposeByte, _ := json.Marshal(reposeStruct)
-		repose = localSignature
+		repose = event.QueryParameters.EchoStr
 		err = nil
 		return
 	} else {
