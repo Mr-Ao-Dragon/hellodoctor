@@ -1,8 +1,8 @@
 {
-    "name" : "通源堂中医诊所",
-    "appid" : "__UNI__C8E3A3E",
+    "name" : "hellodoctor",
+    "appid" : "__UNI__EEA4240",
     "description" : "",
-    "versionName" : "1.0.0",
+    "versionName" : "1.0.1",
     "versionCode" : "100",
     "transformPx" : false,
     "app-plus" : {
