@@ -7,8 +7,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 加入debug信息">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix：修正被文档误导的回复">
+      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +142,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: http method配置错误" />
     <MESSAGE value="fix: handler配置错误" />
     <MESSAGE value="fix: 缩进错误" />
     <MESSAGE value="fix: yaml重复" />
@@ -167,7 +166,8 @@
     <MESSAGE value="typo: 静态数据源错误" />
     <MESSAGE value="fix: 正确实现验证逻辑" />
     <MESSAGE value="add: 加入debug信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 加入debug信息" />
+    <MESSAGE value="fix：修正被文档误导的回复" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix：修正被文档误导的回复" />
   </component>
   <component name="VgoProject">
     <environment>

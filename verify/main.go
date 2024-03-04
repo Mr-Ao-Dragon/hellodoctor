@@ -4,9 +4,7 @@ import (
 	"context"
 	"crypto/sha1"
 	"encoding/hex"
-	"encoding/json"
 	"log"
-	"net/http"
 	"os"
 	"sort"
 	"strings"
@@ -47,24 +45,24 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		log.Printf("Signature is correct!")
 		log.Printf("remote Signture is: %s", event.QueryParameters.Signature)
 		log.Printf("local Signature is: %s", localSignature)
-		reposeStruct := reposeJson{
-			Code: http.StatusOK,
-			Body: event.QueryParameters.EchoStr,
-		}
-		reposeByte, _ := json.Marshal(reposeStruct)
-		repose = string(reposeByte)
+		// reposeStruct := reposeJson{
+		// 	Code: http.StatusOK,
+		// 	Body: event.QueryParameters.EchoStr,
+		// }
+		// reposeByte, _ := json.Marshal(reposeStruct)
+		repose = localSignature
 		err = nil
 		return
 	} else {
 		log.Printf("Signature is not correct")
 		log.Printf("remote Signture is: %s", event.QueryParameters.Signature)
 		log.Printf("local Signature is: %s", localSignature)
-		reposeStruct := reposeJson{
-			Code: http.StatusBadRequest,
-			Body: "",
-		}
-		reposeByte, _ := json.Marshal(reposeStruct)
-		repose = string(reposeByte)
+		// reposeStruct := reposeJson{
+		// 	Code: http.StatusBadRequest,
+		// 	Body: "",
+		// }
+		// reposeByte, _ := json.Marshal(reposeStruct)
+		repose = ""
 		err = nil
 		return
 	}
