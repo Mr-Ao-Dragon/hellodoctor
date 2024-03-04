@@ -5,6 +5,7 @@ import (
 	"crypto/sha1"
 	"encoding/hex"
 	"encoding/json"
+	"log"
 	"net/http"
 	"os"
 	"sort"
@@ -30,11 +31,17 @@ type StructEvent struct {
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
 	Token := os.Getenv("Token")
 	strSlice := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, Token}
+	log.Printf("Token: %s", Token)
+	log.Printf("Timestamp: %s", event.QueryParameters.Timestamp)
+	log.Printf("EchoStr: %s", event.QueryParameters.EchoStr)
 	sort.Strings(strSlice)
 	sortedStr := strings.Join(strSlice, "")
+	log.Printf("sortedStr: %s", sortedStr)
 	hashed := sha1.New()
 	hashed.Write([]byte(sortedStr))
+	log.Printf("hashed: %s", hashed.Sum(nil))
 	localSignature := hex.EncodeToString(hashed.Sum(nil))
+	log.Printf("localSignature: %s", localSignature)
 	if localSignature == event.QueryParameters.Signature {
 		reposeStruct := reposeJson{
 			Code: http.StatusOK,

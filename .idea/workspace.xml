@@ -7,11 +7,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 将 openID 放入token字符串内">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 正确实现验证逻辑" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,7 +140,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: Yaml字段重复" />
     <MESSAGE value="fix: Yaml代码路径配置错误" />
     <MESSAGE value="fix: http method配置错误" />
     <MESSAGE value="fix: handler配置错误" />
@@ -169,7 +164,8 @@
     <MESSAGE value="update: 新增订单批量查询" />
     <MESSAGE value="update: 将 openID 放入token字符串内" />
     <MESSAGE value="typo: 静态数据源错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="typo: 静态数据源错误" />
+    <MESSAGE value="fix: 正确实现验证逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 正确实现验证逻辑" />
   </component>
   <component name="VgoProject">
     <environment>
