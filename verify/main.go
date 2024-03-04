@@ -18,10 +18,6 @@ type queryParameters struct {
 	Nonce     string `json:"nonce"`
 	EchoStr   string `json:"echostr"`
 }
-type reposeJson struct {
-	Code int16  `json:"code"`
-	Body string `json:"body"`
-}
 type StructEvent struct {
 	QueryParameters queryParameters `json:"queryParameters"`
 }

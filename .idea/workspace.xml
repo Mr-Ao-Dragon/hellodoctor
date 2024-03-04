@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix：修正错误适用的变量">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: verify打印回复体&#10;update: 阿里云日志恢复正常，重新打开日志">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +142,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: 缩进错误" />
     <MESSAGE value="fix: yaml重复" />
     <MESSAGE value="add: 部分医生操作&#10;fix: 修正handler错误" />
     <MESSAGE value="fix: 修正yaml错误" />
@@ -167,7 +166,8 @@
     <MESSAGE value="add: 加入debug信息" />
     <MESSAGE value="fix：修正被文档误导的回复" />
     <MESSAGE value="fix：修正错误适用的变量" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix：修正错误适用的变量" />
+    <MESSAGE value="update: verify打印回复体&#10;update: 阿里云日志恢复正常，重新打开日志" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: verify打印回复体&#10;update: 阿里云日志恢复正常，重新打开日志" />
   </component>
   <component name="VgoProject">
     <environment>
