@@ -5,11 +5,12 @@ import (
 	"encoding/json"
 	"os"
 
+	"github.com/aliyun/fc-runtime-go-sdk/fc"
+
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
-	"github.com/aliyun/fc-runtime-go-sdk/fc"
 )
 
 // StructEvent represents the JSON structure of the event received by the function.
@@ -39,13 +40,14 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, e
 	if err != nil {
 		return "", err
 	}
-	Token, err := gen.Token(16)
+	TokenRaw, err := gen.Token(16)
+	Token := TokenRaw + "-" + OpenID
 	AuthData := &datastruct.AuthStruct{
 		OpenID:      OpenID,
 		SystemToken: Token,
 	}
 	// Query user existence in the database
-	var QueryResult ReposeBody
+	QueryResult := new(ReposeBody)
 	Result, err := database.QueryUserExist(OpenID)
 	if err != nil {
 		return "", err
@@ -58,6 +60,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, e
 	if Result {
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Login(AuthData)
 	} else {
+
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Register(OpenID, Perm)
 	}
 	if err != nil {
@@ -67,7 +70,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose string, e
 	// Create response structure
 	reposeStruct := ReposeStruct{
 		StatusCode: 200,
-		Body:       QueryResult,
+		Body:       *QueryResult,
 	}
 
 	// Marshal response structure to JSON

@@ -22,6 +22,7 @@ func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expires
 		return "", 0, err
 	}
 	systemAccessToken, err = gen.Token(16)
+	systemAccessToken = systemAccessToken + authStruct.OpenID
 	return
 }
 func CodeToOpenID(code string) (OpenID string, err error) {

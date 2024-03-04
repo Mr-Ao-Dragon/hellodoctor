@@ -2,11 +2,12 @@ package main
 
 import (
 	"context"
-	json2 "encoding/json"
+	. "encoding/json"
+
+	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
-	"github.com/aliyun/fc-runtime-go-sdk/fc"
 )
 
 type structEvent struct {
@@ -18,18 +19,18 @@ type Id struct {
 
 func HandleHttpRequest(ctx context.Context, event structEvent) (repose string, err error) {
 	var Open = new(Id)
-	err = json2.Unmarshal([]byte(event.Body), Open)
+	err = Unmarshal([]byte(event.Body), Open)
 	if err != nil {
 		return "", err
 	}
 	json, err := user.QueryDoctor(Open.Id)
-	marshaledJson, err := json2.Marshal(json)
+	marshaledJson, err := Marshal(json)
 	if err != nil {
 		return "", err
 	}
 	var reposeStruct = new(datastruct.UniversalRepose)
 	reposeStruct.Body = string(marshaledJson)
-	reposeByte, err := json2.Marshal(reposeStruct)
+	reposeByte, err := Marshal(reposeStruct)
 	if err != nil {
 		return "", err
 	}
