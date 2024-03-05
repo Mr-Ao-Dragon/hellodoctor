@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
@@ -26,7 +27,7 @@ type StructEvent struct {
 }
 type ReposeBody struct {
 	StatusCode int16   `json:"statusCode"`
-	Body       string  `json:"body"`
+	Body       int     `json:"body"`
 	Headers    headers `json:"headers"`
 }
 type headers struct {
@@ -56,7 +57,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		log.Printf("local Signature is: %s", localSignature)
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusCreated
-		reposeStr.Body = event.QueryParameters.EchoStr
+		reposeStr.Body, _ = strconv.Atoi(event.QueryParameters.EchoStr)
 		reposeStr.Headers.ContentType = "text/plain;charset=UTF-8"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
@@ -69,7 +70,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		log.Printf("local Signature is: %s", localSignature)
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusBadRequest
-		reposeStr.Body = ""
+		reposeStr.Body = 0
 		reposeStr.Headers.ContentType = "application/octet-stream"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)

@@ -7,8 +7,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 打印上下文">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 继续尝试类型">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +143,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update: 合并配置文件" />
     <MESSAGE value="update: 继续修复缩进问题" />
     <MESSAGE value="update: 添加缺失的路由" />
     <MESSAGE value="update: 添加缺失的qualifier" />
@@ -167,7 +167,8 @@
     <MESSAGE value="fix: 修正为微信要求的数据类型" />
     <MESSAGE value="fix: 根据阿里云工程师指导修改为正确的回复" />
     <MESSAGE value="add: 打印上下文" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 打印上下文" />
+    <MESSAGE value="fix: 继续尝试类型" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 继续尝试类型" />
   </component>
   <component name="VgoProject">
     <environment>
