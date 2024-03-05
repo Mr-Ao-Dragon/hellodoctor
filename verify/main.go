@@ -70,7 +70,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusBadRequest
 		reposeStr.Body = ""
-		reposeStr.Headers.ContentType = "text/plain;charset=UTF-8"
+		reposeStr.Headers.ContentType = "application/octet-stream"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
 		err = nil
