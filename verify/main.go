@@ -63,7 +63,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusCreated
 		reposeStr.Body, _ = strconv.Atoi(event.QueryParameters.EchoStr)
-		reposeStr.Headers.ContentType = "text/plain;charset=UTF-8"
+		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
 		err = nil
@@ -76,7 +76,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusBadRequest
 		reposeStr.Body = 0
-		reposeStr.Headers.ContentType = "application/octet-stream"
+		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
 		err = nil
