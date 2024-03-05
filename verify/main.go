@@ -23,7 +23,11 @@ type queryParameters struct {
 	EchoStr   string `json:"echostr"`
 }
 type StructEvent struct {
+	Version         string          `json:"version"`
+	RawPath         string          `json:"rawPath"`
+	HttpMethod      string          `json:"httpMethod"`
 	QueryParameters queryParameters `json:"queryParameters"`
+	Body            string          `json:"body"`
 }
 type ReposeBody struct {
 	StatusCode int16   `json:"statusCode"`
@@ -37,6 +41,7 @@ type headers struct {
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
 	fcContext, _ := fccontext.FromContext(ctx)
 	log.Printf("fcContext: %v", fcContext)
+	log.Printf("event: %v", event)
 	Token := os.Getenv("Token")
 	strSlice := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, Token}
 	log.Printf("strSlice: %v", strSlice)
