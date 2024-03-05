@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
+	"github.com/aliyun/fc-runtime-go-sdk/fccontext"
 )
 
 type queryParameters struct {
@@ -33,6 +34,8 @@ type headers struct {
 }
 
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
+	fcContext, _ := fccontext.FromContext(ctx)
+	log.Printf("fcContext: %v", fcContext)
 	Token := os.Getenv("Token")
 	strSlice := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, Token}
 	log.Printf("strSlice: %v", strSlice)
