@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"crypto/sha1"
+	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
 	"log"
@@ -29,9 +30,10 @@ type StructEvent struct {
 	Body            string          `json:"body"`
 }
 type ReposeBody struct {
-	StatusCode int16   `json:"statusCode"`
-	Body       string  `json:"body"`
-	Headers    headers `json:"headers"`
+	StatusCode      int16   `json:"statusCode"`
+	Body            string  `json:"body"`
+	Headers         headers `json:"headers"`
+	IsBase64Encoded string  `json:"isBase64Encoded"`
 }
 type headers struct {
 	ContentType string `json:"Content-Type"`
@@ -61,8 +63,9 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		log.Printf("local Signature is: %s", localSignature)
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusCreated
-		reposeStr.Body = event.QueryParameters.EchoStr
-		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
+		reposeStr.Body = base64.StdEncoding.EncodeToString([]byte(event.QueryParameters.EchoStr))
+		reposeStr.Headers.ContentType = "application/octet-stream"
+		reposeStr.IsBase64Encoded = "true"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
 		err = nil
