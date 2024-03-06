@@ -64,7 +64,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusCreated
 		reposeStr.Body = base64.StdEncoding.EncodeToString([]byte(event.QueryParameters.EchoStr))
-		reposeStr.Headers.ContentType = "application/octet-stream"
+		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
 		reposeStr.IsBase64Encoded = "true"
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
