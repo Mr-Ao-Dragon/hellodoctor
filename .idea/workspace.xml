@@ -8,7 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 尝试让阿里云编解码">
+      <change afterPath="$PROJECT_DIR$/health-check/lag/http.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/verify/mock.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-check/health-check.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +72,7 @@
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor": "Run",
+    "Go 构建.verify/mock.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -95,25 +102,7 @@
       <recent name="$PROJECT_DIR$/verify/base-on-gin" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin">
-    <configuration name="go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="hellodoctor" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <package value="github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/test/gen/norep.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="hellodoctor" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <package value="github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/test/gen/main.go" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go 构建.verify/mock">
     <configuration name="go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="hellodoctor" />
       <working_directory value="$PROJECT_DIR$" />
@@ -126,11 +115,25 @@
       <filePath value="$PROJECT_DIR$/verify/base-on-gin/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="verify/mock" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="hellodoctor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="token" value="c6a614e924bb8e588ce13dec5af035" />
+      </envs>
+      <kind value="FILE" />
+      <package value="github.com/Mr-Ao-Dragon/hellodoctor/verify" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/verify/mock.go" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go 构建.verify/mock" />
+      <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
-        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)" />
-        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
       </list>
@@ -255,4 +258,15 @@
   "lastFilter": {
   }
 }]]></component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/verify/mock.go</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
 </project>

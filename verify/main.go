@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"crypto/sha1"
-	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
 	"log"
@@ -63,7 +62,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		log.Printf("local Signature is: %s", localSignature)
 		reposeStr := new(ReposeBody)
 		reposeStr.StatusCode = http.StatusCreated
-		reposeStr.Body = base64.StdEncoding.EncodeToString([]byte(event.QueryParameters.EchoStr))
+		reposeStr.Body = event.QueryParameters.EchoStr
 		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
 		reposeStr.IsBase64Encoded = "true"
 		reposeByte, _ := json.Marshal(*reposeStr)
