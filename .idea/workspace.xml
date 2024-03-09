@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 尝试让阿里云编解码">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 添加调试mock">
       <change afterPath="$PROJECT_DIR$/health-check/lag/http.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/verify/mock.go" afterDir="false" />
@@ -15,6 +15,7 @@
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/health-check/health-check.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +121,7 @@
       <working_directory value="$PROJECT_DIR$" />
       <envs>
         <env name="token" value="c6a614e924bb8e588ce13dec5af035" />
+        <env name="verifyAddress" value="https://api.dev.hellodoctor.gayserver.top/v1/verify" />
       </envs>
       <kind value="FILE" />
       <package value="github.com/Mr-Ao-Dragon/hellodoctor/verify" />
@@ -161,7 +163,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update: 添加缺失的路由" />
     <MESSAGE value="update: 添加缺失的qualifier" />
     <MESSAGE value="update: 添加缺失的doctor-list:" />
     <MESSAGE value="fix: yaml语法错误" />
@@ -186,7 +187,8 @@
     <MESSAGE value="add: 打印上下文" />
     <MESSAGE value="fix: 继续尝试类型" />
     <MESSAGE value="fix: 尝试让阿里云编解码" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 尝试让阿里云编解码" />
+    <MESSAGE value="add: 添加调试mock" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 添加调试mock" />
   </component>
   <component name="VgoProject">
     <environment>
