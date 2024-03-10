@@ -7,15 +7,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 添加调试mock">
-      <change afterPath="$PROJECT_DIR$/health-check/lag/http.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/verify/mock.go" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修复错误的回复">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-check/health-check.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify/mock.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/mock.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +111,7 @@
       <filePath value="$PROJECT_DIR$/verify/base-on-gin/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="verify/mock" type="GoApplicationRunConfiguration" factoryName="Go Application">
+    <configuration name="verify/mock" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="hellodoctor" />
       <working_directory value="$PROJECT_DIR$" />
       <envs>
@@ -135,6 +130,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.verify/mock" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1)" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen" />
@@ -163,7 +159,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update: 添加缺失的qualifier" />
     <MESSAGE value="update: 添加缺失的doctor-list:" />
     <MESSAGE value="fix: yaml语法错误" />
     <MESSAGE value="add:添加调试日志" />
@@ -188,7 +183,8 @@
     <MESSAGE value="fix: 继续尝试类型" />
     <MESSAGE value="fix: 尝试让阿里云编解码" />
     <MESSAGE value="add: 添加调试mock" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 添加调试mock" />
+    <MESSAGE value="fix: 修复错误的回复" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复错误的回复" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -260,15 +256,4 @@
   "lastFilter": {
   }
 }]]></component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/verify/mock.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
 </project>

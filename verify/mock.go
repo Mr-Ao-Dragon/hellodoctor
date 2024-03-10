@@ -44,6 +44,6 @@ func main() {
 	bodyTxt, _ := resp.Txt()
 	statusCode := strconv.Itoa(resp.StatusCode)
 	log.Printf("status code: %s", statusCode)
-	log.Printf("remote sign is: %s", bodyTxt)
-	log.Printf("local sign is: %s", localSignature)
+	log.Printf("body: %s", bodyTxt)
+	// log.Printf("local sign is: %s", localSignature)
 }
