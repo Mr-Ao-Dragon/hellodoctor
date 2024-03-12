@@ -3,7 +3,7 @@ module github.com/Mr-Ao-Dragon/hellodoctor
 go 1.21
 
 require (
-	github.com/ArtisanCloud/PowerWeChat/v3 v3.1.22
+	github.com/ArtisanCloud/PowerWeChat/v3 v3.2.3
 	github.com/aliyun/aliyun-tablestore-go-sdk v1.7.14
 	github.com/aliyun/fc-runtime-go-sdk v0.2.7
 	github.com/gin-gonic/gin v1.9.1
@@ -13,11 +13,11 @@ require (
 )
 
 require (
-	github.com/ArtisanCloud/PowerLibs/v3 v3.1.0 // indirect
+	github.com/ArtisanCloud/PowerLibs/v3 v3.2.0 // indirect
 	github.com/ArtisanCloud/PowerSocialite/v3 v3.0.7 // indirect
 	github.com/PuerkitoBio/goquery v1.9.1 // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
-	github.com/bytedance/sonic v1.11.2 // indirect
+	github.com/bytedance/sonic v1.11.3 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.1 // indirect
@@ -30,8 +30,8 @@ require (
 	github.com/go-playground/validator/v10 v10.19.0 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
-	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/flatbuffers v23.5.26+incompatible // indirect
+	github.com/golang/protobuf v1.5.4 // indirect
+	github.com/google/flatbuffers v24.3.7+incompatible // indirect
 	github.com/hashicorp/golang-lru v1.0.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
@@ -42,7 +42,7 @@ require (
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pelletier/go-toml/v2 v2.1.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/redis/go-redis/v9 v9.4.0 // indirect
+	github.com/redis/go-redis/v9 v9.5.1 // indirect
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d // indirect
 	github.com/tidwall/gjson v1.17.1 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
@@ -50,7 +50,7 @@ require (
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
-	go.uber.org/zap v1.26.0 // indirect
+	go.uber.org/zap v1.27.0 // indirect
 	golang.org/x/arch v0.7.0 // indirect
 	golang.org/x/crypto v0.21.0 // indirect
 	golang.org/x/net v0.22.0 // indirect
