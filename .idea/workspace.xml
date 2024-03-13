@@ -7,10 +7,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 更新依赖版本">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="&quot;&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify/base-on-gin/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/base-on-gin/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +121,7 @@
       <working_directory value="$PROJECT_DIR$" />
       <envs>
         <env name="token" value="c6a614e924bb8e588ce13dec5af035" />
-        <env name="verifyAddress" value="https://dev.api.hellodoctor.gayserver.top/v1/verify" />
+        <env name="verifyAddress" value="https://api.dev.hellodoctor.gayserver.top/v1/verify" />
       </envs>
       <kind value="FILE" />
       <package value="github.com/Mr-Ao-Dragon/hellodoctor/verify" />
@@ -164,7 +162,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: yaml语法错误" />
     <MESSAGE value="add:添加调试日志" />
     <MESSAGE value="update: 同步xml" />
     <MESSAGE value="update: 添加本地部署配置" />
@@ -189,7 +186,8 @@
     <MESSAGE value="add: 添加调试mock" />
     <MESSAGE value="fix: 修复错误的回复" />
     <MESSAGE value="update: 更新依赖版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 更新依赖版本" />
+    <MESSAGE value="&quot;&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;&quot;" />
   </component>
   <component name="VgoProject">
     <environment>

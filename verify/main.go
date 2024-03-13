@@ -33,7 +33,7 @@ type ReposeBody struct {
 	StatusCode      int16   `json:"statusCode"`
 	Body            string  `json:"body"`
 	Headers         headers `json:"headers"`
-	IsBase64Encoded string  `json:"isBase64Encoded"`
+	IsBase64Encoded bool    `json:"isBase64Encoded"`
 }
 type headers struct {
 	ContentType string `json:"Content-Type"`
@@ -65,7 +65,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		reposeStr.StatusCode = http.StatusCreated
 		reposeStr.Body = event.QueryParameters.EchoStr
 		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
-		reposeStr.IsBase64Encoded = "false"
+		reposeStr.IsBase64Encoded = false
 		reposeByte, _ := json.Marshal(*reposeStr)
 		repose = string(reposeByte)
 		err = nil
