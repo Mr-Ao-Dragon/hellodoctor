@@ -13,6 +13,7 @@ import (
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"github.com/aliyun/fc-runtime-go-sdk/fccontext"
+	"github.com/bytedance/sonic"
 )
 
 type queryParameters struct {
@@ -41,16 +42,16 @@ type headers struct {
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
 	fcContext, _ := fccontext.FromContext(ctx)
 	log.Printf("fcContext: %v", fcContext)
-	log.Printf("event: %v", event)
+	// log.Printf("event: %v", event)
 	Token := os.Getenv("Token")
 	strSlice := []string{event.QueryParameters.Timestamp, event.QueryParameters.Nonce, Token}
-	log.Printf("strSlice: %v", strSlice)
-	log.Printf("Token: %s", Token)
+	// log.Printf("strSlice: %v", strSlice)
+	// log.Printf("Token: %s", Token)
 	log.Printf("Timestamp: %s", event.QueryParameters.Timestamp)
 	log.Printf("EchoStr: %s", event.QueryParameters.EchoStr)
 	sort.Strings(strSlice)
 	sortedStr := strings.Join(strSlice, "")
-	log.Printf("sortedStr: %s", sortedStr)
+	// log.Printf("sortedStr: %s", sortedStr)
 	hashed := sha1.New()
 	hashed.Write([]byte(sortedStr))
 	log.Printf("hashed: %s", hashed.Sum(nil))
@@ -78,7 +79,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		reposeStr.StatusCode = http.StatusBadRequest
 		reposeStr.Body = ""
 		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
-		reposeByte, _ := json.Marshal(*reposeStr)
+		reposeByte, _ := sonic.Marshal(*reposeStr)
 		repose = string(reposeByte)
 		err = nil
 		return
