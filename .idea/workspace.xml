@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="&quot;&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +49,9 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -72,7 +73,8 @@
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor": "Run",
-    "Go 构建.verify/mock.executor": "Run",
+    "Go 构建.go build scratch.go.executor": "Run",
+    "Go 构建.verify/mock.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -87,8 +89,13 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.goide.configuration.GoLibrariesConfigurableProvider",
+    "settings.editor.selected.configurable": "ai.codium.settings.CodiumSettingsConfigurable",
     "settings.editor.splitter.proportion": "0.27372262"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
+      "go"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -116,6 +123,15 @@
       <filePath value="$PROJECT_DIR$/verify/base-on-gin/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build scratch.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="hellodoctor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="github.com/Mr-Ao-Dragon/hellodoctor" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$APPLICATION_CONFIG_DIR$/scratches/scratch.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="verify/mock" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
       <module name="hellodoctor" />
       <working_directory value="$PROJECT_DIR$" />
@@ -130,15 +146,24 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Go 构建.go build scratch.go" />
       <item itemvalue="Go 构建.verify/mock" />
       <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go 构建.verify/mock" />
+        <item itemvalue="Go 构建.go build scratch.go" />
         <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.14808.20" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
@@ -199,6 +224,12 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
+    {
+    },
+    {
+    },
     {
     },
     {

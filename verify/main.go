@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/sha1"
 	"encoding/hex"
-	"encoding/json"
 	"log"
 	"net/http"
 	"os"
@@ -13,7 +12,6 @@ import (
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"github.com/aliyun/fc-runtime-go-sdk/fccontext"
-	"github.com/bytedance/sonic"
 )
 
 type queryParameters struct {
@@ -39,7 +37,7 @@ type headers struct {
 	ContentType string `json:"Content-Type"`
 }
 
-func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, err error) {
+func HandleHttpRequest(ctx context.Context, event StructEvent) (repose ReposeBody, err error) {
 	fcContext, _ := fccontext.FromContext(ctx)
 	log.Printf("fcContext: %v", fcContext)
 	// log.Printf("event: %v", event)
@@ -61,26 +59,19 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose string, e
 		log.Printf("Signature is correct!")
 		log.Printf("remote Signture is: %s", event.QueryParameters.Signature)
 		log.Printf("local Signature is: %s", localSignature)
-		reposeStr := new(ReposeBody)
-		reposeStr.StatusCode = http.StatusCreated
-		reposeStr.Body = event.QueryParameters.EchoStr
-		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
-		reposeStr.IsBase64Encoded = false
-		reposeByte, _ := json.Marshal(*reposeStr)
-		repose = string(reposeByte)
+		repose.StatusCode = http.StatusOK
+		repose.Body = event.QueryParameters.EchoStr
+		repose.Headers.ContentType = "text/html; charset=utf-8"
+		repose.IsBase64Encoded = false
 		err = nil
-		log.Printf("repose: %s", repose)
 		return
 	} else {
 		log.Printf("Signature is not correct")
 		log.Printf("remote Signture is: %s", event.QueryParameters.Signature)
 		log.Printf("local Signature is: %s", localSignature)
-		reposeStr := new(ReposeBody)
-		reposeStr.StatusCode = http.StatusBadRequest
-		reposeStr.Body = ""
-		reposeStr.Headers.ContentType = "text/html; charset=utf-8"
-		reposeByte, _ := sonic.Marshal(*reposeStr)
-		repose = string(reposeByte)
+		repose.StatusCode = http.StatusBadRequest
+		repose.Body = ""
+		repose.Headers.ContentType = "text/plain; charset=utf-8"
 		err = nil
 		return
 	}
