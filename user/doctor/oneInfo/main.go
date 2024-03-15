@@ -3,9 +3,11 @@ package main
 import (
 	"context"
 	. "encoding/json"
+	"net/http"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/commonData/ContentType"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 )
@@ -17,25 +19,26 @@ type Id struct {
 	Id string `json:"id"`
 }
 
-func HandleHttpRequest(ctx context.Context, event structEvent) (repose string, err error) {
-	var Open = new(Id)
-	err = Unmarshal([]byte(event.Body), Open)
-	if err != nil {
-		return "", err
-	}
+func HandleHttpRequest(ctx context.Context, event structEvent) (repose *datastruct.UniversalRepose, err error) {
+	Open := new(Id)
+	repose = new(datastruct.UniversalRepose)
+	_ = Unmarshal([]byte(event.Body), Open)
 	json, err := user.QueryDoctor(Open.Id)
-	marshaledJson, err := Marshal(json)
 	if err != nil {
-		return "", err
+		repose.StatusCode = http.StatusNotFound
+		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.IsBase64Encoded = false
+		repose.Body = "not found"
+		return repose, err
 	}
-	var reposeStruct = new(datastruct.UniversalRepose)
-	reposeStruct.Body = string(marshaledJson)
-	reposeByte, err := Marshal(reposeStruct)
-	if err != nil {
-		return "", err
-	}
-	return string(reposeByte), nil
+	marshaledJson, _ := Marshal(json)
+	repose.Headers.ContentType = ContentType.JsonUTF8
+	repose.IsBase64Encoded = false
+	repose.StatusCode = http.StatusOK
+	repose.Body = string(marshaledJson)
+	return repose, nil
 }
+
 func main() {
 	fc.Start(HandleHttpRequest)
 }

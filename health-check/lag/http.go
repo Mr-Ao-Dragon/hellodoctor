@@ -1,24 +1,17 @@
 package lag
 
 import (
-	"encoding/json"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
-func HttpLag() (repose string) {
-	reposeStr := new(datastruct.UniversalRepose)
-	type jsonStr struct {
-		ReposeTime int64 `jsonStr:"repose_time"`
-	}
-	bodyStr := new(jsonStr)
-	bodyStr.ReposeTime = time.Now().UnixMilli()
-	bodyByte, _ := json.Marshal(*bodyStr)
-	reposeStr.StatusCode = http.StatusOK
-	reposeStr.IsBase64Encoded = "false"
-	reposeStr.Body = string(bodyByte)
-	reposeByte, _ := json.Marshal(*reposeStr)
-	return string(reposeByte)
+func HttpLag() (repose *datastruct.UniversalRepose) {
+	repose = new(datastruct.UniversalRepose)
+	repose.StatusCode = http.StatusOK
+	repose.IsBase64Encoded = false
+	repose.Body = strconv.FormatInt(time.Now().UnixMilli(), 10)
+	return
 }

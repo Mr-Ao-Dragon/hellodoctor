@@ -4,7 +4,10 @@ import (
 	"context"
 	"time"
 
+	"github.com/aliyun/fc-runtime-go-sdk/fc"
+
 	"github.com/Mr-Ao-Dragon/hellodoctor/health-check/lag"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
 type structEvent struct {
@@ -29,6 +32,10 @@ type structEvent struct {
 	} `json:"requestContext"`
 }
 
-func function(ctx context.Context, event structEvent) (repose string, err error) {
+func HandleHttpRequest(ctx context.Context, event structEvent) (repose *datastruct.UniversalRepose, err error) {
 	return lag.HttpLag(), nil
+}
+
+func main() {
+	fc.Start(HandleHttpRequest)
 }

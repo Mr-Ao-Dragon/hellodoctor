@@ -3,16 +3,15 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"net/http"
 
+	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"github.com/jinzhu/copier"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/commonData/ContentType"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
-
-func main() {
-
-}
 
 type (
 	ReqBody struct {
@@ -33,28 +32,50 @@ type (
 	}
 )
 
-func handleRequest(ctx context.Context, event structEvent) (repose string, err error) {
+func handleRequest(ctx context.Context, event structEvent) (repose *datastruct.UniversalRepose, err error) {
 	auth := &datastruct.AuthStruct{
 		SystemToken: event.QueryParameters.Token,
 		OpenID:      event.QueryParameters.OpenID,
 	}
 	loginStatus, err := database.QueryLogin(auth)
 	if loginStatus || err != nil {
-		reposeByte, _ := json.Marshal(reposeJson{Code: 401, Body: "Unauthorized"})
-		return string(reposeByte), nil
+		repose.StatusCode = http.StatusUnauthorized
+		repose.Body = "Unauthorized"
+		repose.Headers.ContentType = ContentType.TextUTF8
+		repose.IsBase64Encoded = false
+		err = nil
+		return
 	}
 	reserveData := new(datastruct.AddReserve)
 	err = copier.Copy(&reserveData, &event.QueryParameters)
 	if err != nil {
-		reposeByte, _ := json.Marshal(reposeJson{Code: 503, Body: "Copy data failed"})
-		return string(reposeByte), nil
+		repose.StatusCode = http.StatusInternalServerError
+		repose.Body = "Copy data failed"
+		repose.Headers.ContentType = ContentType.TextUTF8
+		repose.IsBase64Encoded = false
+		err = nil
+		return
 	}
 	reserveID, err := database.AddReserve(reserveData, auth)
 	newReserve := new(datastruct.SingleReserve)
 	err = copier.Copy(&newReserve, &reserveData)
+	if err != nil {
+		repose.StatusCode = http.StatusInternalServerError
+		repose.Body = "Copy data failed"
+		repose.Headers.ContentType = ContentType.TextUTF8
+		repose.IsBase64Encoded = false
+		return
+	}
 	newReserve.ID = reserveID
 	newReserve.Status = 1
 	ReserveByte, _ := json.Marshal(newReserve)
-	reposeByte, _ := json.Marshal(reposeJson{Code: 200, Body: string(ReserveByte)})
-	return string(reposeByte), nil
+	repose.StatusCode = http.StatusOK
+	repose.Body = string(ReserveByte)
+	repose.Headers.ContentType = ContentType.JsonUTF8
+	repose.IsBase64Encoded = false
+	return repose, nil
+}
+
+func main() {
+	fc.Start(handleRequest)
 }

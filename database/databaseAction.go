@@ -110,6 +110,7 @@ func QueryLogin(authStruct *datastruct.AuthStruct) (isSusses bool, err error) {
 	}
 	return true, nil
 }
+
 func QueryDoctor(OpenID string) (result *datastruct.SingleDoctorDataStruct, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
@@ -184,7 +185,7 @@ func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64,
 		return false, NowUnix, true, err
 	}
 	desiredColumnNumber := 0
-	var queryExpiresInResult = queryExpiresIn.Columns
+	queryExpiresInResult := queryExpiresIn.Columns
 	for ; desiredColumnNumber < len(queryExpiresInResult); desiredColumnNumber++ {
 		if queryExpiresInResult[desiredColumnNumber].ColumnName == "ExpiresIn" {
 			expiresIn = queryExpiresInResult[desiredColumnNumber].Value.(int64)

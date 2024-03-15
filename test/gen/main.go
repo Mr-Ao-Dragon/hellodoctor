@@ -2,17 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
-	"github.com/panjf2000/ants/v2"
 	"sync"
 	"time"
+
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
+	"github.com/panjf2000/ants/v2"
 )
 
 func GenAndPrint() error {
-
-	//preGenTime := strconv.FormatInt(time.Now().UnixNano(), 10)
+	// preGenTime := strconv.FormatInt(time.Now().UnixNano(), 10)
 	token, err := gen.Token(16)
-	//postGenTime := strconv.FormatInt(time.Now().UnixNano(), 10)
+	// postGenTime := strconv.FormatInt(time.Now().UnixNano(), 10)
 	if err != nil {
 		panic(err)
 	}
@@ -36,7 +36,7 @@ func GenAndPrint() error {
 var sum = 0
 
 func main() {
-	//GenNum := int64(0)
+	// GenNum := int64(0)
 	defer ants.Release()
 	runTimes := 4096
 	// Use the common pool.
@@ -60,8 +60,8 @@ func main() {
 	// set 10 to the capacity of goroutine pool and 1 second for expired duration.
 	p, _ := ants.NewPoolWithFunc(16, func(i interface{}) {
 		err := GenAndPrint()
-		//GenNum++
-		//fmt.Println("GenNum: ", GenNum)
+		// GenNum++
+		// fmt.Println("GenNum: ", GenNum)
 		if err != nil {
 			return
 		}
@@ -84,7 +84,6 @@ func main() {
 	defer func(mp *ants.MultiPool, timeout time.Duration) {
 		err := mp.ReleaseTimeout(timeout)
 		if err != nil {
-
 		}
 	}(mp, 5*time.Second)
 	for i := 0; i < runTimes; i++ {
@@ -97,7 +96,7 @@ func main() {
 
 	// Use the MultiPoolFunc and set the capacity of 10 goroutine pools to (runTimes/10).
 	mpf, _ := ants.NewMultiPoolWithFunc(10, runTimes/10, func(i interface{}) {
-		//myFunc(i)
+		// myFunc(i)
 		err := GenAndPrint()
 		if err != nil {
 			return

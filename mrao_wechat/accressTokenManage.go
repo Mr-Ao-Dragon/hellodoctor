@@ -83,6 +83,7 @@ func GetAccessToken(AppId, AppSecret string, ForceRefresh bool) (AccessToken str
 	}
 	return tokenResp.AccessToken, tokenResp.ExpiresIn, nil
 }
+
 func ForceRefresh(AppID string, AppSecret string) (AccessToken string, expiresIn int16, err error) {
 	const refreshed = 7200
 	if expiresIn <= 0 || expiresIn >= refreshed {

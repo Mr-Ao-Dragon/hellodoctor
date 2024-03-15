@@ -19,6 +19,7 @@ func GenerateRandomNDigits(n int) int {
 	maxRange := int(math.Pow10(n)) - 1
 	return rand.Intn(maxRange-minRange) + minRange
 }
+
 func main() {
 	token := os.Getenv("token")
 	if token == "" {

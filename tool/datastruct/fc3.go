@@ -3,7 +3,7 @@ package datastruct
 type UniversalRepose struct {
 	StatusCode      int16   `json:"statusCode"`
 	Headers         Headers `json:"headers"`
-	IsBase64Encoded string  `json:"isBase64Encoded"`
+	IsBase64Encoded bool    `json:"isBase64Encoded"`
 	Body            string  `json:"body"`
 }
 type Headers struct {

@@ -11,7 +11,6 @@ import (
 )
 
 func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expiresIn int64, err error) {
-
 	retry := 0
 	var expressed bool
 	for isFinish := false; !isFinish || err == nil || retry >= 3 || authStruct == nil || expressed == true; {
@@ -25,6 +24,7 @@ func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expires
 	systemAccessToken = systemAccessToken + authStruct.OpenID
 	return
 }
+
 func CodeToOpenID(code string) (OpenID string, err error) {
 	OfficialAccountApp, err := officialAccount.NewOfficialAccount(&officialAccount.UserConfig{
 		AppID:  os.Getenv("AppId"),     // 公众号、小程序的appid
