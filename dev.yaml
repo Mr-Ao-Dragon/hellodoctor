@@ -42,8 +42,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/login user/login/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/login user/login/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/login user/login/main.go"
           path: ./
         - run: chmod a+x login
           path: ./target
@@ -88,8 +87,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/admin/perm/main.go"
           path: ./
         - run: chmod a+x perm
           path: ./target
@@ -127,8 +125,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags='-s -w' -o=target/verify verify/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/perm user/perm/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags='-s -w' -o=target/verify verify/main.go"
           path: ./
         - run: chmod a+x verify
           path: ./target
@@ -170,8 +167,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-list index/doctor-list/main.go"
           path: ./
         - run: chmod a+x doctor-list
           path: ./target
@@ -215,8 +211,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-one-info user/doctor/oneInfo/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-one-info user/doctor/oneInfo/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/doctor-one-info user/doctor/oneInfo/main.go"
           path: ./
         - run: chmod a+x doctor-one-info
           path: ./target
@@ -260,8 +255,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/get/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/post/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/get/main.go"
           path: ./
         - run: chmod a+x post-reverse
           path: ./target
@@ -305,8 +299,7 @@ resources:
           path: ./
         - run: go mod vendor
           path: ./
-#         - run: bash -c "source /root/.gvm/scripts/gvm && gvm install go1.22.1 && gvm use go1.22.1 && go mod vendor && GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/get-reverse reserve/get/main.go"
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/post-reverse reserve/post/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/get-reverse reserve/get/main.go"
           path: ./
         - run: chmod a+x get-reverse
           path: ./target

@@ -7,32 +7,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 完成微信服务器验证环节">
-      <change afterPath="$PROJECT_DIR$/tool/commonData/ContentType/contentType.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-check/lag/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-check/lag/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mrao_wechat/accressTokenManage.go" beforeDir="false" afterPath="$PROJECT_DIR$/mrao_wechat/accressTokenManage.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ad/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/public/ad/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pic/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/public/pic/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/post.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/type.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/gen/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/gen/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/datastruct/fc3.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/gen/random.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/gen/random.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/perm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verify/mock.go" beforeDir="false" afterPath="$PROJECT_DIR$/verify/mock.go" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 改进 CI 流程，加快编译速度">
+      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +33,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -212,8 +189,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update: 同步xml" />
-    <MESSAGE value="update: 添加本地部署配置" />
     <MESSAGE value="fix: 将失误提交到云端的本地配置还原" />
     <MESSAGE value="add: 添加单个医生查询" />
     <MESSAGE value="fix: 解除循环依赖" />
@@ -237,7 +212,9 @@
     <MESSAGE value="update: 更新依赖版本" />
     <MESSAGE value="&quot;&quot;" />
     <MESSAGE value="fix: 完成微信服务器验证环节" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 完成微信服务器验证环节" />
+    <MESSAGE value="fix: 改造所有返回使其正常工作&#10;update: 删除部分冗余数据结构" />
+    <MESSAGE value="update: 改进 CI 流程，加快编译速度" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 改进 CI 流程，加快编译速度" />
   </component>
   <component name="VgoProject">
     <environment>
