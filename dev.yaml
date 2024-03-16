@@ -247,6 +247,48 @@ resources:
           path: ./
         - run: chmod a+x post-reverse
           path: ./target
+  health-lag-http:
+    component: fc3
+    props:
+      region: ${env('region')}
+      description: ''
+      timeout: 60
+      internetAccess: true
+      functionName: health-lag-http
+      runtime: go1
+      cpu: 0.05
+      instanceConcurrency: 20
+      memorySize: 128
+      environmentVariables:
+        AppId: ${env('AppId')}
+        AccessKeyId: ${env('AccessKeyId')}
+        LD_LIBRARY_PATH: >-
+          /code:/code/lib:/usr/local/lib:/opt/lib
+        AccessKeySecret: ${env('AccessKeySecret')}
+        EndPoint: ${env('EndPoint')}
+        AppSecret: ${env('AppSecret')}
+      handler: health-lag-http
+      diskSize: 512
+      code: target/health-lag-http
+      logConfig: auto
+      triggers:
+        - triggerConfig:
+            methods:
+              - GET
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: ''
+          qualifier: LATEST
+          triggerType: http
+    actions:
+      pre-deploy:
+        - run: mkdir -p target
+          path: ./
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/health-lag-http health-check/lag/main.go
+          path: ./
+        - run: chmod a+x health-lag-http
+          path: ./target
   get-reverse:
     component: fc3
     props:
@@ -318,6 +360,9 @@ resources:
             qualifier: LATEST
           - path: /v1/rese/list
             functionName: get-reverse
+            qualifier: LATEST
+          - path: /v1/health/lag
+            functionName: health-lag-http
             qualifier: LATEST
       wafConfig:
         enableWAF: false

@@ -7,9 +7,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修复不正确地构建指令">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: 将vendor放在流水线里执行，避免重复执行">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-check/lag/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,8 +191,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add: 添加单个医生查询" />
-    <MESSAGE value="fix: 解除循环依赖" />
     <MESSAGE value="update: 使用更多切片&#10;update: 添加更多数据模板&#10;add: 添加提交订单入口&#10;fix: 修复了一些参数异常" />
     <MESSAGE value="update: 新增订单批量查询" />
     <MESSAGE value="update: 将 openID 放入token字符串内" />
@@ -215,7 +214,9 @@
     <MESSAGE value="fix: 改造所有返回使其正常工作&#10;update: 删除部分冗余数据结构" />
     <MESSAGE value="update: 改进 CI 流程，加快编译速度" />
     <MESSAGE value="fix: 修复不正确地构建指令" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复不正确地构建指令" />
+    <MESSAGE value="fix: 删除多余的“&quot;”" />
+    <MESSAGE value="update: 将vendor放在流水线里执行，避免重复执行" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 将vendor放在流水线里执行，避免重复执行" />
   </component>
   <component name="VgoProject">
     <environment>
