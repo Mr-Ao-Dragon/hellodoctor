@@ -285,7 +285,7 @@ resources:
       pre-deploy:
         - run: mkdir -p target
           path: ./
-        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/health-lag-http health-check/lag/main.go
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags='-s -w' -o=target/health-lag-http health-check/lag/http/main.go
           path: ./
         - run: chmod a+x health-lag-http
           path: ./target
