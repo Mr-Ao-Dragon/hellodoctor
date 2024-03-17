@@ -7,8 +7,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修正流水线构建路径">
-      <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修正流水线构建路径&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;">
+      <change afterPath="$PROJECT_DIR$/reserve/cancel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +192,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="typo: 静态数据源错误" />
     <MESSAGE value="fix: 正确实现验证逻辑" />
     <MESSAGE value="add: 加入debug信息" />
     <MESSAGE value="fix：修正被文档误导的回复" />
@@ -214,7 +216,8 @@
     <MESSAGE value="add: 上线延迟测试函数" />
     <MESSAGE value="fix: 添加缺少的字段" />
     <MESSAGE value="fix: 修正流水线构建路径" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修正流水线构建路径" />
+    <MESSAGE value="fix: 修正流水线构建路径&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修正流水线构建路径&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
   </component>
   <component name="VgoProject">
     <environment>

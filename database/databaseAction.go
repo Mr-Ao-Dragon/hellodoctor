@@ -380,6 +380,7 @@ func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStru
 	putRowChange.AddColumn("Name", newReserve.Name)
 	putRowChange.AddColumn("Time", newReserve.Time)
 	putRowChange.AddColumn("Token", AuthData.OpenID)
+	putRowChange.AddColumn("Status", 1)
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowRequest.PutRowChange = putRowChange
 	_, err = client.PutRow(putRowRequest)
@@ -453,4 +454,26 @@ func QueryReserve(OpenID []string) (queryResult []datastruct.SingleReserve, err 
 		}
 	}
 	return queryResult, nil
+}
+func CancelReserve(reserveID int32) (err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	updateRowRequest := new(tablestore.UpdateRowRequest)
+	updateRowChange := new(tablestore.UpdateRowChange)
+	updateRowChange.TableName = "reserve"
+	updateRowChange.PrimaryKey = new(tablestore.PrimaryKey)
+	updateRowChange.PrimaryKey.AddPrimaryKeyColumn("ID", reserveID)
+	updateRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
+	updateRowChange.PutColumn("Status", 0)
+	_, err = client.UpdateRow(updateRowRequest)
+	if err != nil {
+		return err
+	}
+	return nil
 }
