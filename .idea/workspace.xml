@@ -7,16 +7,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 合并重复代码">
-      <change afterPath="$PROJECT_DIR$/reserve/cancel/main.go" afterDir="false" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 添加单次查询方法&#10;add: 添加取消预约接口">
+      <change afterPath="$PROJECT_DIR$/database/doctor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/perm.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/public.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/databaseAction.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/databaseAction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/cancel.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/cancel.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/get.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/datastruct/fc3.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Go File" />
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -78,7 +75,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go Application",
+    "DefaultGoTemplateProperty": "Go File",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor": "Run",
@@ -94,7 +91,7 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/tool/datastruct/fc3.go",
+    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/database/user.go",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -109,11 +106,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
+      <recent name="$PROJECT_DIR$/database" />
       <recent name="$PROJECT_DIR$/tool/datastruct" />
       <recent name="$PROJECT_DIR$/reserve/post" />
       <recent name="$PROJECT_DIR$/reserve" />
       <recent name="$PROJECT_DIR$/user" />
-      <recent name="$PROJECT_DIR$/index/doctorlist" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tool/commonData/ContentType" />
@@ -197,8 +194,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add: 加入debug信息" />
-    <MESSAGE value="fix：修正被文档误导的回复" />
     <MESSAGE value="fix：修正错误适用的变量" />
     <MESSAGE value="update: verify打印回复体&#10;update: 阿里云日志恢复正常，重新打开日志" />
     <MESSAGE value="delete: 删除部分冗余代码" />
@@ -222,7 +217,9 @@
     <MESSAGE value="fix: 修正流水线构建路径" />
     <MESSAGE value="fix: 修正流水线构建路径&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
     <MESSAGE value="fix: 合并重复代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 合并重复代码" />
+    <MESSAGE value="fix: 合并重复代码&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
+    <MESSAGE value="add: 添加单次查询方法&#10;add: 添加取消预约接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 添加单次查询方法&#10;add: 添加取消预约接口" />
   </component>
   <component name="VgoProject">
     <environment>
