@@ -69,7 +69,7 @@ func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
 	return queryResult.Columns[0].Value.(int8), nil
 }
 
-func QueryLogin(authStruct *datastruct.AuthStruct) (isSusses bool, err error) {
+func QueryLogin(authStruct *datastruct.AuthStruct) (loginStat bool, err error) {
 	client := tablestore.NewClientWithConfig(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
@@ -96,8 +96,21 @@ func QueryLogin(authStruct *datastruct.AuthStruct) (isSusses bool, err error) {
 		return false, err
 	}
 	Column := Result.Columns
-	expiresIn := Column[0].Value.(int64)
-	SystemToken := Column[1].Value.(string)
+	var SystemToken string
+	var expiresIn int64
+	index := 0
+	for range Column {
+		switch Column[index].ColumnName {
+		case "SystemToken":
+			SystemToken = Column[index].Value.(string)
+		case "ExpiresIn":
+			expiresIn = Column[index].Value.(int64)
+		}
+		index++
+		if SystemToken != "" && expiresIn != 0 {
+			break
+		}
+	}
 	if SystemToken != authStruct.SystemToken {
 		err = errors.New("查询用户信息失败，OpenID为" + authStruct.OpenID + "的用户凭据无效")
 		log.Fatalf(err.Error())
@@ -454,6 +467,54 @@ func QueryReserve(OpenID []string) (queryResult []datastruct.SingleReserve, err 
 		}
 	}
 	return queryResult, nil
+}
+func QueryReserveSingle(reserveID int32) (reserveData *datastruct.SingleReserve, err error) {
+	client := tablestore.NewClientWithConfig(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		"",
+		nil,
+	)
+	getRowRequest := new(tablestore.GetRowRequest)
+	criteria := new(tablestore.SingleRowQueryCriteria)
+	criteria.TableName = "reserve"
+	criteria.PrimaryKey = new(tablestore.PrimaryKey)
+	criteria.PrimaryKey.AddPrimaryKeyColumn("ID", reserveID)
+	criteria.MaxVersion = 1
+	getRowRequest.SingleRowQueryCriteria = criteria
+	getRowResp, err := client.GetRow(getRowRequest)
+	if err != nil {
+		return nil, err
+	}
+	reserveData = new(datastruct.SingleReserve)
+	index := 0
+	reserveData.ID = getRowResp.PrimaryKey.PrimaryKeys[0].Value.(int32)
+	for range getRowResp.Columns {
+		switch {
+		case getRowResp.Columns[index].ColumnName == "DoctorID":
+			reserveData.DoctorID = getRowResp.Columns[index].Value.(string)
+		case getRowResp.Columns[index].ColumnName == "Mobile":
+			reserveData.Mobile = getRowResp.Columns[index].Value.(int64)
+		case getRowResp.Columns[index].ColumnName == "Name":
+			reserveData.Name = getRowResp.Columns[index].Value.(string)
+		case getRowResp.Columns[index].ColumnName == "Time":
+			reserveData.Time = getRowResp.Columns[index].Value.(int64)
+		case getRowResp.Columns[index].ColumnName == "DoctorAvatar":
+			reserveData.DocAvatar = getRowResp.Columns[index].Value.(string)
+		case getRowResp.Columns[index].ColumnName == "DoctorName":
+			reserveData.DoctorName = getRowResp.Columns[index].Value.(string)
+		case getRowResp.Columns[index].ColumnName == "Status":
+			reserveData.Status = getRowResp.Columns[index].Value.(int8)
+		case getRowResp.Columns[index].ColumnName == "OpenID":
+			reserveData.OpenID = getRowResp.Columns[index].Value.(string)
+		default:
+			break
+		}
+		index++
+	}
+	return reserveData, nil
 }
 func CancelReserve(reserveID int32) (err error) {
 	client := tablestore.NewClientWithConfig(

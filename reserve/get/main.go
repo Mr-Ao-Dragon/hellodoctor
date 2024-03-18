@@ -10,26 +10,23 @@ import (
 	"github.com/jinzhu/copier"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
+	"github.com/Mr-Ao-Dragon/hellodoctor/reserve"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/commonData/ContentType"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
-type (
-	eventStruct struct {
-		QueryParameters struct {
-			Token  string `json:"token" copier:"Token"`
-			OpenID string `json:"id" copier:"OpenID"`
-		} `json:"queryParameters"`
-	}
-)
+type eventStruct struct {
+	QueryParameters struct {
+		Token  string `json:"token" copier:"Token"`
+		OpenID string `json:"id" copier:"OpenID"`
+	} `json:"queryParameters"`
+}
 
 func HandleHttpRequest(ctx context.Context, event eventStruct) (repose *datastruct.UniversalRepose, err error) {
 	Login := new(datastruct.AuthStruct)
 	repose = new(datastruct.UniversalRepose)
 	err = copier.Copy(*Login, event.QueryParameters)
 
-	var OpenID []string
-	OpenID = append(OpenID, Login.OpenID)
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError
 		repose.Headers.ContentType = ContentType.TextUTF8
@@ -52,10 +49,8 @@ func HandleHttpRequest(ctx context.Context, event eventStruct) (repose *datastru
 		return repose, nil
 	}
 	log.Printf("用户 %v 成功登录！", Login.OpenID)
-	queryResults, err := database.QueryReserve(OpenID)
+	queryResult, err := reserve.GetReserve(Login.OpenID)
 	if err != nil {
-		log.Printf("查询失败,数据库错误")
-		log.Printf("Error info: %#v", err)
 		repose.StatusCode = http.StatusInternalServerError
 		repose.Headers.ContentType = ContentType.TextUTF8
 		repose.IsBase64Encoded = false
@@ -63,11 +58,11 @@ func HandleHttpRequest(ctx context.Context, event eventStruct) (repose *datastru
 		return repose, nil
 	}
 	log.Printf("——————————————————————————————————————————————————")
-	log.Printf("查询结果: %#v", queryResults)
+	log.Printf("查询结果: %#v", queryResult)
 	repose.StatusCode = http.StatusOK
 	repose.Headers.ContentType = ContentType.JsonUTF8
 	repose.IsBase64Encoded = false
-	respBody, err := json.Marshal(queryResults)
+	respBody, err := json.Marshal(queryResult)
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError
 		repose.Headers.ContentType = "application/json"
