@@ -7,10 +7,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="del: 删除无用的github流水线">
-      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: index" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -166,7 +163,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.14808.20" />
+        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.15026.17" />
       </set>
     </attachedChunks>
   </component>
@@ -192,7 +189,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="delete: 删除部分冗余代码" />
     <MESSAGE value="fix: 修正为微信要求的数据类型" />
     <MESSAGE value="fix: 根据阿里云工程师指导修改为正确的回复" />
     <MESSAGE value="add: 打印上下文" />
@@ -217,7 +213,8 @@
     <MESSAGE value="add: 添加单次查询方法&#10;add: 添加取消预约接口" />
     <MESSAGE value="update: 整理数据库接口&#10;add: 添加公告骨架" />
     <MESSAGE value="del: 删除无用的github流水线" />
-    <option name="LAST_COMMIT_MESSAGE" value="del: 删除无用的github流水线" />
+    <MESSAGE value="update: index" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: index" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -229,6 +226,8 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
     {
     },
     {

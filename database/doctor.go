@@ -83,7 +83,7 @@ func UpToDoctor(dataStruct *datastruct.SingleDoctorDataStruct) (err error) {
 
 func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 	client := tablestore.NewClientWithConfig(
-		os.Getenv("AccessKe yId"),
+		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
