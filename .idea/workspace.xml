@@ -4,66 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="fix: 删除静态数据源">
-      <change afterPath="$PROJECT_DIR$/.idea/UniappTool.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unpackage/dist/build/h5/.gitkeep" afterDir="false" />
+    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="update： 更新 IDE 设置">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/info_doc.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/info_doc.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/info_user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/info_user.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/list.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/list_admin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/list_admin.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/list_doc.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/list_doc.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/reserve.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reserve.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/user.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/avatar.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/css/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/css/u-ui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/fonts/iconfont.0dba7d39.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/fonts/iconfont.90cc58ff.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/fonts/iconfont.cc8026b6.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/demo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/demo_index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/iconfont.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/iconfont.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/iconfont.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/icon/iconfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/avatar.985480c6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/footer/home.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/footer/home_cur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/footer/wd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/footer/wd_cur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/footer/yy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/footer/yy_cur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/login/wx_login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/mo.f13e9e0b.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/user/mo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/user/vip.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/user/wxblogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/img/user/zbg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/index.2da1efab.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/chunk-vendors.71e6a320.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/fenxiang.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/index.c20e2c84.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-index.d85fd140.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-info_doc.351c3c3e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-info_reserve.038403d7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-info_user.21231c97.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-list.87e5d8cd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-list_admin.3397149a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-list_doc.810b532e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-reserve.5d03d4fe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/js/pages-user.3a8ee0c2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unpackage/dist/build/h5/static/lunbo1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uni.scss" beforeDir="false" afterPath="$PROJECT_DIR$/uni.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +63,7 @@
     "npm.install s.executor": "Run",
     "npm.install vue.executor": "Run",
     "npm.install.executor": "Run",
-    "settings.editor.selected.configurable": "cn.fjdmy.uniapp.settings.AppSettingsConfigurable",
+    "settings.editor.selected.configurable": "watcher.settings",
     "ts.external.directory.path": "/home/mraodragon/.local/share/JetBrains/Toolbox/apps/webstorm/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
   }
@@ -139,7 +82,7 @@
       <workItem from="1709299468441" duration="1920000" />
       <workItem from="1711113394357" duration="643000" />
       <workItem from="1711115097925" duration="1937000" />
-      <workItem from="1711122622685" duration="4523000" />
+      <workItem from="1711122622685" duration="5377000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
@@ -149,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711230079759</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update： 更新 IDE 设置">
+      <option name="closed" value="true" />
+      <created>1711230131008</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711230131008</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +123,8 @@
     <MESSAGE value="typo: 静态数据源错误" />
     <MESSAGE value="update: 更新.gitignore&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
     <MESSAGE value="fix: 删除静态数据源" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 删除静态数据源" />
+    <MESSAGE value="update： 更新 IDE 设置" />
+    <option name="LAST_COMMIT_MESSAGE" value="update： 更新 IDE 设置" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
