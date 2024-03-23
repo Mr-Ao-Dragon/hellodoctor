@@ -18,7 +18,7 @@
   </view>
 </template>
   <script>
-import { getUserStatusById } from '../api/dictionary';
+import { getUserStatusById } from '@/api/dictionary';
 import request from '../api/request';
 
 export default {

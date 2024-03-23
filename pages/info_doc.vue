@@ -26,8 +26,6 @@ export default {
   }
 }
 </script>
-
-</script>
 <template>
     <div class="container">
         <scroll-view scroll-y class="content">
@@ -39,14 +37,7 @@ export default {
             </div>
             <div class="bar">
                 <div class="title">服务介绍</div>
-                <div class="text">这是介绍内容这是介绍内容这是介绍内容这是介绍
-                    内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容
-                    内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容
-                    内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容
-                    内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容
-                    内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容
-                    内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容这是介绍内容
-                </div>
+                <div class="text">如果您看到此文本，说明系统出现错误，请联系我们</div>
             </div>
         </scroll-view>
         <div class="foot">

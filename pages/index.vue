@@ -59,7 +59,7 @@ export default {
       list: [],
       ready: false,
       wxLoginData: {
-        appid: '',//填写appid
+        appid: 'wx277005e156d46f0a',//填写appid
         redirect_uri: '',//填写这个网页的地址
         response_type: 'code',
         scope: 'snsapi_userinfo',
@@ -76,8 +76,8 @@ export default {
       uni.setStorageSync('expries_in', res.expries_in)
     }
     else {
-      // const loginLink = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${wxLoginData.appid}&redirect_uri=${wxLoginData.redirect_uri}&response_type=${wxLoginData.response_type}&scope=${wxLoginData.scope}#wechat_redirect`
-      //   window.location.href = loginLink
+      const loginLink = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${wxLoginData.appid}&redirect_uri=${wxLoginData.redirect_uri}&response_type=${wxLoginData.response_type}&scope=${wxLoginData.scope}#wechat_redirect`
+        window.location.href = loginLink
     }
   },
   methods: {
@@ -87,25 +87,11 @@ export default {
       })
     },
     async getData() {
-      // const doclist = await request.getDocList()
-      // const notify = request.getNotice()
-      // this.lunbo = notice.lunbotu
-      // this.noti = notice.notice
-      // this.list = doclist
-      this.lunbo = ["../static/lunbo1.jpg"]
-      this.noti = ["诊所上班时间：9:00"]
-      this.list = [
-        {
-          name: "王医生",
-          avatar: "../static/avatar.jpg",
-          id: 1
-        },
-        {
-          name: "王医生",
-          avatar: "../static/avatar.jpg",
-          id: 1
-        }
-      ]
+      const doclist = await request.getDocList()
+      const notify = request.getNotice()
+      this.lunbo = notice.lunbotu
+      this.noti = notice.notice
+      this.list = doclist
     },
   }
 }

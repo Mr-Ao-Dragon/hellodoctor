@@ -29,15 +29,15 @@ export default {
     return {
       info: {},
       status: [{
-        value: "0",
+        value: "1",
         name: '用户',
         checked: false
       }, {
-        value: "1",
+        value: "3",
         name: '医生',
         checked: false
       }, {
-        value: "5",
+        value: "0",
         name: '停用',
         checked: false
       },]

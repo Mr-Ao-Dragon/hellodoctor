@@ -83,7 +83,7 @@ export default {
     }
   },
   onShow() {
-    // this.GetToken();
+    this.GetToken();
   },
   methods: {
     goto(i) {

@@ -45,13 +45,13 @@ export default {
   methods: {
     async formSubmit(e) {
       console.log(e.detail.value)
-      // e.detail.value.id = this.id
+      e.detail.value.id = this.id
       if (e.detail.value.name == "") {
         uni.showToast({
           title: '请输入姓名',
           icon: 'none'
         })
-      } else if (e.detail.value.mobile == "" || e.detail.value.mobile.length != 11) {
+      } else if (e.detail.value.mobile == "" || e.detail.value.mobile.length != 11|| e.detail.value.mobile >= 0) {
         uni.showToast({
           title: '请输入正确的手机号',
           icon: 'none'

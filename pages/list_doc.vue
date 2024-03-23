@@ -27,7 +27,7 @@
   <script>
 import dayjs from 'dayjs';
 import request from '../api/request';
-import { getReserveStatusById } from '../api/dictionary';
+import { getReserveStatusById } from '@/api/dictionary';
 export default {
   data() {
     return {
@@ -48,28 +48,28 @@ export default {
     }
   },
   async onLoad() {
-    // this.list = await request.getDocList()
-    this.list = [
-      {
-      "id": 1,
-      "doc_name": "王医生",
-      "doc_avatar": "http://www.baidu.com",
-      "doc_id": 1,
-      "name": "张三",
-      "mobile": 1388888888,
-      "time": 1615945600,
-      "status": 1
-    },{
-      "id": 1,
-      "doc_name": "王医生",
-      "doc_avatar": "http://www.baidu.com",
-      "doc_id": 1,
-      "name": "张三",
-      "mobile": 1388888888,
-      "time": 1615945600,
-      "status": 1
-    }
-    ]
+    this.list = await request.getDocList()
+    // this.list = [
+    //   {
+    //   "id": 1,
+    //   "doc_name": "王医生",
+    //   "doc_avatar": "http://www.baidu.com",
+    //   "doc_id": 1,
+    //   "name": "张三",
+    //   "mobile": 1388888888,
+    //   "time": 1615945600,
+    //   "status": 1
+    // },{
+    //   "id": 1,
+    //   "doc_name": "王医生",
+    //   "doc_avatar": "http://www.baidu.com",
+    //   "doc_id": 1,
+    //   "name": "张三",
+    //   "mobile": 1388888888,
+    //   "time": 1615945600,
+    //   "status": 1
+    // }
+    // ]
     await uni.hideLoading()
     this.ready = true
   }
