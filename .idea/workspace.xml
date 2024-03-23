@@ -139,8 +139,17 @@
       <workItem from="1709299468441" duration="1920000" />
       <workItem from="1711113394357" duration="643000" />
       <workItem from="1711115097925" duration="1937000" />
-      <workItem from="1711122622685" duration="3897000" />
+      <workItem from="1711122622685" duration="4523000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: 删除静态数据源">
+      <option name="closed" value="true" />
+      <created>1711230079759</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711230079759</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,8 +169,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add： 新增单用户查询自己的订单" />
     <MESSAGE value="fix: del &quot;AccessKe yId&quot;:&quot; &quot;" />
-    <MESSAGE value="update: 更新.gitignore&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
     <MESSAGE value="typo: 静态数据源错误" />
+    <MESSAGE value="update: 更新.gitignore&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
     <MESSAGE value="fix: 删除静态数据源" />
     <option name="LAST_COMMIT_MESSAGE" value="fix: 删除静态数据源" />
   </component>
