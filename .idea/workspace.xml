@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: index" />
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: index">
+      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,15 +151,17 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
       <item itemvalue="Go 构建.go build scratch.go" />
       <item itemvalue="Go 构建.verify/mock" />
-      <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
         <item itemvalue="Go 构建.verify/mock" />
         <item itemvalue="Go 构建.go build scratch.go" />
-        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
+        <item itemvalue="Go 构建.verify/mock" />
+        <item itemvalue="Go 构建.go build scratch.go" />
       </list>
     </recent_temporary>
   </component>
@@ -226,6 +231,12 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+    },
+    {
+    },
+    {
+    },
     {
     },
     {
