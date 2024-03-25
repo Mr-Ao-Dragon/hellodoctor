@@ -7,14 +7,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="add: 添加公告相关接口">
-      <changelist_data name="MC_Nirvana" email="mcnirvana@126.com" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/public.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tool/datastruct/AdData.go" afterDir="false" />
+
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: index">
       <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/public.go" beforeDir="false" afterPath="$PROJECT_DIR$/public/public.go" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,9 +57,6 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="GoLibraries">
-    <option name="indexEntireGoPath" value="true" />
-  </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -99,11 +93,13 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/nirvana&quot;,
+
+    &quot;last_opened_file_path&quot;: &quot;/home/mraodragon/repos/hellodoctor/database/user.go&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
+
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.27372262&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -124,6 +120,11 @@
       <recent name="$PROJECT_DIR$/tool/commonData/ContentType" />
       <recent name="$PROJECT_DIR$/verify/base-on-gin" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="?" />
+    </option>
   </component>
   <component name="RunManager" selected="Go 构建.verify/mock">
     <configuration name="go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -167,16 +168,18 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
         <item itemvalue="Go 构建.verify/mock" />
         <item itemvalue="Go 构建.go build scratch.go" />
-        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
+        <item itemvalue="Go 构建.verify/mock" />
+        <item itemvalue="Go 构建.go build scratch.go" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.14808.20" />
+        <option value="bundled-gosdk-2946fb9b3188-155fe4b6e3a0-org.jetbrains.plugins.go.sharedIndexes.bundled-GO-233.15026.17" />
       </set>
     </attachedChunks>
   </component>
@@ -202,9 +205,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix：修正错误适用的变量" />
-    <MESSAGE value="update: verify打印回复体&#10;update: 阿里云日志恢复正常，重新打开日志" />
-    <MESSAGE value="delete: 删除部分冗余代码" />
     <MESSAGE value="fix: 修正为微信要求的数据类型" />
     <MESSAGE value="fix: 根据阿里云工程师指导修改为正确的回复" />
     <MESSAGE value="add: 打印上下文" />
@@ -227,7 +227,10 @@
     <MESSAGE value="fix: 合并重复代码" />
     <MESSAGE value="fix: 合并重复代码&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
     <MESSAGE value="add: 添加单次查询方法&#10;add: 添加取消预约接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: 添加单次查询方法&#10;add: 添加取消预约接口" />
+    <MESSAGE value="update: 整理数据库接口&#10;add: 添加公告骨架" />
+    <MESSAGE value="del: 删除无用的github流水线" />
+    <MESSAGE value="update: index" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: index" />
   </component>
   <component name="VgoProject">
     <environment>
@@ -239,6 +242,16 @@
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [
+    {
+    },
+    {
+    },
+    {
+    },
+    {
+    },
+    {
+    },
     {
     },
     {
