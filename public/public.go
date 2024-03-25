@@ -1,14 +1,12 @@
 package public
 
-type AD struct {
-	AD   *string
-	AdID *string
-}
+import "github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 
-func GetAD() (ad []*string, err error) {
+func GetAD() (ad []*datastruct.AdDataSingle, err error) {
+
 	return
 }
-func AddAD(AD *string) (AdID *string, err error) {
+func AddAD(AD *datastruct.AdDataSingle) (Ad *datastruct.AdDataSingle, err error) {
 	return nil, nil
 }
 func DeleteAD(AdID *string) (err error) {
