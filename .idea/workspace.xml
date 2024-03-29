@@ -1,175 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="del: 删除无用方法" />
+    <list default="true" id="4d7c3524-8e46-405b-ad96-273528a8c854" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/user.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Go Application" />
-        <option value="Go File" />
-      </list>
-    </option>
-  </component>
-  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="GOROOT" url="file://$USER_HOME$/go/go1.22.1" />
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="MC_Nirvana &lt;mcnirvana@126.com&gt;" />
-        <option value="MC_Nirvana@mcnirvana@126.com" />
-        <option value="MC_Nirvana" />
-      </list>
-    </option>
-    <option name="PUSH_AUTO_UPDATE" value="true" />
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="web" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="10191161-435c-4859-9a12-53da7cb07471" />
-        <option name="url" value="ssh://git@github.com:/Mr-Ao-Dragon/hellodoctor" />
-      </UrlAndAccount>
-    </option>
-  </component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2cY5L6HE4rtZxfpqIlfm6i12rQ4" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2eMo9C5f15WeenGW2flwgj6WVaH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
-    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
-    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor": "Run",
-    "Go 构建.go build scratch.go.executor": "Run",
-    "Go 构建.verify/mock.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "configurable..is.expanded": "true",
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/database/user.go",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
+    "last_opened_file_path": "/home/mraodragon",
     "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "http.proxy",
-    "settings.editor.splitter.proportion": "0.27372262"
-  },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
-      "go"
-    ]
+    "settings.editor.selected.configurable": "application.passwordSafe"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="GoMoveDeclarationDialog.RECENT_KEY">
-      <recent name="$PROJECT_DIR$/database" />
-      <recent name="$PROJECT_DIR$/tool/datastruct" />
-      <recent name="$PROJECT_DIR$/reserve/post" />
-      <recent name="$PROJECT_DIR$/reserve" />
-      <recent name="$PROJECT_DIR$/user" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/tool/commonData/ContentType" />
-      <recent name="$PROJECT_DIR$/verify/base-on-gin" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="?" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Go 构建.verify/mock">
-    <configuration name="go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="hellodoctor" />
-      <working_directory value="$PROJECT_DIR$" />
-      <envs>
-        <env name="token" value="c6a614e924bb8e588ce13dec5af035" />
-      </envs>
-      <kind value="PACKAGE" />
-      <package value="github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/verify/base-on-gin/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build scratch.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="hellodoctor" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <package value="github.com/Mr-Ao-Dragon/hellodoctor" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$APPLICATION_CONFIG_DIR$/scratches/scratch.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="verify/mock" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
-      <module name="hellodoctor" />
-      <working_directory value="$PROJECT_DIR$" />
-      <envs>
-        <env name="token" value="c6a614e924bb8e588ce13dec5af035" />
-        <env name="verifyAddress" value="https://api.dev.hellodoctor.gayserver.top/v1/verify" />
-      </envs>
-      <kind value="FILE" />
-      <package value="github.com/Mr-Ao-Dragon/hellodoctor/verify" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/verify/mock.go" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
-      <item itemvalue="Go 构建.go build scratch.go" />
-      <item itemvalue="Go 构建.verify/mock" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go 构建.verify/mock" />
-        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
-        <item itemvalue="Go 构建.go build scratch.go" />
-        <item itemvalue="Go 构建.verify/mock" />
-        <item itemvalue="Go 构建.go build scratch.go" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -178,148 +50,22 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
-  <component name="SshConsoleOptionsProvider">
-    <option name="myEncoding" value="UTF-8" />
-    <option name="myConnectionType" value="CURRENT_VAGRANT" />
-    <option name="myConnectionId" value="" />
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: 继续尝试类型" />
-    <MESSAGE value="fix: 尝试让阿里云编解码" />
-    <MESSAGE value="add: 添加调试mock" />
-    <MESSAGE value="fix: 修复错误的回复" />
-    <MESSAGE value="update: 更新依赖版本" />
-    <MESSAGE value="&quot;&quot;" />
-    <MESSAGE value="fix: 完成微信服务器验证环节" />
-    <MESSAGE value="fix: 改造所有返回使其正常工作&#10;update: 删除部分冗余数据结构" />
-    <MESSAGE value="update: 改进 CI 流程，加快编译速度" />
-    <MESSAGE value="fix: 修复不正确地构建指令" />
-    <MESSAGE value="fix: 删除多余的“&quot;”" />
-    <MESSAGE value="update: 将vendor放在流水线里执行，避免重复执行" />
-    <MESSAGE value="add: 上线延迟测试函数" />
-    <MESSAGE value="fix: 添加缺少的字段" />
-    <MESSAGE value="fix: 修正流水线构建路径" />
-    <MESSAGE value="fix: 修正流水线构建路径&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
-    <MESSAGE value="fix: 合并重复代码" />
-    <MESSAGE value="fix: 合并重复代码&#10;&#10;Signed-off-by: 敖律风 &lt;x123456789fy@outlook.com&gt;" />
-    <MESSAGE value="add: 添加单次查询方法&#10;add: 添加取消预约接口" />
-    <MESSAGE value="update: 整理数据库接口&#10;add: 添加公告骨架" />
-    <MESSAGE value="del: 删除无用的github流水线" />
-    <MESSAGE value="update: index" />
-    <MESSAGE value="fix: 修正请求地址" />
-    <MESSAGE value="fix: 修正获取 token 方式" />
-    <MESSAGE value="del: 删除无用方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="del: 删除无用方法" />
-  </component>
   <component name="VgoProject">
-    <environment>
-      <map>
-        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
-      </map>
-    </environment>
     <settings-migrated>true</settings-migrated>
   </component>
-  <component name="WfRunsListSearchHistory">{
-  &quot;history&quot;: [
+  <component name="WfRunsListSearchHistory"><![CDATA[{
+  "history": [
     {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
-    },
-    {
+      "branch": "master",
+      "currentBranchFilter": true
     }
   ],
-  &quot;lastFilter&quot;: {
+  "lastFilter": {
+    "branch": "master",
+    "currentBranchFilter": true
   }
-}</component>
+}]]></component>
 </project>
