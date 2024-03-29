@@ -24,14 +24,15 @@ type ReposeBody struct {
 }
 
 // HandleHttpRequest TODO: 整理此处代码，目前版本代码可读性较差
-func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repose *datastruct.UniversalRepose, err error) {
+func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	// Convert code to OpenID
-	Repose = new(datastruct.UniversalRepose)
+	repose = new(datastruct.UniversalRepose)
 	OpenID, err := user.CodeToOpenID(event.QueryParameters["code"].(string))
 	if err != nil {
 		log.Printf("Query Failed By: %s", event.QueryParameters["code"])
-		Repose.StatusCode = http.StatusUnauthorized
-		Repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.StatusCode = http.StatusUnauthorized
+		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		respJson := struct {
 			Code    int    `json:"code"`
 			Message string `json:"message"`
@@ -40,8 +41,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repos
 			Message: "Unauthorized",
 		}
 		respJsonByte, _ := json.Marshal(respJson)
-		Repose.Body = string(respJsonByte)
-		return Repose, nil
+		repose.Body = string(respJsonByte)
+		return repose, nil
 	}
 	TokenRaw, err := gen.Token(16)
 	Token := TokenRaw + "-" + OpenID
@@ -54,8 +55,9 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repos
 	Result, err := database.QueryUserExist(OpenID)
 	if err != nil {
 		log.Printf("Database down!")
-		Repose.StatusCode = http.StatusServiceUnavailable
-		Repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.StatusCode = http.StatusServiceUnavailable
+		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		respJson := struct {
 			Code    int    `json:"code"`
 			Message string `json:"message"`
@@ -64,8 +66,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repos
 			Message: "Database query failed",
 		}
 		respJsonByte, err := json.Marshal(respJson)
-		Repose.Body = string(respJsonByte)
-		return Repose, err
+		repose.Body = string(respJsonByte)
+		return repose, err
 	}
 	Perm := int8(0)
 	if event.QueryParameters["init_password"] == os.Getenv("InitPass") {
@@ -80,8 +82,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repos
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Register(OpenID, Perm)
 	}
 	if err != nil {
-		Repose.StatusCode = http.StatusBadRequest
-		Repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.StatusCode = http.StatusBadRequest
+		repose.Headers.ContentType = ContentType.JsonUTF8
 		respJson := struct {
 			Code    int    `json:"code"`
 			Message string `json:"message"`
@@ -90,14 +92,15 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repos
 			Message: "Unknown data",
 		}
 		respJsonByte, err := json.Marshal(respJson)
-		Repose.Body = string(respJsonByte)
-		return Repose, err
+		repose.Body = string(respJsonByte)
+		return repose, err
 	}
 	QueryResultJson, _ := json.Marshal(QueryResult)
-	Repose.StatusCode = http.StatusOK
-	Repose.Headers.ContentType = ContentType.JsonUTF8
-	Repose.IsBase64Encoded = false
-	Repose.Body = string(QueryResultJson)
+	repose.StatusCode = http.StatusOK
+	repose.Headers.ContentType = ContentType.JsonUTF8
+	repose.Headers.AccessControlAllowOrigin = "*"
+	repose.IsBase64Encoded = false
+	repose.Body = string(QueryResultJson)
 	return
 }
 

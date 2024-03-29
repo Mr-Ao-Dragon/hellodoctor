@@ -36,6 +36,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.IsBase64Encoded = false
 		response.Body = "token must be string"
 		response.Headers.ContentType = ContentType.TextUTF8
+		response.Headers.AccessControlAllowOrigin = "*"
 		log.Printf("bad request: %#v", response)
 		err = nil
 		return
@@ -76,6 +77,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.IsBase64Encoded = false
 		response.Body = "reserveID must be int32"
 		response.Headers.ContentType = ContentType.TextUTF8
+		response.Headers.AccessControlAllowOrigin = "*"
 		log.Printf("bad request: %#v", response)
 		err = nil
 		return
@@ -90,6 +92,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 			// 如果OpenID不匹配，返回未授权响应
 			response.StatusCode = http.StatusForbidden
 			response.Body = "权限不足，拒绝访问"
+			response.Headers.ContentType = ContentType.TextUTF8
+			response.Headers.AccessControlAllowOrigin = "*"
 			log.Printf("No permission: %#v", response)
 			err = nil
 			return
@@ -99,6 +103,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.IsBase64Encoded = false
 		response.Body = "success"
 		response.Headers.ContentType = ContentType.TextUTF8
+		response.Headers.AccessControlAllowOrigin = "*"
 		log.Printf("success: %#v", response)
 		err = reserve.CancelReserve(reserveID.(int32))
 		if err != nil {

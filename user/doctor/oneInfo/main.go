@@ -24,12 +24,14 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	if err != nil {
 		repose.StatusCode = http.StatusNotFound
 		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		repose.IsBase64Encoded = false
 		repose.Body = "not found"
 		return repose, err
 	}
 	marshaledJson, _ := Marshal(json)
 	repose.Headers.ContentType = ContentType.JsonUTF8
+	repose.Headers.AccessControlAllowOrigin = "*"
 	repose.IsBase64Encoded = false
 	repose.StatusCode = http.StatusOK
 	repose.Body = string(marshaledJson)

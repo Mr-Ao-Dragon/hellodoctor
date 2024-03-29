@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d7c3524-8e46-405b-ad96-273528a8c854" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
+    <list default="true" id="4d7c3524-8e46-405b-ad96-273528a8c854" name="更改" comment="fix: 兼容前端的 &quot;Bearer &quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-check/lag/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/cancel/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/cancel/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +19,12 @@
   <component name="GOROOT" url="file://$USER_HOME$/go/go1.22.1" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2eMo9C5f15WeenGW2flwgj6WVaH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,13 +36,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
     "last_opened_file_path": "/home/mraodragon",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "application.passwordSafe"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -53,11 +59,23 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Default" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="fix: 兼容前端的 &quot;Bearer &quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 兼容前端的 &quot;Bearer &quot;" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
     {
       "branch": "master",
       "currentBranchFilter": true

@@ -34,6 +34,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		repose.StatusCode = http.StatusUnauthorized
 		repose.Body = "未登录，拒绝访问"
 		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		repose.IsBase64Encoded = false
 		return repose, nil
 	}
@@ -41,6 +42,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		repose.StatusCode = http.StatusForbidden
 		repose.Body = "认证失败，拒绝访问"
 		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		repose.IsBase64Encoded = false
 		return repose, nil
 	}
@@ -49,6 +51,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		repose.StatusCode = http.StatusForbidden
 		repose.Body = "未登录，拒绝访问"
 		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		repose.IsBase64Encoded = false
 		return repose, nil
 	}
@@ -56,6 +59,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		repose.StatusCode = http.StatusServiceUnavailable
 		repose.Body = "查询失败，数据库错误"
 		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		repose.IsBase64Encoded = false
 		return repose, nil
 	}
@@ -75,11 +79,13 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		repose.StatusCode = http.StatusBadRequest
 		repose.Body = "错误的权限，请检查输入。"
 		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers.AccessControlAllowOrigin = "*"
 		repose.IsBase64Encoded = false
 	}
 	repose.StatusCode = http.StatusOK
 	repose.Body = "成功！"
 	repose.Headers.ContentType = ContentType.JsonUTF8
+	repose.Headers.AccessControlAllowOrigin = "*"
 	repose.IsBase64Encoded = false
 	return repose, nil
 }
