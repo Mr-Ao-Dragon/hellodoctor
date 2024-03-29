@@ -7,20 +7,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修正请求地址">
-      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/health-check/lag/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/gen/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/gen/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/datastruct/fc3.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/errors/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/errors/errors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
-    </list>
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="del: 删除无用方法" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +77,7 @@
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
     "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor": "Run",
     "Go 构建.go build scratch.go.executor": "Run",
-    "Go 构建.verify/mock.executor": "Debug",
+    "Go 构建.verify/mock.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -212,8 +199,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: 根据阿里云工程师指导修改为正确的回复" />
-    <MESSAGE value="add: 打印上下文" />
     <MESSAGE value="fix: 继续尝试类型" />
     <MESSAGE value="fix: 尝试让阿里云编解码" />
     <MESSAGE value="add: 添加调试mock" />
@@ -237,7 +222,9 @@
     <MESSAGE value="del: 删除无用的github流水线" />
     <MESSAGE value="update: index" />
     <MESSAGE value="fix: 修正请求地址" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 修正请求地址" />
+    <MESSAGE value="fix: 修正获取 token 方式" />
+    <MESSAGE value="del: 删除无用方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="del: 删除无用方法" />
   </component>
   <component name="VgoProject">
     <environment>
