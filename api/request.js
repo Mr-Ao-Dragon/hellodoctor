@@ -5,7 +5,7 @@ axios.interceptors.request.use((config)=>{
     uni.showLoading({title:"请求中"})
     const token = uni.getStorageSync('token')?uni.getStorageSync('token'):""
     //需要改动的就是这里填写后端的基础地址
-    config.baseURL= ''
+    config.baseURL= 'v1'
     config.headers.Authorization = 'Bearer ' + token
     config.headers['Content-Type']= 'application/json'
     return config
@@ -20,7 +20,7 @@ axios.interceptors.response.use((response)=>{
 const request = {
     //登录
     postLogin:async(code)=>{
-        return await axios.post('/api/login',{code:code})
+        return await axios.get(`/user/login?token=${code}`)
     },
     //获取通知
     getNotify:async()=>{
@@ -28,7 +28,7 @@ const request = {
     },
     //获取医生列表
     getDocList:async()=>{
-        return await axios.get('/api/doclist')
+        return await axios.get('/doctor/index/list')
     },
     /**
      * 预约申请
@@ -40,15 +40,19 @@ const request = {
      * @param {string} data.date
      */
     postReserve:async(data)=>{
-        return await axios.post('/api/reserve',data)
+        return await axios.post('/rese/new',data)
     },
     //获取订单
     getReserve:async()=>{
-        return await axios.get(`/api/reserve`)
+        return await axios.get(`/rese/list`)
     },
-    //删除订单
+    /*
+    * 删除订单
+    * @param {number} id
+    * @param {string} token
+    * */
     deleteReserve:async(id)=>{
-        return await axios.delete(`/api/reserve/?id=${id}`)
+        return await axios.delete(`/reve/cancel?id=${id}`)
     },
     //获取订单(医生)
     getDocReserve:async()=>{
@@ -56,14 +60,14 @@ const request = {
     },
     //更新订单状态
     updateReserve:async(id,status)=>{
-        return await axios.put(`/api/reserve`,{
+        return await axios.put(`/rese/update`,{
             id:id,
             status:status
         })
     },
     //获取用户列表(管理员)
     getUserList:async()=>{
-        return await axios.get(`/api/userlist`)
+        return await axios.get(`/admin/user_list`)
     },
     /**
      * 更新用户状态
@@ -73,7 +77,7 @@ const request = {
      * @param {number} status
      */
     UpdateUser:async(id,data)=>{
-        return await axios.put(`/api/userlist/${id}`,data)
+        return await axios.put(`/admin/mod_user_perm${id}`,data)
     }
 }
 export default request
