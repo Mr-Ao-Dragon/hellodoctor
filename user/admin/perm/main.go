@@ -13,9 +13,6 @@ import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 )
 
-type StructEvent struct {
-	Body string `json:"body"`
-}
 type RequestBody struct {
 	TargetOpenID     string `json:"target_openid"`
 	OperatorOpenID   string `json:"operator_openid"`
@@ -23,7 +20,7 @@ type RequestBody struct {
 	TargetPermission int16  `json:"target_permission"`
 }
 
-func HandleHttpRequest(ctx context.Context, event StructEvent) (repose *datastruct.UniversalRepose, err error) {
+func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	var Request RequestBody
 	repose = new(datastruct.UniversalRepose)
 	_ = json.Unmarshal([]byte(event.Body), &Request)

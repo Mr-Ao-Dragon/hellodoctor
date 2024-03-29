@@ -12,14 +12,11 @@ import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 )
 
-type structEvent struct {
-	Body string `json:"body"`
-}
 type Id struct {
 	Id string `json:"id"`
 }
 
-func HandleHttpRequest(ctx context.Context, event structEvent) (repose *datastruct.UniversalRepose, err error) {
+func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	Open := new(Id)
 	repose = new(datastruct.UniversalRepose)
 	_ = Unmarshal([]byte(event.Body), Open)

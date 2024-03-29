@@ -1,10 +1,12 @@
 package database
 
 import (
+	"os"
+
+	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
+
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
-	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
-	"os"
 )
 
 func AddAd(single *datastruct.AdDataSingle) (AdDataSingle *datastruct.AdDataSingle, err error) {

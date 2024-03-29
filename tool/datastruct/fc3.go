@@ -1,6 +1,9 @@
 package datastruct
 
-import "time"
+import (
+	"errors"
+	"time"
+)
 
 type (
 	UniversalRepose struct {
@@ -44,3 +47,10 @@ type (
 		} `json:"requestContext"`
 	}
 )
+
+func (source EventStruct) ReadToken() (string, error) {
+	if source.Headers["token"] != nil {
+		return source.Headers["token"].(string), nil
+	}
+	return "", errors.New("read failed")
+}

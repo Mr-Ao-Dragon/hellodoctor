@@ -5,8 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 	"github.com/panjf2000/ants/v2"
+
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 )
 
 func GenAndPrint() error {
@@ -20,7 +21,7 @@ func GenAndPrint() error {
 	return err
 }
 
-//func main() {
+// func main() {
 //	//go func() {
 //	//	err := GenAndPrint(16)
 //	//	if err != nil {
@@ -31,7 +32,7 @@ func GenAndPrint() error {
 //	if err != nil {
 //		panic(err)
 //	}
-//}
+// }
 
 var sum = 0
 

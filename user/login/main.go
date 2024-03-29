@@ -17,14 +17,6 @@ import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/user"
 )
 
-// StructEvent represents the JSON structure of the event received by the function.
-type StructEvent struct {
-	QueryParameters struct {
-		Code         string `json:"code"`
-		InitPassword string `json:"init_password"`
-	} `json:"query_parameters"`
-}
-
 // ReposeBody represents the JSON structure of the response body.
 type ReposeBody struct {
 	Token     string `json:"token"`
@@ -32,12 +24,12 @@ type ReposeBody struct {
 }
 
 // HandleHttpRequest TODO: 整理此处代码，目前版本代码可读性较差
-func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose *datastruct.UniversalRepose, err error) {
+func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (Repose *datastruct.UniversalRepose, err error) {
 	// Convert code to OpenID
 	Repose = new(datastruct.UniversalRepose)
-	OpenID, err := user.CodeToOpenID(event.QueryParameters.Code)
+	OpenID, err := user.CodeToOpenID(event.QueryParameters["code"].(string))
 	if err != nil {
-		log.Printf("Query Failed By: %s", event.QueryParameters.Code)
+		log.Printf("Query Failed By: %s", event.QueryParameters["code"])
 		Repose.StatusCode = http.StatusUnauthorized
 		Repose.Headers.ContentType = ContentType.JsonUTF8
 		respJson := struct {
@@ -76,7 +68,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (Repose *datastru
 		return Repose, err
 	}
 	Perm := int8(0)
-	if event.QueryParameters.InitPassword == os.Getenv("InitPass") {
+	if event.QueryParameters["init_password"] == os.Getenv("InitPass") {
 		Perm = 5
 	}
 	// If user exists, login, otherwise register

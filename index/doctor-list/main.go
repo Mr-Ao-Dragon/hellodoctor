@@ -17,9 +17,8 @@ type QueryResult struct {
 	Msg  string                              `json:"msg"`
 	Data []datastruct.SingleDoctorDataStruct `json:"data"`
 }
-type structEvent struct{}
 
-func HandleHttpRequest(ctx context.Context, event structEvent) (repose *datastruct.UniversalRepose, err error) {
+func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	repose = new(datastruct.UniversalRepose)
 	Query, err := database.ListDoctor()
 	if err != nil {

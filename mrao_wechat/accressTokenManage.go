@@ -46,16 +46,16 @@ func GetAccessToken(AppId, AppSecret string, ForceRefresh bool) (AccessToken str
 	// 设置请求头
 	req.Header.Set("Content-Type", "application/json")
 	// 发送HTTP请求并获取响应
-	//const maxRetries = 5
-	//var resp *http.Response
-	//for retry := 0; retry <= maxRetries; retry++ {
+	// const maxRetries = 5
+	// var resp *http.Response
+	// for retry := 0; retry <= maxRetries; retry++ {
 	//	resp, err = Client.Do(req)
 	//	if err == nil {
 	//		break
 	//	} else {
 	//		return "", 0, err
 	//	}
-	//}
+	// }
 	resp, err := Client.Do(req)
 	if err != nil {
 		return "", 0, err

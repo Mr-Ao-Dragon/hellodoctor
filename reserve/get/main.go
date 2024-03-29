@@ -7,25 +7,29 @@ import (
 	"net/http"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
-	"github.com/jinzhu/copier"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
 	"github.com/Mr-Ao-Dragon/hellodoctor/reserve"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/commonData/ContentType"
+	"github.com/Mr-Ao-Dragon/hellodoctor/tool/dataProcess"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
-type eventStruct struct {
-	QueryParameters struct {
-		Token  string `json:"token" copier:"Token"`
-		OpenID string `json:"id" copier:"OpenID"`
-	} `json:"queryParameters"`
-}
-
-func HandleHttpRequest(ctx context.Context, event eventStruct) (repose *datastruct.UniversalRepose, err error) {
-	Login := new(datastruct.AuthStruct)
+func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
+	token, err := event.ReadToken()
+	if err != nil {
+		repose.StatusCode = http.StatusBadRequest
+		repose.Headers.ContentType = ContentType.TextUTF8
+		repose.IsBase64Encoded = false
+		repose.Body = "无法读取 Token"
+		return repose, nil
+	}
+	OpenID, err := dataProcess.CutOpenID(token)
+	Login := &datastruct.AuthStruct{
+		SystemToken: token,
+		OpenID:      OpenID,
+	}
 	repose = new(datastruct.UniversalRepose)
-	err = copier.Copy(*Login, event.QueryParameters)
 
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError

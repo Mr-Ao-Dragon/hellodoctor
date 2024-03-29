@@ -7,11 +7,19 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="update: index">
+    <list default="true" id="e8077ba5-cc10-46cf-82e5-d45dd286794a" name="更改" comment="fix: 修正请求地址">
       <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/health-check/lag/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/gen/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/gen/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/datastruct/fc3.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/errors/errors.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/errors/errors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +72,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -75,39 +83,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor&quot;: &quot;Run&quot;,
-    &quot;Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor&quot;: &quot;Run&quot;,
-    &quot;Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor&quot;: &quot;Run&quot;,
-    &quot;Go 构建.go build scratch.go.executor&quot;: &quot;Run&quot;,
-    &quot;Go 构建.verify/mock.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;configurable..is.expanded&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-
-    &quot;last_opened_file_path&quot;: &quot;/home/mraodragon/repos/hellodoctor/database/user.go&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;,
-
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.27372262&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen (1).executor": "Run",
+    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/test/gen.executor": "Run",
+    "Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin.executor": "Run",
+    "Go 构建.go build scratch.go.executor": "Run",
+    "Go 构建.verify/mock.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "configurable..is.expanded": "true",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/mraodragon/repos/hellodoctor/database/user.go",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "http.proxy",
+    "settings.editor.splitter.proportion": "0.27372262"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件&quot;: [
-      &quot;go&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/新建临时文件": [
+      "go"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
       <recent name="$PROJECT_DIR$/database" />
@@ -168,8 +175,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
         <item itemvalue="Go 构建.verify/mock" />
+        <item itemvalue="Go 构建.go build github.com/Mr-Ao-Dragon/hellodoctor/verify/base-on-gin" />
         <item itemvalue="Go 构建.go build scratch.go" />
         <item itemvalue="Go 构建.verify/mock" />
         <item itemvalue="Go 构建.go build scratch.go" />
@@ -205,7 +212,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix: 修正为微信要求的数据类型" />
     <MESSAGE value="fix: 根据阿里云工程师指导修改为正确的回复" />
     <MESSAGE value="add: 打印上下文" />
     <MESSAGE value="fix: 继续尝试类型" />
@@ -230,7 +236,8 @@
     <MESSAGE value="update: 整理数据库接口&#10;add: 添加公告骨架" />
     <MESSAGE value="del: 删除无用的github流水线" />
     <MESSAGE value="update: index" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: index" />
+    <MESSAGE value="fix: 修正请求地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修正请求地址" />
   </component>
   <component name="VgoProject">
     <environment>
