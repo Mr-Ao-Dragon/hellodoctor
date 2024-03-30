@@ -1,6 +1,7 @@
 package user
 
 import (
+	"log"
 	"os"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
@@ -27,17 +28,18 @@ func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expires
 
 func CodeToOpenID(code string) (OpenID string, err error) {
 	OfficialAccountApp, err := officialAccount.NewOfficialAccount(&officialAccount.UserConfig{
-		AppID:  os.Getenv("AppId"),     // 公众号、小程序的appid
-		Secret: os.Getenv("AppSecret"), // 公众号、小程序的appsecret
-		Token:  "0000",                 // 不需要使用但要求填写
-		AESKey: "0000",                 // 不需要使用但要求填写
+		AppID:  os.Getenv("AppId"),          // 公众号、小程序的appid
+		Secret: os.Getenv("AppSecret"),      // 公众号、小程序的appsecret
+		Token:  os.Getenv("token"),          // 不需要使用但要求填写
+		AESKey: os.Getenv("EncodingAESKey"), // 不需要使用但要求填写
 		Log: officialAccount.Log{
 			Level: "debug",
 		},
-		HttpDebug: true,
-		Debug:     true,
+		HttpDebug: false,
+		Debug:     false,
 	})
 	if err != nil {
+		log.Printf("err msg: %#v", err)
 		return "", err
 	}
 	UserInterface, err := OfficialAccountApp.OAuth.UserFromCode(code)
