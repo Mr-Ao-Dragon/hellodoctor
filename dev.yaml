@@ -393,8 +393,9 @@ resources:
           - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
         maxVersion: TLSv1.3
       certConfig:
-        certName: ${env('certName')}
-        certificate: oss://${env('region')}/${env('certBucket')}/${env('certPem')}
-        privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
+#         certName: ${env('certName')}
+#         certificate: oss://${env('region')}/${env('certBucket')}/${env('certPem')}
+#         privateKey: oss://${env('region')}/${env('certBucket')}/${env('certKey')}
+        certId: ${env('certId')}
       authConfig:
         authType: anonymous
