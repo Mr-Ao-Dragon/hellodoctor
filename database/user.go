@@ -29,6 +29,7 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	criteria.PrimaryKey = putPk
 	getRowRequest.SingleRowQueryCriteria = criteria
 	Result, err := client.GetRow(getRowRequest)
+	defer log.Printf("数据库读写出错，错误信息：%#v", err)
 	if err != nil {
 		log.Fatalf("数据库读写出错，错误信息：%#v", err)
 		return false, err
