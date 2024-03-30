@@ -30,6 +30,7 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	getRowRequest.SingleRowQueryCriteria = criteria
 	Result, err := client.GetRow(getRowRequest)
 	if err != nil {
+		log.Fatalf("数据库读写出错，错误信息：%#v", err)
 		return false, err
 	}
 	if Result != nil {
@@ -63,6 +64,7 @@ func QueryLogin(authStruct *datastruct.AuthStruct) (loginStat bool, err error) {
 		return false, err
 	}
 	if err != nil {
+		log.Fatalf("数据库读写出错，错误信息：%#v", err)
 		return false, err
 	}
 	Column := Result.Columns
@@ -119,6 +121,7 @@ func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64,
 	getRowRequest.SingleRowQueryCriteria.TableName = "user"
 	queryExpiresIn, err := client.GetRow(getRowRequest)
 	if err != nil {
+		log.Fatalf("数据库读写出错，错误信息：%#v", err)
 		return false, NowUnix, true, err
 	}
 	desiredColumnNumber := 0
@@ -146,10 +149,10 @@ func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64,
 	UpdateRowRequest.UpdateRowChange = UpdateRowChange
 	_, err = client.UpdateRow(UpdateRowRequest)
 	if err != nil {
+		log.Fatalf("数据库读写出错，错误信息：%#v", err)
 		return false, NowUnix, true, err
-	} else {
-		return true, expiresIn, false, nil
 	}
+	return true, expiresIn, false, nil
 }
 
 func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses bool, expiresIn int64, err error) {
@@ -177,8 +180,8 @@ func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses 
 	putRowRequest.PutRowChange.PrimaryKey = putPk
 	_, err = client.PutRow(putRowRequest)
 	if err != nil {
+		log.Fatalf("数据库读写出错，错误信息：%#v", err)
 		return false, time.Now().Unix(), err
-	} else {
-		return true, time.Now().Unix(), nil
 	}
+	return true, time.Now().Unix(), nil
 }
