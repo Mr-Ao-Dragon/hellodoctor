@@ -20,15 +20,15 @@ axios.interceptors.response.use((response)=>{
 const request = {
     //登录
     postLogin:async(code)=>{
-        return await axios.get(`/user/login?token=${code}`)
+        return await axios.get(`/v1/user/login?token=${code}`)
     },
     //获取通知
     getNotify:async()=>{
-        return await axios.get('/api/notify')
+        return await axios.get('/v1/api/notify')
     },
     //获取医生列表
     getDocList:async()=>{
-        return await axios.get('/doctor/index/list')
+        return await axios.get('/v1/doctor/index/list')
     },
     /**
      * 预约申请
@@ -40,11 +40,11 @@ const request = {
      * @param {string} data.date
      */
     postReserve:async(data)=>{
-        return await axios.post('/rese/new',data)
+        return await axios.post('/v1/rese/new',data)
     },
     //获取订单
     getReserve:async()=>{
-        return await axios.get(`/rese/list`)
+        return await axios.get(`/v1/rese/list`)
     },
     /*
     * 删除订单
@@ -52,22 +52,22 @@ const request = {
     * @param {string} token
     * */
     deleteReserve:async(id)=>{
-        return await axios.delete(`/reve/cancel?id=${id}`)
+        return await axios.delete(`/v1/reve/cancel?id=${id}`)
     },
     //获取订单(医生)
     getDocReserve:async()=>{
-        return await axios.get(`/api/reserve/doc`)
+        return await axios.get(`/v1/api/reserve/doc`)
     },
     //更新订单状态
     updateReserve:async(id,status)=>{
-        return await axios.put(`/rese/update`,{
+        return await axios.put(`/v1/rese/update`,{
             id:id,
             status:status
         })
     },
     //获取用户列表(管理员)
     getUserList:async()=>{
-        return await axios.get(`/admin/user_list`)
+        return await axios.get(`/v1/admin/user_list`)
     },
     /**
      * 更新用户状态
@@ -77,7 +77,7 @@ const request = {
      * @param {number} status
      */
     UpdateUser:async(id,data)=>{
-        return await axios.put(`/admin/mod_user_perm${id}`,data)
+        return await axios.put(`/v1/admin/mod_user_perm${id}`,data)
     }
 }
 export default request
