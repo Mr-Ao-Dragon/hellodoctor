@@ -1,6 +1,7 @@
 package user
 
 import (
+	"errors"
 	"log"
 	"os"
 
@@ -43,6 +44,14 @@ func CodeToOpenID(code string) (OpenID string, err error) {
 		return "", err
 	}
 	UserInterface, err := OfficialAccountApp.OAuth.UserFromCode(code)
+	if err != nil {
+		log.Fatalf("err: %#v", err)
+		return "", err
+	}
+	if UserInterface == nil {
+		err = errors.New("userInterface is nil")
+		return "", err
+	}
 	OpenID = UserInterface.GetOpenID()
 	err = nil
 	return
