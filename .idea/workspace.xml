@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="update： 修复不发送请求的问题">
-      <change beforePath="$PROJECT_DIR$/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/App.vue" afterDir="false" />
-    </list>
+    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="update： 修正回调地址" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +103,7 @@
       <workItem from="1711113394357" duration="643000" />
       <workItem from="1711115097925" duration="1937000" />
       <workItem from="1711122622685" duration="5377000" />
-      <workItem from="1712059527834" duration="1084000" />
+      <workItem from="1712059527834" duration="1897000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
@@ -139,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712059934594</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update： 修正回调地址">
+      <option name="closed" value="true" />
+      <created>1712065517218</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712065517218</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +171,8 @@
     <MESSAGE value="update： 更新 IDE 设置" />
     <MESSAGE value="update： 重写路径" />
     <MESSAGE value="update： 修复不发送请求的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="update： 修复不发送请求的问题" />
+    <MESSAGE value="update： 修正回调地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="update： 修正回调地址" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
