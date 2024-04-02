@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="" />
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="add: 添加读取 Authorization 功能">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tool/dataProcess/string.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/dataProcess/string.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +17,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2eXfHHiAntBthtToMzlzFbzr2pd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,6 +32,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
@@ -53,13 +57,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix:panic [tablestore] invalid input" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:panic [tablestore] invalid input" />
+    <MESSAGE value="add: 添加读取 Authorization 功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: 添加读取 Authorization 功能" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
     {
       "branch": "master",
       "currentBranchFilter": true
