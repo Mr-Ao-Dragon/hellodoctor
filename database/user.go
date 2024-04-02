@@ -27,6 +27,7 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	putPk := new(tablestore.PrimaryKey)
 	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
 	criteria.PrimaryKey = putPk
+	criteria.MaxVersion = 1
 	getRowRequest.SingleRowQueryCriteria = criteria
 	Result, err := client.GetRow(getRowRequest)
 	defer log.Printf("数据库读写出错，错误信息：%#v", err)
@@ -56,6 +57,7 @@ func QueryLogin(authStruct *datastruct.AuthStruct) (loginStat bool, err error) {
 	putPk.AddPrimaryKeyColumn("OpenID", authStruct.OpenID)
 	criteria.PrimaryKey = putPk
 	criteria.TableName = "user"
+	criteria.MaxVersion = 1
 	getRowRequest.SingleRowQueryCriteria = criteria
 	criteria.ColumnsToGet = []string{"ExpiresIn", "SystemToken"}
 	Result, err := client.GetRow(getRowRequest)
@@ -118,8 +120,9 @@ func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64,
 	putPk := new(tablestore.PrimaryKey)
 	putPk.AddPrimaryKeyColumn("OpenID", AuthData.OpenID)
 	criteria.PrimaryKey = putPk
+	criteria.MaxVersion = 1
+	criteria.TableName = "user"
 	getRowRequest.SingleRowQueryCriteria = criteria
-	getRowRequest.SingleRowQueryCriteria.TableName = "user"
 	queryExpiresIn, err := client.GetRow(getRowRequest)
 	if err != nil {
 		log.Fatalf("数据库读写出错，错误信息：%#v", err)

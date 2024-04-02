@@ -22,6 +22,8 @@ func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
 	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
 	criteria.PrimaryKey = putPk
 	criteria.TableName = "user"
+	criteria.MaxVersion = 1
+	criteria.AddColumnToGet("")
 	getRowRequest.SingleRowQueryCriteria = criteria
 	criteria.ColumnsToGet = []string{"permission"}
 	queryResult, err := client.GetRow(getRowRequest)

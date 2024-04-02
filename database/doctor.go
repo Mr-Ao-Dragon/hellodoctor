@@ -27,6 +27,7 @@ func QueryDoctor(OpenID string) (result *datastruct.SingleDoctorDataStruct, err 
 	criteria.TableName = "doctor"
 	criteria.AddColumnToGet("name")
 	criteria.AddColumnToGet("avatar")
+	criteria.MaxVersion = 1
 	getRowRequest.SingleRowQueryCriteria = criteria
 	queryResult, err := client.GetRow(getRowRequest)
 	if err != nil {
