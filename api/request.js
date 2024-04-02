@@ -5,7 +5,7 @@ axios.interceptors.request.use((config)=>{
     uni.showLoading({title:"请求中"})
     const token = uni.getStorageSync('token')?uni.getStorageSync('token'):""
     //需要改动的就是这里填写后端的基础地址
-    config.baseURL= 'v1'
+    config.baseURL= 'https://api.'+window.location.hostname+'/'
     config.headers.Authorization = 'Bearer ' + token
     config.headers['Content-Type']= 'application/json'
     return config
