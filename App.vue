@@ -1,8 +1,8 @@
 <script>
 import request from './api/request'
 const wxLoginData = {
-  appid: '',//填写appid
-  redirect_uri: '',//填写这个网页的地址
+  appid: 'wx277005e156d46f0a',//填写appid
+  redirect_uri: 'https://'+window.location.hostname+'/index.html',//填写这个网页的地址
   response_type: 'code',
   scope: 'snsapi_userinfo',
 }
@@ -17,7 +17,7 @@ export default {
     const expries_in = uni.getStorageSync('expries_in')
     if (!token || !expries_in || expries_in < new Date().getTime()) {
       console.log("未登录")
-    //   window.location.href = loginLink
+      window.location.href = loginLink
     }
   }
 }
