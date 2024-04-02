@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hellodoctor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hellodoctor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/doctor.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/doctor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/perm.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/user.go" afterDir="false" />
-    </list>
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,6 +50,10 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix:panic [tablestore] invalid input" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix:panic [tablestore] invalid input" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
