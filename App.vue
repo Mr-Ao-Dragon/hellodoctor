@@ -1,7 +1,7 @@
 <script>
 import request from './api/request'
 const wxLoginData = {
-  appid: 'wx277005e156d46f0a',//填写appid
+  appid: 'wx295f40fae672dd46',//填写appid
   redirect_uri: 'https://api.'+window.location.hostname+'/v1/user/login',//填写这个网页的地址
   response_type: 'code',
   scope: 'snsapi_userinfo',
@@ -10,7 +10,6 @@ const loginLink = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${w
 
 export default {
   async onload(options) {
-    
   },
   onShow() {
     const token = uni.getStorageSync('token')

@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="update： 修正回调地址" />
+    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="update： 修正回调地址">
+      <change beforePath="$PROJECT_DIR$/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/App.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,6 +106,7 @@
       <workItem from="1711115097925" duration="1937000" />
       <workItem from="1711122622685" duration="5377000" />
       <workItem from="1712059527834" duration="1897000" />
+      <workItem from="1712123139829" duration="177000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
