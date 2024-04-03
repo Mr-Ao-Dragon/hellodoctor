@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="fix: 错误的函数和变量名">
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="张小龙，啊米挪斯！">
       <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +22,7 @@
   <component name="GOROOT" url="file://$USER_HOME$/go/go1.22.1" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -68,7 +69,8 @@
     <MESSAGE value="fix: 导出函数" />
     <MESSAGE value="add: 添加回调地址验证逻辑" />
     <MESSAGE value="fix: 错误的函数和变量名" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 错误的函数和变量名" />
+    <MESSAGE value="张小龙，啊米挪斯！" />
+    <option name="LAST_COMMIT_MESSAGE" value="张小龙，啊米挪斯！" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

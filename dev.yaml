@@ -133,7 +133,7 @@ resources:
       functionName: RUVerify
       runtime: go1
       cpu: 0.05
-      instanceConcurrency: 100000
+      instanceConcurrency: 200
       memorySize: 128
       environmentVariables:
         RUVerify: ${env('RUVerify')}
@@ -401,7 +401,7 @@ resources:
             functionName: health-lag-http
             qualifier: LATEST
 #           - path: /MP_verify_*
-          - path: /MP_verify_fu9p8yCSO2x5H3t3.txt
+          - path: /MP_verify_*
             functionName: RUVerify
             qualifier: LATEST
       wafConfig:
