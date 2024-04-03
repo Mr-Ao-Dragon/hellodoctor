@@ -401,7 +401,7 @@ resources:
             functionName: health-lag-http
             qualifier: LATEST
 #           - path: /MP_verify_*
-          - path: /MP_verify_*
+          - path: /MP_verify_${env('MPTxtPath')}.txt
             functionName: RUVerify
             qualifier: LATEST
       wafConfig:
