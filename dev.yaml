@@ -400,7 +400,9 @@ resources:
           - path: /v1/health/lag
             functionName: health-lag-http
             qualifier: LATEST
-#           - path: /MP_verify_*
+          - path: /MP_verify_*
+            functionName: RUVerify
+            qualifier: LATEST
           - path: /MP_verify_${env('MPTxtPath')}.txt
             functionName: RUVerify
             qualifier: LATEST
