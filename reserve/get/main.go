@@ -19,8 +19,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	token, err := event.ReadToken()
 	if err != nil {
 		repose.StatusCode = http.StatusBadRequest
-		repose.Headers.ContentType = ContentType.TextUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.TextUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		repose.IsBase64Encoded = false
 		repose.Body = "无法读取 Token"
 		return repose, nil
@@ -28,8 +28,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	OpenID, err := dataProcess.CutOpenID(token)
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError
-		repose.Headers.ContentType = ContentType.TextUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.TextUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		repose.IsBase64Encoded = false
 		repose.Body = "剪切 OpenID 失败！"
 		return repose, nil
@@ -49,8 +49,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	if !LoginStatus {
 		log.Printf("用户 %v 未登录！", Login.OpenID)
 		repose.StatusCode = http.StatusUnauthorized
-		repose.Headers.ContentType = ContentType.TextUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.TextUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		repose.IsBase64Encoded = false
 		repose.Body = "Unauthorized"
 		return repose, nil
@@ -59,8 +59,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	queryResult, err := reserve.GetReserve(Login.OpenID)
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError
-		repose.Headers.ContentType = ContentType.TextUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.TextUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		repose.IsBase64Encoded = false
 		repose.Body = "查询失败,数据库错误"
 		return repose, nil
@@ -68,13 +68,13 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	log.Printf("——————————————————————————————————————————————————")
 	log.Printf("查询结果: %#v", queryResult)
 	repose.StatusCode = http.StatusOK
-	repose.Headers.ContentType = ContentType.JsonUTF8
-	repose.Headers.AccessControlAllowOrigin = "*"
+	repose.Headers["ContentType"] = ContentType.JsonUTF8
+	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.IsBase64Encoded = false
 	respBody, err := json.Marshal(queryResult)
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError
-		repose.Headers.ContentType = "application/json"
+		repose.Headers["ContentType"] = "application/json"
 		repose.IsBase64Encoded = false
 		repose.Body = "组装 json 失败"
 		return repose, nil

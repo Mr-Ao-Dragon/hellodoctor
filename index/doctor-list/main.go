@@ -35,8 +35,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	respBody := QueryResult{Code: http.StatusOK, Msg: "success", Data: Query}
 	respBodyJson, _ := json.Marshal(respBody)
 	repose.StatusCode = http.StatusOK
-	repose.Headers.ContentType = ContentType.JsonUTF8
-	repose.Headers.AccessControlAllowOrigin = "*"
+	repose.Headers["ContentType"] = ContentType.JsonUTF8
+	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.Body = string(respBodyJson)
 	return repose, nil
 }

@@ -31,8 +31,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	if err != nil {
 		log.Printf("Query Failed By: %s", event.QueryParameters["token"])
 		repose.StatusCode = http.StatusUnauthorized
-		repose.Headers.ContentType = ContentType.JsonUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.JsonUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		respJson := struct {
 			Code    int    `json:"code"`
 			Message string `json:"message"`
@@ -56,8 +56,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	if err != nil {
 		log.Printf("Database down!")
 		repose.StatusCode = http.StatusServiceUnavailable
-		repose.Headers.ContentType = ContentType.JsonUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.JsonUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		respJson := struct {
 			Code    int    `json:"code"`
 			Message string `json:"message"`
@@ -73,7 +73,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	if event.QueryParameters["init_password"] == os.Getenv("InitPass") {
 		Perm = 5
 	}
-	// If user exists, login, otherwise register
+	// If a user exists, login, otherwise register
 	if Result {
 		log.Printf("%s this user is logined", OpenID)
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Login(AuthData)
@@ -83,7 +83,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	}
 	if err != nil {
 		repose.StatusCode = http.StatusBadRequest
-		repose.Headers.ContentType = ContentType.JsonUTF8
+		repose.Headers["ContentType"] = ContentType.JsonUTF8
 		respJson := struct {
 			Code    int    `json:"code"`
 			Message string `json:"message"`
@@ -96,9 +96,10 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		return repose, err
 	}
 	QueryResultJson, _ := json.Marshal(QueryResult)
-	repose.StatusCode = http.StatusOK
-	repose.Headers.ContentType = ContentType.JsonUTF8
-	repose.Headers.AccessControlAllowOrigin = "*"
+	repose.StatusCode = http.StatusFound
+	repose.Headers["ContentType"] = ContentType.JsonUTF8
+	repose.Headers["AccessControlAllowOrigin"] = "*"
+	repose.Headers["Location"] = "https://" + os.Getenv("domain")
 	repose.IsBase64Encoded = false
 	repose.Body = string(QueryResultJson)
 	return

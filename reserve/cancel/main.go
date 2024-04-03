@@ -35,8 +35,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.StatusCode = http.StatusBadRequest
 		response.IsBase64Encoded = false
 		response.Body = "token must be string"
-		response.Headers.ContentType = ContentType.TextUTF8
-		response.Headers.AccessControlAllowOrigin = "*"
+		response.Headers["ContentType"] = ContentType.TextUTF8
+		response.Headers["AccessControlAllowOrigin"] = "*"
 		log.Printf("bad request: %#v", response)
 		err = nil
 		return
@@ -48,7 +48,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.StatusCode = http.StatusInternalServerError
 		response.IsBase64Encoded = false
 		response.Body = "Cut OpenID fail!"
-		response.Headers.ContentType = ContentType.TextUTF8
+		response.Headers["ContentType"] = ContentType.TextUTF8
 		log.Printf("Process data failed: %#v", auth)
 		err = nil
 		return
@@ -61,7 +61,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.StatusCode = http.StatusUnauthorized
 		response.IsBase64Encoded = false
 		response.Body = "未登录，拒绝访问"
-		response.Headers.ContentType = ContentType.TextUTF8
+		response.Headers["ContentType"] = ContentType.TextUTF8
 		log.Printf("No login: %#v", response)
 		err = nil
 		return
@@ -76,8 +76,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.StatusCode = http.StatusBadRequest
 		response.IsBase64Encoded = false
 		response.Body = "reserveID must be int32"
-		response.Headers.ContentType = ContentType.TextUTF8
-		response.Headers.AccessControlAllowOrigin = "*"
+		response.Headers["ContentType"] = ContentType.TextUTF8
+		response.Headers["AccessControlAllowOrigin"] = "*"
 		log.Printf("bad request: %#v", response)
 		err = nil
 		return
@@ -92,8 +92,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 			// 如果OpenID不匹配，返回未授权响应
 			response.StatusCode = http.StatusForbidden
 			response.Body = "权限不足，拒绝访问"
-			response.Headers.ContentType = ContentType.TextUTF8
-			response.Headers.AccessControlAllowOrigin = "*"
+			response.Headers["ContentType"] = ContentType.TextUTF8
+			response.Headers["AccessControlAllowOrigin"] = "*"
 			log.Printf("No permission: %#v", response)
 			err = nil
 			return
@@ -102,15 +102,15 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.StatusCode = http.StatusOK
 		response.IsBase64Encoded = false
 		response.Body = "success"
-		response.Headers.ContentType = ContentType.TextUTF8
-		response.Headers.AccessControlAllowOrigin = "*"
+		response.Headers["ContentType"] = ContentType.TextUTF8
+		response.Headers["AccessControlAllowOrigin"] = "*"
 		log.Printf("success: %#v", response)
 		err = reserve.CancelReserve(reserveID.(int32))
 		if err != nil {
 			// 如果取消预约失败，返回内部服务器错误
 			response.StatusCode = http.StatusInternalServerError
 			response.Body = "cancel reserve fail"
-			response.Headers.ContentType = ContentType.TextUTF8
+			response.Headers["ContentType"] = ContentType.TextUTF8
 			log.Printf("cancel reserve fail: %#v", err)
 			err = nil
 			return

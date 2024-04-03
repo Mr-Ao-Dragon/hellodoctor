@@ -17,8 +17,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 
 	repose.StatusCode = http.StatusOK
 	repose.IsBase64Encoded = false
-	repose.Headers.ContentType = ContentType.TextUTF8
-	repose.Headers.AccessControlAllowOrigin = "*"
+	repose.Headers["ContentType"] = ContentType.TextUTF8
+	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.Body = strconv.FormatInt(time.Now().UnixMilli(), 10)
 	err = nil
 	return

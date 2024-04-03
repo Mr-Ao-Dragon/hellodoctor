@@ -23,15 +23,15 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	json, err := user.QueryDoctor(Open.Id)
 	if err != nil {
 		repose.StatusCode = http.StatusNotFound
-		repose.Headers.ContentType = ContentType.JsonUTF8
-		repose.Headers.AccessControlAllowOrigin = "*"
+		repose.Headers["ContentType"] = ContentType.JsonUTF8
+		repose.Headers["AccessControlAllowOrigin"] = "*"
 		repose.IsBase64Encoded = false
 		repose.Body = "not found"
 		return repose, err
 	}
 	marshaledJson, _ := Marshal(json)
-	repose.Headers.ContentType = ContentType.JsonUTF8
-	repose.Headers.AccessControlAllowOrigin = "*"
+	repose.Headers["ContentType"] = ContentType.JsonUTF8
+	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.IsBase64Encoded = false
 	repose.StatusCode = http.StatusOK
 	repose.Body = string(marshaledJson)

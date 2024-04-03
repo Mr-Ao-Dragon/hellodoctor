@@ -71,7 +71,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose *datastru
 		// 验证通过，返回成功响应
 		repose.StatusCode = http.StatusOK
 		repose.Body = event.QueryParameters.EchoStr
-		repose.Headers.ContentType = ContentType.Text
+		repose.Headers["ContentType"] = ContentType.Text
 		repose.IsBase64Encoded = false
 		err = nil
 		return
@@ -82,7 +82,7 @@ func HandleHttpRequest(ctx context.Context, event StructEvent) (repose *datastru
 		log.Printf("local Signature is: %s", localSignature)
 		repose.StatusCode = http.StatusBadRequest
 		repose.Body = ""
-		repose.Headers.ContentType = "text/plain; charset=utf-8"
+		repose.Headers["ContentType"] = ContentType.TextUTF8
 		err = nil
 		return
 	}

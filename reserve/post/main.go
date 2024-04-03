@@ -24,7 +24,7 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 	token, err := event.ReadToken()
 	if err != nil {
 		repose.StatusCode = http.StatusBadRequest
-		repose.Headers.ContentType = ContentType.TextUTF8
+		repose.Headers["ContentType"] = ContentType.TextUTF8
 		repose.IsBase64Encoded = false
 		repose.Body = "无法读取 Token"
 		return repose, nil
@@ -39,7 +39,7 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 		// 登录失败或存在错误，返回未授权响应
 		repose.StatusCode = http.StatusUnauthorized
 		repose.Body = "Unauthorized"
-		repose.Headers.ContentType = ContentType.TextUTF8
+		repose.Headers["ContentType"] = ContentType.TextUTF8
 		repose.IsBase64Encoded = false
 		err = nil
 		return
@@ -57,7 +57,7 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 	// 预约成功，返回结果
 	repose.StatusCode = http.StatusOK
 	repose.Body = string(ReserveByte)
-	repose.Headers.ContentType = ContentType.JsonUTF8
+	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.IsBase64Encoded = false
 	return repose, nil
 }
