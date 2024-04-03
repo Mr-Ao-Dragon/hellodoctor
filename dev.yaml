@@ -123,6 +123,42 @@ resources:
           path: ./
         - run: chmod a+x verify
           path: ./target
+  RUverify:
+    component: fc3
+    props:
+      region: ${env('region')}
+      description: ''
+      timeout: 60
+      internetAccess: true
+      functionName: RUverify
+      runtime: go1
+      cpu: 0.05
+      instanceConcurrency: 100000
+      memorySize: 128
+      environmentVariables:
+        RUverify: ${env('RUverify')}
+      handler: RUverify
+      diskSize: 512
+      code: target/RUverify
+      logConfig: auto
+      triggers:
+        - triggerConfig:
+            methods:
+              - GET
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: ''
+          qualifier: LATEST
+          triggerType: http
+    actions:
+      pre-deploy:
+        - run: mkdir -p target
+          path: ./
+        - run: GO111MODULE=on CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags='-s -w' -o=target/RUverify redirectUri/main.go
+          path: ./
+        - run: chmod a+x RUverify
+          path: ./target
   doctor-list:
     component: fc3
     props:
@@ -363,6 +399,9 @@ resources:
             qualifier: LATEST
           - path: /v1/health/lag
             functionName: health-lag-http
+            qualifier: LATEST
+          - path: /MP_verify_*
+            functionName: RUVerify
             qualifier: LATEST
       wafConfig:
         enableWAF: false
