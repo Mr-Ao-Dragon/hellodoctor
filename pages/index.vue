@@ -57,14 +57,13 @@ export default {
       lunbo: [],
       noti: [],
       list: [],
-      ready: false,
+      ready: true,
       wxLoginData: {
-        appid: 'wx277005e156d46f0a',//填写appid
-        redirect_uri: '',//填写这个网页的地址
+        appid: 'wx295f40fae672dd46',//填写appid
+        redirect_uri: 'https://api.'+window.location.hostname+'/v1/user/login',//填写这个网页的地址
         response_type: 'code',
         scope: 'snsapi_userinfo',
       }
-
     }
   },
   async onLoad(options) {

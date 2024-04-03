@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="update： 修正回调地址">
-      <change beforePath="$PROJECT_DIR$/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +108,7 @@
       <workItem from="1711122622685" duration="5377000" />
       <workItem from="1712059527834" duration="1897000" />
       <workItem from="1712123139829" duration="177000" />
+      <workItem from="1712158258852" duration="1001000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
