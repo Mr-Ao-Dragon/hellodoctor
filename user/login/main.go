@@ -99,7 +99,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	repose.StatusCode = http.StatusFound
 	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.Headers["AccessControlAllowOrigin"] = "*"
-	repose.Headers["Location"] = "https://" + os.Getenv("domain")
+	repose.Headers["Location"] = "https://" + os.Getenv("H5Domain")
 	repose.IsBase64Encoded = false
 	repose.Body = string(QueryResultJson)
 	return
