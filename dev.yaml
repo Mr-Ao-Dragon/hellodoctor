@@ -400,7 +400,8 @@ resources:
           - path: /v1/health/lag
             functionName: health-lag-http
             qualifier: LATEST
-          - path: /MP_verify_*
+#           - path: /MP_verify_*
+          - path: /MP_verify_fu9p8yCSO2x5H3t3.txt
             functionName: RUVerify
             qualifier: LATEST
       wafConfig:

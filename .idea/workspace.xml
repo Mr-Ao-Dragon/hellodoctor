@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="fix: 导出函数">
-      <change afterPath="$PROJECT_DIR$/redirectUri/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="fix: 错误的函数和变量名">
       <change beforePath="$PROJECT_DIR$/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/dev.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +66,9 @@
     <MESSAGE value="fix:panic [tablestore] invalid input" />
     <MESSAGE value="add: 添加读取 Authorization 功能" />
     <MESSAGE value="fix: 导出函数" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 导出函数" />
+    <MESSAGE value="add: 添加回调地址验证逻辑" />
+    <MESSAGE value="fix: 错误的函数和变量名" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 错误的函数和变量名" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
