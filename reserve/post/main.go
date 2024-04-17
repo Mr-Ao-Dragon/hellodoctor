@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"strconv"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
@@ -47,10 +48,12 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 	// 复制请求数据到储备结构体
 	reserveData := new(datastruct.AddReserve)
 	reserveData.Token, err = event.ReadToken()
-	reserveData.DoctorID = event.QueryParameters["doctor_id"].(string)
-	reserveData.Mobile = event.QueryParameters["mobile"].(int64)
-	reserveData.Name = event.QueryParameters["name"].(string)
-	reserveData.Time = event.QueryParameters["time"].(int64)
+	reserveData.DoctorID = event.QueryParameters["doctor_id"]
+	mobile, _ := strconv.Atoi(event.QueryParameters["mobile"])
+	reserveData.Mobile = int64(mobile)
+	reserveData.Name = event.QueryParameters["name"]
+	time, _ := strconv.Atoi(event.QueryParameters["time"])
+	reserveData.Time = int64(time)
 	// 提交预约信息
 	newReserve, err := reserve.PostReserve(reserveData, auth)
 	ReserveByte, _ := json.Marshal(newReserve)

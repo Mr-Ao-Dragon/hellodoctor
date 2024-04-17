@@ -2,6 +2,7 @@ package datastruct
 
 import (
 	"errors"
+	"strings"
 	"time"
 )
 
@@ -13,12 +14,12 @@ type (
 		Body            string         `json:"body"`
 	}
 	EventStruct struct {
-		Version         string         `json:"version"`
-		RawPath         string         `json:"rawPath"`
-		Body            string         `json:"body"`
-		IsBase64Encoded bool           `json:"isBase64Encoded"`
-		Headers         map[string]any `json:"headers"`
-		QueryParameters map[string]any `json:"queryParameters"`
+		Version         string            `json:"version"`
+		RawPath         string            `json:"rawPath"`
+		Body            string            `json:"body"`
+		IsBase64Encoded bool              `json:"isBase64Encoded"`
+		Headers         map[string]string `json:"headers"`
+		QueryParameters map[string]string `json:"queryParameters"`
 		RequestContext  struct {
 			AccountId    string `json:"accountId"`
 			DomainName   string `json:"domainName"`
@@ -38,8 +39,10 @@ type (
 )
 
 func (source EventStruct) ReadToken() (string, error) {
-	if source.Headers["token"] != nil {
-		return source.Headers["token"].(string), nil
+	prefix := "Bearer "
+	strIndex := strings.Index(source.QueryParameters["token"], prefix)
+	if strIndex == -1 {
+		return "", errors.New(`wong format`)
 	}
-	return "", errors.New("read failed")
+	return source.QueryParameters["token"][strIndex+len(prefix):], nil
 }

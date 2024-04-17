@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
@@ -28,20 +29,8 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 	auth := new(datastruct.AuthStruct)         // 初始化认证信息结构体
 
 	// 从请求参数中获取token，并检查其类型
-	Token := event.QueryParameters["token"]
-	_, isString := Token.(string)
-	if !isString {
-		// 如果token不是字符串类型，返回错误响应
-		response.StatusCode = http.StatusBadRequest
-		response.IsBase64Encoded = false
-		response.Body = "token must be string"
-		response.Headers["ContentType"] = ContentType.TextUTF8
-		response.Headers["AccessControlAllowOrigin"] = "*"
-		log.Printf("bad request: %#v", response)
-		err = nil
-		return
-	}
-	auth.SystemToken = Token.(string)                     // 保存token到认证信息中
+
+	auth.SystemToken, err = event.ReadToken()             // 保存token到认证信息中
 	auth.OpenID, err = dataProcess.CutOpenID(auth.OpenID) // 处理OpenID
 	if err != nil {
 		// 如果处理OpenID失败，返回内部服务器错误
@@ -70,24 +59,13 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 	// 查询用户权限级别
 	permLevel, err := database.QueryPermission(auth.OpenID)
 	reserveID := event.QueryParameters["id"]
-	_, isInt32 := reserveID.(int32)
-	if !isInt32 {
-		// 如果reserveID不是int32类型，返回错误响应
-		response.StatusCode = http.StatusBadRequest
-		response.IsBase64Encoded = false
-		response.Body = "reserveID must be int32"
-		response.Headers["ContentType"] = ContentType.TextUTF8
-		response.Headers["AccessControlAllowOrigin"] = "*"
-		log.Printf("bad request: %#v", response)
-		err = nil
-		return
-	}
-
+	atoi, _ := strconv.Atoi(reserveID)
 	// 根据权限级别执行相应操作
 	switch {
 	case permLevel <= 1:
 		// 权限等级为1及以下：查询预约信息，并检查是否有权限取消预约
-		queryResult, err := reserve.GetReserveByID(reserveID.(int32))
+
+		queryResult, err := reserve.GetReserveByID(int32(atoi))
 		if queryResult.OpenID != auth.OpenID {
 			// 如果OpenID不匹配，返回未授权响应
 			response.StatusCode = http.StatusForbidden
@@ -105,7 +83,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		response.Headers["ContentType"] = ContentType.TextUTF8
 		response.Headers["AccessControlAllowOrigin"] = "*"
 		log.Printf("success: %#v", response)
-		err = reserve.CancelReserve(reserveID.(int32))
+		err = reserve.CancelReserve(int32(atoi))
 		if err != nil {
 			// 如果取消预约失败，返回内部服务器错误
 			response.StatusCode = http.StatusInternalServerError
@@ -116,9 +94,10 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 			return
 		}
 		return
+		//goland:noinspection GoDfaConstantCondition
 	case permLevel >= 2:
 		// 权限等级为2及以上：直接尝试取消预约
-		err = reserve.CancelReserve(reserveID.(int32))
+		err = reserve.CancelReserve(int32(atoi))
 	}
 	return
 }
