@@ -91,7 +91,7 @@ export default {
       @extend .one;
       flex-direction: column;
       font-size: 12px;
-      align-items: start;
+      align-items: flex-start;
       line-height: 25px;
       color: #909399;
       .name {
