@@ -245,7 +245,7 @@ export default {
       display: flex;
       flex-wrap: wrap;
       padding: 20upx 10upx;
-      justify-content: start;
+      justify-content: flex-start;
     }
 
     .w-time-item {
