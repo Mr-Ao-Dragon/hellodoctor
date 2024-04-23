@@ -50,13 +50,13 @@
         "permission" : {}
     },
     "mp-alipay" : {
-        "usingComponents" : true
+        "usingComponents" : false
     },
     "mp-baidu" : {
-        "usingComponents" : true
+        "usingComponents" : false
     },
     "mp-toutiao" : {
-        "usingComponents" : true
+        "usingComponents" : false
     },
     "uniStatistics" : {
         "enable" : false
