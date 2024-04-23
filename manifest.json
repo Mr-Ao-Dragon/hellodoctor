@@ -42,7 +42,7 @@
     },
     "quickapp" : {},
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx295f40fae672dd46",
         "setting" : {
             "urlCheck" : false
         },
