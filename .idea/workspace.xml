@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="rollback: uni_modules">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +153,7 @@
       <workItem from="1713882571513" duration="419000" />
       <workItem from="1713884384474" duration="2056000" />
       <workItem from="1714138594668" duration="2888000" />
-      <workItem from="1714397493825" duration="613000" />
+      <workItem from="1714397493825" duration="1323000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
