@@ -7,6 +7,5 @@ vendor
 *-flow.yml
 env.sh
 env.ps1
-uni_modules
 unpackage
 uniCloud-aliyun
