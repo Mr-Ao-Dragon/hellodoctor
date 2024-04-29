@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="rollback: package-deps">
-      <change afterPath="$PROJECT_DIR$/.hbuilderx/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-    </list>
+    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="fix: 修复运行配置&#10;update: 让api url 可重用" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +152,7 @@
       <workItem from="1713884384474" duration="2056000" />
       <workItem from="1714138594668" duration="2888000" />
       <workItem from="1714397493825" duration="2627000" />
-      <workItem from="1714401133440" duration="587000" />
+      <workItem from="1714401133440" duration="1136000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
@@ -247,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714400425583</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix: 修复运行配置&#10;update: 让api url 可重用">
+      <option name="closed" value="true" />
+      <created>1714401828651</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1714401828652</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +314,8 @@
     <MESSAGE value="update: 禁用其他组件" />
     <MESSAGE value="rollback: uni_modules" />
     <MESSAGE value="rollback: package-deps" />
-    <option name="LAST_COMMIT_MESSAGE" value="rollback: package-deps" />
+    <MESSAGE value="fix: 修复运行配置&#10;update: 让api url 可重用" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 修复运行配置&#10;update: 让api url 可重用" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
