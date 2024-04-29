@@ -1,8 +1,10 @@
 <script>
 import request from './api/request'
+// if (window.location.hostname = "localhost:8080")
+const ApiURL = "api."+window.location.hostname
 const wxLoginData = {
   appid: 'wx295f40fae672dd46',//填写appid
-  redirect_uri: 'https://api.'+window.location.hostname+'/v1/user/login',//填写这个网页的地址
+  redirect_uri: 'https://'+ApiURL+'/v1/user/login',//填写这个网页的地址
   response_type: 'code',
   scope: 'snsapi_userinfo',
 }

@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="rollback: uni_modules">
+    <list default="true" id="ec534cfe-45e0-4067-8673-5fb44c05da2d" name="更改" comment="rollback: package-deps">
+      <change afterPath="$PROJECT_DIR$/.hbuilderx/launch.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,16 +39,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN"
+      &quot;state&quot;: &quot;OPEN&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -72,12 +75,12 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:Mr-Ao-Dragon/hellodoctor.git",
-    "accountId": "b09ab1ef-4f98-4892-833f-cb5ab0494971"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Mr-Ao-Dragon/hellodoctor.git&quot;,
+    &quot;accountId&quot;: &quot;b09ab1ef-4f98-4892-833f-cb5ab0494971&quot;
   }
-}]]></component>
+}</component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -153,7 +156,8 @@
       <workItem from="1713882571513" duration="419000" />
       <workItem from="1713884384474" duration="2056000" />
       <workItem from="1714138594668" duration="2888000" />
-      <workItem from="1714397493825" duration="1323000" />
+      <workItem from="1714397493825" duration="2627000" />
+      <workItem from="1714401133440" duration="587000" />
     </task>
     <task id="LOCAL-00001" summary="fix: 删除静态数据源">
       <option name="closed" value="true" />
@@ -235,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714397663528</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="rollback: package-deps">
+      <option name="closed" value="true" />
+      <created>1714400425583</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1714400425583</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +310,8 @@
     <MESSAGE value="update: 尝替换缺失的ID" />
     <MESSAGE value="update: 禁用其他组件" />
     <MESSAGE value="rollback: uni_modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="rollback: uni_modules" />
+    <MESSAGE value="rollback: package-deps" />
+    <option name="LAST_COMMIT_MESSAGE" value="rollback: package-deps" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
