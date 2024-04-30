@@ -2,6 +2,7 @@ package datastruct
 
 import (
 	"errors"
+	"log"
 	"strings"
 	"time"
 )
@@ -40,6 +41,7 @@ type (
 
 func (source EventStruct) ReadToken() (string, error) {
 	prefix := "Bearer "
+	log.Printf("raw token is: %s", source.QueryParameters["token"])
 	strIndex := strings.Index(source.QueryParameters["token"], prefix)
 	if strIndex == -1 {
 		return "", errors.New(`wong format`)

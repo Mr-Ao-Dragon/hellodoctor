@@ -28,27 +28,11 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	// Convert code to OpenID
 	repose = new(datastruct.UniversalRepose)
 	repose.Init()
-	token, err := event.ReadToken()
+	code := event.QueryParameters["code"]
+
+	OpenID, err := user.CodeToOpenID(code)
 	if err != nil {
-		log.Printf("format token faild, %s is not a token", event.QueryParameters["token"])
-		repose.StatusCode = http.StatusUnauthorized
-		repose.Headers = make(map[string]any)
-		repose.Headers["ContextType"] = ContentType.JsonUTF8
-		repose.Headers["AccessControlAllowOrigin"] = "*"
-		respJson := struct {
-			Code    int    `json:"code"`
-			Message string `json:"message"`
-		}{
-			Code:    http.StatusUnauthorized,
-			Message: "Unauthorized",
-		}
-		respJsonByte, _ := json.Marshal(respJson)
-		repose.Body = string(respJsonByte)
-		return repose, nil
-	}
-	OpenID, err := user.CodeToOpenID(token)
-	if err != nil {
-		log.Printf("Query Failed By: %s", token)
+		log.Printf("Query Failed By: %s", code)
 		repose.StatusCode = http.StatusUnauthorized
 		repose.Headers["ContentType"] = ContentType.JsonUTF8
 		repose.Headers["AccessControlAllowOrigin"] = "*"
