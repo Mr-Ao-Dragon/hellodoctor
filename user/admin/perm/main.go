@@ -23,6 +23,7 @@ type RequestBody struct {
 func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	var Request RequestBody
 	repose = new(datastruct.UniversalRepose)
+	repose.Init()
 	_ = json.Unmarshal([]byte(event.Body), &Request)
 
 	authData := &datastruct.AuthStruct{

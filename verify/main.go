@@ -41,6 +41,7 @@ type StructEvent struct {
 // 返回值：repose为返回的HTTP响应信息，err为错误信息
 func HandleHttpRequest(ctx context.Context, event StructEvent) (repose *datastruct.UniversalRepose, err error) {
 	repose = new(datastruct.UniversalRepose)
+	repose.Init()
 	// 从上下文中获取FC（函数计算）的环境信息
 	fcContext, _ := fccontext.FromContext(ctx)
 	log.Printf("fcContext: %v", fcContext)

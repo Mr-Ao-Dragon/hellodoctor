@@ -14,7 +14,7 @@ import (
 
 func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	repose = new(datastruct.UniversalRepose)
-
+	repose.Init()
 	repose.StatusCode = http.StatusOK
 	repose.IsBase64Encoded = false
 	repose.Headers["ContentType"] = ContentType.TextUTF8

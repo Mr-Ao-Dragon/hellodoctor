@@ -39,6 +39,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		OpenID:      OpenID,
 	}
 	repose = new(datastruct.UniversalRepose)
+	repose.Init()
 
 	log.Printf("数据已拷贝！")
 	log.Printf("form: %#v", Login)

@@ -20,6 +20,7 @@ type QueryResult struct {
 
 func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	repose = new(datastruct.UniversalRepose)
+	repose.Init()
 	Query, err := database.ListDoctor()
 	if err != nil {
 		respBody := QueryResult{

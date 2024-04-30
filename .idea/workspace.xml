@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="fix: 修复二处过时的代码">
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 删除无意义文件">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mrao_wechat/accressTokenManage.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-check/lag/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redirectUri/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/redirectUri/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reserve/cancel/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/cancel/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tool/datastruct/fc3.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,23 +29,28 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/go/go1.22.1" />
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.22.2" />
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="web" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Mr-Ao-Dragon"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Mr-Ao-Dragon&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "ssh://git@github.com:/Mr-Ao-Dragon/hellodoctor",
-    "accountId": "10191161-435c-4859-9a12-53da7cb07471"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;ssh://git@github.com:/Mr-Ao-Dragon/hellodoctor&quot;,
+    &quot;accountId&quot;: &quot;10191161-435c-4859-9a12-53da7cb07471&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -50,25 +60,63 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/mraodragon",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.completion"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/root&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go&quot;
   }
-}]]></component>
+}</component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Bookmarks" show_stripe_button="false" side_tool="true" />
+      <window_info id="Merge Requests" show_stripe_button="false" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="Pull Requests" show_stripe_button="false" />
+      <window_info id="Learn" show_stripe_button="false" />
+      <window_info id="DFA" show_stripe_button="false" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.33003414" />
+      <window_info id="Commit" order="1" weight="0.18464164" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.31854838" />
+      <window_info anchor="bottom" id="Problems" order="1" />
+      <window_info anchor="bottom" id="Problems View" order="2" weight="0.31854838" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.30126727" />
+      <window_info anchor="bottom" id="Services" order="4" weight="0.31854838" />
+      <window_info anchor="bottom" id="Find" order="4" visible="true" weight="0.3296767" />
+      <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
+      <window_info anchor="right" id="make" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info anchor="right" id="AIAssistant" order="1" show_stripe_button="false" weight="0.3300936" />
+      <window_info anchor="right" id="Database" order="2" weight="0.25" />
+      <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="4" weight="0.25" />
+      <window_info anchor="right" id="Code Search" order="5" weight="0.29522184" />
+    </layout>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="go mod vendor" />
+    </option>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,6 +129,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix:panic [tablestore] invalid input" />
     <MESSAGE value="add: 添加读取 Authorization 功能" />
@@ -92,49 +151,56 @@
     <MESSAGE value="update: 修正路径" />
     <MESSAGE value="update: 尝试使用通配符路径" />
     <MESSAGE value="update: 使用map来避免反复修改传入结构体&#10;update: 让登录接口按微信预期的重定向" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 使用map来避免反复修改传入结构体&#10;update: 让登录接口按微信预期的重定向" />
+    <MESSAGE value="format： iconfont.js" />
+    <MESSAGE value="update: 删除无意义文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 删除无意义文件" />
   </component>
   <component name="VgoProject">
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
+      </map>
+    </environment>
     <settings-migrated>true</settings-migrated>
   </component>
-  <component name="WfRunsListSearchHistory"><![CDATA[{
-  "history": [
+  <component name="WfRunsListSearchHistory">{
+  &quot;history&quot;: [
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     },
     {
-      "branch": "master",
-      "currentBranchFilter": true
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;currentBranchFilter&quot;: true
     }
   ],
-  "lastFilter": {
-    "branch": "master",
-    "currentBranchFilter": true
+  &quot;lastFilter&quot;: {
+    &quot;branch&quot;: &quot;master&quot;,
+    &quot;currentBranchFilter&quot;: true
   }
-}]]></component>
+}</component>
 </project>

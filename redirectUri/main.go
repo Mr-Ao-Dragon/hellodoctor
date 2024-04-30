@@ -13,6 +13,7 @@ import (
 
 func handleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	repose = new(datastruct.UniversalRepose)
+	repose.Init()
 	repose.Body = os.Getenv("RUVerify")
 	if repose.Body == "" {
 		repose.StatusCode = http.StatusNotFound

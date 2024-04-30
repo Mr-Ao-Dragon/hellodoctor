@@ -5,3 +5,5 @@ playground/
 *-flow.yaml
 *-flow.yml
 *env.sh
+unpackage
+node_modules

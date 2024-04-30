@@ -46,3 +46,6 @@ func (source EventStruct) ReadToken() (string, error) {
 	}
 	return source.QueryParameters["token"][strIndex+len(prefix):], nil
 }
+func (repose UniversalRepose) Init() {
+	repose.Headers = make(map[string]any)
+}

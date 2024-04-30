@@ -19,6 +19,7 @@ type Id struct {
 func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
 	Open := new(Id)
 	repose = new(datastruct.UniversalRepose)
+	repose.Init()
 	_ = Unmarshal([]byte(event.Body), Open)
 	json, err := user.QueryDoctor(Open.Id)
 	if err != nil {

@@ -26,7 +26,8 @@ error - 如果处理过程中出现错误，则返回错误信息。
 */
 func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (response *datastruct.UniversalRepose, err error) {
 	response = new(datastruct.UniversalRepose) // 初始化响应结构体
-	auth := new(datastruct.AuthStruct)         // 初始化认证信息结构体
+	response.Init()
+	auth := new(datastruct.AuthStruct) // 初始化认证信息结构体
 
 	// 从请求参数中获取token，并检查其类型
 
