@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="fix 初始化未初始化的map类型">
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="add: debug msg&#10;fix: 错位的逻辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tool/datastruct/fc3.go" beforeDir="false" afterPath="$PROJECT_DIR$/tool/datastruct/fc3.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,9 +90,9 @@
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" weight="0.31854838" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.30126727" />
-      <window_info active="true" anchor="bottom" id="Messages" order="4" visible="true" weight="0.32891703" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.22523041" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.31854838" />
-      <window_info anchor="bottom" id="Find" order="4" weight="0.3296767" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.33006912" />
       <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
       <window_info anchor="right" id="make" show_stripe_button="false" side_tool="true" />
       <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
@@ -146,7 +146,8 @@
     <MESSAGE value="format： iconfont.js" />
     <MESSAGE value="update: 删除无意义文件" />
     <MESSAGE value="fix 初始化未初始化的map类型" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix 初始化未初始化的map类型" />
+    <MESSAGE value="add: debug msg&#10;fix: 错位的逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="add: debug msg&#10;fix: 错位的逻辑" />
   </component>
   <component name="VgoProject">
     <environment>

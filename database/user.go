@@ -31,15 +31,15 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	getRowRequest.SingleRowQueryCriteria = criteria
 	Result, err := client.GetRow(getRowRequest)
 	defer log.Printf("数据库读写出错，错误信息：%#v", err)
-	if err != nil {
-		log.Fatalf("数据库读写出错，错误信息：%#v", err)
-		return false, err
-	}
-	if Result != nil {
-		return true, nil
-	} else {
+	if Result.Columns == nil {
 		return false, nil
 	}
+	if err != nil {
+		log.Fatalf("数据库读写出错，错误信息：%#v\n请求id为：%s", err, Result.RequestId)
+		return false, err
+	}
+	return true, nil
+
 }
 
 func QueryLogin(authStruct *datastruct.AuthStruct) (loginStat bool, err error) {
@@ -67,7 +67,7 @@ func QueryLogin(authStruct *datastruct.AuthStruct) (loginStat bool, err error) {
 		return false, err
 	}
 	if err != nil {
-		log.Fatalf("数据库读写出错，错误信息：%#v", err)
+		log.Fatalf("数据库读写出错，错误信息：%#v请求id为：%s", err, Result.RequestId)
 		return false, err
 	}
 	Column := Result.Columns
