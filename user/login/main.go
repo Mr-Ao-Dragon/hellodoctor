@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
+	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
 	"log"
 	"net/http"
 	"os"
@@ -24,8 +26,31 @@ type ReposeBody struct {
 	ExpiresIn int64  `json:"expires_in"`
 }
 
+func temp() {
+	client := tablestore.NewClient(
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+	)
+	tables, err := client.ListTable()
+	if err != nil {
+		fmt.Println("Failed to list table")
+	} else {
+		fmt.Println("List table result is")
+		var result []string
+
+		for _, table := range tables.TableNames {
+			result = append(result, table)
+		}
+		log.Printf("Tables: \n%v", result)
+	}
+}
+
 // HandleHttpRequest TODO: 整理此处代码，目前版本代码可读性较差
 func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
+	// temp test func
+	temp()
 	// Convert code to OpenID
 	repose = new(datastruct.UniversalRepose)
 	repose.Init()
