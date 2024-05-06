@@ -11,13 +11,11 @@ import (
 )
 
 func QueryDoctor(OpenID string) (result *datastruct.SingleDoctorDataStruct, err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
@@ -58,13 +56,11 @@ func QueryDoctor(OpenID string) (result *datastruct.SingleDoctorDataStruct, err 
 }
 
 func UpToDoctor(dataStruct *datastruct.SingleDoctorDataStruct) (err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	putRowRequest := new(tablestore.PutRowRequest)
 	putRowChange := new(tablestore.PutRowChange)
@@ -83,13 +79,11 @@ func UpToDoctor(dataStruct *datastruct.SingleDoctorDataStruct) (err error) {
 }
 
 func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	getRangeRequest := &tablestore.GetRangeRequest{}
 	rangeRowQueryCriteria := &tablestore.RangeRowQueryCriteria{}

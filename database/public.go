@@ -11,13 +11,11 @@ import (
 
 func AddAd(single *datastruct.AdDataSingle) (AdDataSingle *datastruct.AdDataSingle, err error) {
 	// 初始化数据库
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	// 接收函数
 	putRowRequest := new(tablestore.PutRowRequest)

@@ -14,13 +14,11 @@ import (
 
 // AddReserve 函数用于添加预约信息到表格存储中
 func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStruct) (reserveID int32, err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	putRowRequest := new(tablestore.PutRowRequest)
 	putRowChange := new(tablestore.PutRowChange)
@@ -42,13 +40,11 @@ func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStru
 
 // QueryReserve 函数用于查询预约信息
 func QueryReserve(OpenID []string) (queryResult []datastruct.SingleReserve, err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	batchGetReq := new(tablestore.BatchGetRowRequest)
 	mqCriteria := new(tablestore.MultiRowQueryCriteria)
@@ -109,13 +105,11 @@ func QueryReserve(OpenID []string) (queryResult []datastruct.SingleReserve, err 
 	return queryResult, nil
 }
 func QueryReserveSingle(reserveID int32) (reserveData *datastruct.SingleReserve, err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
@@ -157,13 +151,11 @@ func QueryReserveSingle(reserveID int32) (reserveData *datastruct.SingleReserve,
 	return reserveData, nil
 }
 func CancelReserve(reserveID int32) (err error) {
-	client := tablestore.NewClientWithConfig(
+	client := tablestore.NewClient(
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
-		"",
-		nil,
 	)
 	updateRowRequest := new(tablestore.UpdateRowRequest)
 	updateRowChange := new(tablestore.UpdateRowChange)
