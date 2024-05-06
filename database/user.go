@@ -35,7 +35,7 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 		return false, nil
 	}
 	if err != nil {
-		log.Fatalf("数据库读写出错，错误信息：%#v\n请求id为：%s", err, Result.RequestId)
+		log.Fatalf("数据库读写出错，错误信息：%#v\n请求内容为：%#v", err, client)
 		return false, err
 	}
 	return true, nil
