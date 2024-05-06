@@ -33,6 +33,9 @@ func temp() {
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
 	)
+	log.Printf("access key secret: %s\n", os.Getenv("AccessKeyId"))
+	log.Printf("end point: %s\n", os.Getenv("EndPoint"))
+	log.Printf("instance name:%s\n", os.Getenv("InstanceName"))
 	tables, err := client.ListTable()
 	if err != nil {
 		log.Printf("Failed to list table, the error is: \n%#v", err)
