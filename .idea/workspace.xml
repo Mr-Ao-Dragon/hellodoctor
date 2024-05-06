@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="add: debug msg">
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 加入 gc，防止系统在不必要的情况下新建实例">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/health-check/lag/http/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/health-check/lag/http/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/doctor-list/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/index/doctor-list/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redirectUri/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/redirectUri/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/cancel/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/cancel/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/get/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/get/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve/post/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/reserve/post/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/admin/perm/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/admin/perm/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/doctor/oneInfo/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +86,8 @@
       <window_info id="Pull Requests" show_stripe_button="false" />
       <window_info id="Learn" show_stripe_button="false" />
       <window_info id="DFA" show_stripe_button="false" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.32991803" />
-      <window_info id="Commit" order="1" weight="0.16484642" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.16825938" />
+      <window_info active="true" id="Commit" order="1" visible="true" weight="0.16825938" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="TypeScript" show_stripe_button="false" />
@@ -147,7 +156,9 @@
     <MESSAGE value="fix 初始化未初始化的map类型" />
     <MESSAGE value="add: debug msg&#10;fix: 错位的逻辑" />
     <MESSAGE value="add: debug msg" />
-    <option name="LAST_COMMIT_MESSAGE" value="add: debug msg" />
+    <MESSAGE value="fix: 修改调试信息" />
+    <MESSAGE value="update: 加入 gc，防止系统在不必要的情况下新建实例" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 加入 gc，防止系统在不必要的情况下新建实例" />
   </component>
   <component name="VgoProject">
     <environment>

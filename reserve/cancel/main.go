@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"runtime"
 	"strconv"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
@@ -100,6 +101,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (respo
 		// 权限等级为2及以上：直接尝试取消预约
 		err = reserve.CancelReserve(int32(atoi))
 	}
+	defer runtime.GC()
 	return
 }
 

@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"runtime"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
@@ -81,6 +82,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		return repose, nil
 	}
 	repose.Body = string(respBody)
+	defer runtime.GC()
 	return repose, nil
 }
 

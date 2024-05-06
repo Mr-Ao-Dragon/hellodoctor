@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"runtime"
 	"strconv"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
@@ -62,6 +63,7 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 	repose.Body = string(ReserveByte)
 	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.IsBase64Encoded = false
+	defer runtime.GC()
 	return repose, nil
 }
 

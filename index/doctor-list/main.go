@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"runtime"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
@@ -22,6 +23,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	repose = new(datastruct.UniversalRepose)
 	repose.Init()
 	Query, err := database.ListDoctor()
+	defer runtime.GC()
 	if err != nil {
 		respBody := QueryResult{
 			Code: http.StatusInternalServerError,

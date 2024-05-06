@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"net/http"
+	"runtime"
 	"strconv"
 	"time"
 
@@ -21,6 +22,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.Body = strconv.FormatInt(time.Now().UnixMilli(), 10)
 	err = nil
+	defer runtime.GC()
 	return
 }
 

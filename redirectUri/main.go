@@ -5,6 +5,7 @@ import (
 	"errors"
 	"net/http"
 	"os"
+	"runtime"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
@@ -25,6 +26,7 @@ func handleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	repose.StatusCode = http.StatusOK
 	repose.Headers["AccessControlAllowOrigin"] = "text/plain"
 	repose.IsBase64Encoded = false
+	defer runtime.GC()
 	return repose, err
 }
 func main() {
