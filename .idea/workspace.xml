@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 尝试更换 client 方法">
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 添加更多调试信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
@@ -151,7 +151,9 @@
     <MESSAGE value="fix: 修改调试信息" />
     <MESSAGE value="update: 加入 gc，防止系统在不必要的情况下新建实例" />
     <MESSAGE value="update: 尝试更换 client 方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 尝试更换 client 方法" />
+    <MESSAGE value="update: 添加阿里云工程师提供的测试函数" />
+    <MESSAGE value="update: 添加更多调试信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 添加更多调试信息" />
   </component>
   <component name="VgoProject">
     <environment>

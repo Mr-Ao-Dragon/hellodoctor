@@ -35,11 +35,11 @@ func temp() {
 	)
 	tables, err := client.ListTable()
 	if err != nil {
-		fmt.Println("Failed to list table")
+		log.Printf("Failed to list table, the error is: \n%#v", err)
+
 	} else {
 		fmt.Println("List table result is")
 		var result []string
-
 		for _, table := range tables.TableNames {
 			result = append(result, table)
 		}
