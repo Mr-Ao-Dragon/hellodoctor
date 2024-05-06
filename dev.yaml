@@ -19,6 +19,7 @@ resources:
         AppSecret: ${env('AppSecret')}
         AccessKeyId: ${env('AccessKeyId')}
         AccessKeySecret: ${env('AccessKeySecret')}
+        InstanceName: ${env('InstanceName')}
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
         EndPoint: ${env('EndPoint')}
