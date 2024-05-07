@@ -38,7 +38,7 @@ func temp() {
 	log.Printf("instance name:%s\n", os.Getenv("InstanceName"))
 	tables, err := client.ListTable()
 	if err != nil {
-		log.Printf("Failed to list table, the error is: \n%#v", err)
+		log.Fatalf("Failed to list table, the error is: \n%d", err)
 
 	} else {
 		fmt.Println("List table result is")
@@ -46,7 +46,7 @@ func temp() {
 		for _, table := range tables.TableNames {
 			result = append(result, table)
 		}
-		log.Printf("Tables: \n%v", result)
+		log.Printf("Tables: \n%#v", result)
 	}
 }
 
