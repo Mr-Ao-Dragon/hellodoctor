@@ -157,10 +157,10 @@ func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses 
 	NowUnix := time.Now().Unix()
 	expiresIn = NowUnix + (86400 * 30)
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	putRowRequest := new(tablestore.PutRowRequest)
 	putRowChange := new(tablestore.PutRowChange)

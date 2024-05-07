@@ -9,10 +9,10 @@ import (
 
 func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
@@ -36,10 +36,10 @@ func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
 
 func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	UpdateRowRequest := new(tablestore.UpdateRowRequest)
 	UpdateRowChange := new(tablestore.UpdateRowChange)

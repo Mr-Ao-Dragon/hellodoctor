@@ -28,10 +28,10 @@ type ReposeBody struct {
 
 func temp() {
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	log.Printf("access key secret: %s\n", os.Getenv("AccessKeyId"))
 	log.Printf("end point: %s\n", os.Getenv("EndPoint"))

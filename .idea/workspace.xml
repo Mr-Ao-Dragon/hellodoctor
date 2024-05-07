@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 格式化错误输出">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 补充 license&#10;fix: 数据库顺序错误">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/doctor.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/doctor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/perm.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/perm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/public.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/public.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/reserve.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/reserve.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +26,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.22.2" />
+  <component name="GOROOT" url="file://$USER_HOME$/sdk/go1.21.9" />
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -63,7 +69,7 @@
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/root&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/hellodoctor&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -89,14 +95,14 @@
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.31854838" />
       <window_info anchor="bottom" id="Problems" order="1" />
       <window_info anchor="bottom" id="Problems View" order="2" weight="0.33006912" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.30126727" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.33006912" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.22523041" />
       <window_info anchor="bottom" id="Services" order="5" weight="0.31854838" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.33006912" />
       <window_info anchor="right" id="Endpoints" show_stripe_button="false" />
       <window_info anchor="right" id="make" show_stripe_button="false" side_tool="true" />
       <window_info anchor="right" id="Coverage" show_stripe_button="false" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Notifications" order="0" weight="0.25" />
+      <window_info active="true" anchor="right" id="Notifications" order="0" visible="true" weight="0.33003414" />
       <window_info anchor="right" id="AIAssistant" order="1" show_stripe_button="false" weight="0.3300936" />
       <window_info anchor="right" id="Database" order="2" weight="0.25" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.25" />
@@ -155,7 +161,9 @@
     <MESSAGE value="update: 添加更多调试信息" />
     <MESSAGE value="fix: 补上缺失的环境变量" />
     <MESSAGE value="update: 格式化错误输出" />
-    <option name="LAST_COMMIT_MESSAGE" value="update: 格式化错误输出" />
+    <MESSAGE value="update: 添加license" />
+    <MESSAGE value="update: 补充 license&#10;fix: 数据库顺序错误" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 补充 license&#10;fix: 数据库顺序错误" />
   </component>
   <component name="VgoProject">
     <environment>
