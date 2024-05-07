@@ -14,10 +14,10 @@ import (
 // QueryUserExist 根据OpenID查询用户是否存在
 func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
@@ -42,10 +42,10 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 
 func QueryLogin(authStruct *datastruct.AuthStruct) (loginStat bool, err error) {
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
@@ -104,10 +104,10 @@ func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64,
 		return false, NowUnix, true, nil
 	}
 	client := tablestore.NewClient(
-		os.Getenv("AccessKeyId"),
-		os.Getenv("AccessKeySecret"),
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
 	)
 	getRowRequest := new(tablestore.GetRowRequest)
 	criteria := new(tablestore.SingleRowQueryCriteria)
