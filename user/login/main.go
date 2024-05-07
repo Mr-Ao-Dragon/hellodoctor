@@ -38,7 +38,7 @@ func temp() {
 	log.Printf("instance name:%s\n", os.Getenv("InstanceName"))
 	tables, err := client.ListTable()
 	if err != nil {
-		log.Fatalf("Failed to list table, the error is: \n%d", err)
+		log.Fatalf("Failed to list table, the error is: \n%+v", err)
 
 	} else {
 		fmt.Println("List table result is")

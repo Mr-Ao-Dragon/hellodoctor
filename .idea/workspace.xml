@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="fix: 补上缺失的环境变量">
+    <list default="true" id="fc6a510b-152e-459f-a830-650ca9ce2f16" name="更改" comment="update: 格式化错误输出">
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/login/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/login/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +155,8 @@
     <MESSAGE value="update: 添加阿里云工程师提供的测试函数" />
     <MESSAGE value="update: 添加更多调试信息" />
     <MESSAGE value="fix: 补上缺失的环境变量" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 补上缺失的环境变量" />
+    <MESSAGE value="update: 格式化错误输出" />
+    <option name="LAST_COMMIT_MESSAGE" value="update: 格式化错误输出" />
   </component>
   <component name="VgoProject">
     <environment>
