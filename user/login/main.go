@@ -59,6 +59,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	Result, err := database.QueryUserExist(OpenID)
 	if err != nil {
 		log.Printf("Database down!")
+		log.Printf("error message: %+v", err)
 		repose.StatusCode = http.StatusServiceUnavailable
 		repose.Headers["ContentType"] = ContentType.JsonUTF8
 		repose.Headers["AccessControlAllowOrigin"] = "*"
@@ -79,10 +80,10 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	}
 	// If a user exists, login, otherwise register
 	if Result {
-		log.Printf("%s this user is logined", OpenID)
+		log.Printf("this user %s is logined", OpenID)
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Login(AuthData)
 	} else {
-		log.Printf("This user is %s reated", OpenID)
+		log.Printf("This user %s is created", OpenID)
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Register(OpenID, Perm)
 	}
 	if err != nil {

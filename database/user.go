@@ -28,12 +28,11 @@ func QueryUserExist(OpenID string) (queryResult bool, err error) {
 	criteria.MaxVersion = 1
 	getRowRequest.SingleRowQueryCriteria = criteria
 	Result, err := client.GetRow(getRowRequest)
-	defer log.Printf("数据库读写出错，错误信息：%#v", err)
 	if Result.Columns == nil {
 		return false, nil
 	}
 	if err != nil {
-		log.Fatalf("数据库读写出错，错误信息：%#v\n请求内容为：%#v", err, client)
+		log.Fatalf("数据库读写出错，错误信息：%#v\n请求内容为：%+v", err, client)
 		return false, err
 	}
 	return true, nil
@@ -174,9 +173,11 @@ func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses 
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowRequest.PutRowChange = putRowChange
 	putRowRequest.PutRowChange.PrimaryKey = putPk
+	defer log.Printf("the error is: %+v", err)
 	_, err = client.PutRow(putRowRequest)
+	defer log.Printf("the error is: %+v", err)
 	if err != nil {
-		log.Fatalf("数据库读写出错，错误信息：%#v", err)
+		log.Printf("数据库读写出错，错误信息：%+v", err)
 		return false, time.Now().Unix(), err
 	}
 	return true, time.Now().Unix(), nil
