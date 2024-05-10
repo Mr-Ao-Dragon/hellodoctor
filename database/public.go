@@ -9,7 +9,7 @@ import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 )
 
-func AddAd(single *datastruct.AdDataSingle) (AdDataSingle *datastruct.AdDataSingle, err error) {
+func AddAd(single *datastruct.AdDataSingle) (err error) {
 	// 初始化数据库
 	client := tablestore.NewClient(
 		os.Getenv("EndPoint"),
@@ -26,7 +26,6 @@ func AddAd(single *datastruct.AdDataSingle) (AdDataSingle *datastruct.AdDataSing
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowChange.PrimaryKey = putPk
 	putRowRequest.PutRowChange = putRowChange
-	AdDataSingle = single
 	putPk.AddPrimaryKeyColumn("AdID", single.AdID)
 	putRowChange.AddColumn("TimeOut", single.TimeOut)
 	putRowChange.AddColumn("Message", single.Message)
@@ -36,8 +35,20 @@ func AddAd(single *datastruct.AdDataSingle) (AdDataSingle *datastruct.AdDataSing
 	_, err = client.PutRow(putRowRequest)
 	// 错误处理
 	if err != nil {
-		return nil, err
+		return err
 	}
-	err = nil
-	return
+	return nil
+}
+func ReadAd() (Ads []*datastruct.AdDataSingle, err error) {
+	client := tablestore.NewClient(
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+	)
+	queryRequest := new(tablestore.GetRangeRequest)
+	rangeQuery := new(tablestore.RangeRowQueryCriteria)
+	queryRequest.RangeRowQueryCriteria = rangeQuery
+	client.GetRange(queryRequest)
+	return Ads, nil
 }
