@@ -100,6 +100,7 @@ func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 	rangeRowQueryCriteria.MaxVersion = 1
 	getRangeRequest.RangeRowQueryCriteria = rangeRowQueryCriteria
 	getRangeResp, err := client.GetRange(getRangeRequest)
+	// TODO: 优化该遍历
 	rows := getRangeResp.Rows
 	var resultData []datastruct.SingleDoctorDataStruct
 	for _, row := range rows {

@@ -3,16 +3,16 @@ module github.com/Mr-Ao-Dragon/hellodoctor
 go 1.21
 
 require (
-	github.com/ArtisanCloud/PowerWeChat/v3 v3.2.3
+	github.com/ArtisanCloud/PowerWeChat/v3 v3.2.14
 	github.com/aliyun/aliyun-tablestore-go-sdk v1.7.14
 	github.com/aliyun/fc-runtime-go-sdk v0.2.7
 	github.com/jinzhu/copier v0.4.0
-	github.com/panjf2000/ants/v2 v2.9.0
+	github.com/panjf2000/ants/v2 v2.9.1
 	github.com/zhshch2002/goreq v0.0.0-20210608055943-7028cfd48a0d
 )
 
 require (
-	github.com/ArtisanCloud/PowerLibs/v3 v3.2.0 // indirect
+	github.com/ArtisanCloud/PowerLibs/v3 v3.2.2 // indirect
 	github.com/ArtisanCloud/PowerSocialite/v3 v3.0.7 // indirect
 	github.com/PuerkitoBio/goquery v1.9.1 // indirect
 	github.com/andybalholm/cascadia v1.3.2 // indirect
