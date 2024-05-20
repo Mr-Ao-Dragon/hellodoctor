@@ -173,9 +173,7 @@ func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses 
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowRequest.PutRowChange = putRowChange
 	putRowRequest.PutRowChange.PrimaryKey = putPk
-	defer log.Printf("the error is: %+v", err)
 	_, err = client.PutRow(putRowRequest)
-	defer log.Printf("the error is: %+v", err)
 	if err != nil {
 		log.Printf("数据库读写出错，错误信息：%+v", err)
 		return false, time.Now().Unix(), err
