@@ -23,6 +23,7 @@ resources:
         LD_LIBRARY_PATH: >-
           /code:/code/lib:/usr/local/lib:/opt/lib
         EndPoint: ${env('EndPoint')}
+        InitPass: ${env('InitPass')}
       handler: login
       diskSize: 512
       code: target/login
