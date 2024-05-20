@@ -21,7 +21,7 @@ func PostReserve(reserve *datastruct.AddReserve, authStruct *datastruct.AuthStru
 	if err != nil {
 		return nil, err
 	}
-	NewReserve.ID = reserveID
+	NewReserve.ID = int32(reserveID)
 	NewReserve.Status = 1
 	return NewReserve, nil
 }

@@ -26,7 +26,7 @@ func AddAd(single *datastruct.AdDataSingle) (err error) {
 	putRowChange.PrimaryKey = putPk
 	putRowRequest.PutRowChange = putRowChange
 	putPk.AddPrimaryKeyColumn("AdID", single.AdID)
-	putRowChange.AddColumn("TimeOut", single.TimeOut)
+	putRowChange.AddColumn("TimeOut", int64(single.TimeOut))
 	putRowChange.AddColumn("Message", single.Message)
 	// 数据发送
 	putRowChange.PrimaryKey = putPk

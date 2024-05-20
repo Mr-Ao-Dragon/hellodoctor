@@ -47,7 +47,7 @@ func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {
 	UpdatePk := new(tablestore.PrimaryKey)
 	UpdatePk.AddPrimaryKeyColumn("OpenID", OpenID)
 	UpdateRowChange.PrimaryKey = UpdatePk
-	UpdateRowChange.PutColumn("permission", PermLevel)
+	UpdateRowChange.PutColumn("permission", int64(PermLevel))
 	UpdateRowRequest.UpdateRowChange = UpdateRowChange
 	_, err = client.UpdateRow(UpdateRowRequest)
 	if err != nil {

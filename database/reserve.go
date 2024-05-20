@@ -2,18 +2,15 @@ package database
 
 import (
 	"errors"
-	"fmt"
-	"os"
-	"strconv"
-
 	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
+	"os"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
 )
 
 // AddReserve 函数用于添加预约信息到表格存储中
-func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStruct) (reserveID int32, err error) {
+func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStruct) (reserveID int64, err error) {
 	client := tablestore.NewClient(
 		os.Getenv("EndPoint"),
 		os.Getenv("InstanceName"),
@@ -24,7 +21,7 @@ func AddReserve(newReserve *datastruct.AddReserve, AuthData *datastruct.AuthStru
 	putRowChange := new(tablestore.PutRowChange)
 	putRowChange.TableName = "reserve"
 	putRowChange.PrimaryKey = new(tablestore.PrimaryKey)
-	reserveID = gen.UniqueReserveID()
+	reserveID = int64(gen.UniqueReserveID())
 	putRowChange.PrimaryKey.AddPrimaryKeyColumn("ID", reserveID)
 	putRowChange.AddColumn("DoctorID", newReserve.DoctorID)
 	putRowChange.AddColumn("Mobile", newReserve.Mobile)
@@ -68,16 +65,15 @@ func QueryReserve(OpenID []string) (queryResult []datastruct.SingleReserve, err 
 	for _, row := range rows {
 		var singleReserve datastruct.SingleReserve
 		// 从主键列获取ID
-		idValue := row.PrimaryKey.PrimaryKeys[0].Value
-		if !ok {
-			return nil, errors.New("failed to parse ID from primary key")
+		for _, idValuePointer := range row.PrimaryKey.PrimaryKeys {
+			switch idValuePointer.ColumnName {
+			case "ID":
+				singleReserve.ID = int32(idValuePointer.Value.(int64))
+			default:
+				break
+			}
+
 		}
-		intValue := idValue.(*tablestore.AttributeColumn).Value
-		idInt64, err := strconv.ParseInt(intValue.(string), 10, 64)
-		if err != nil {
-			return nil, fmt.Errorf("failed to parse ID from primary key: %v", err)
-		}
-		singleReserve.ID = int32(idInt64)
 		for _, col := range row.Columns {
 			switch col.ColumnName {
 			case "DoctorID":
@@ -93,7 +89,7 @@ func QueryReserve(OpenID []string) (queryResult []datastruct.SingleReserve, err 
 			case "DoctorName":
 				singleReserve.DoctorName = col.Value.(string)
 			case "Status":
-				singleReserve.Status = col.Value.(int8)
+				singleReserve.Status = int8(col.Value.(int64))
 			case "OpenID":
 				singleReserve.OpenID = col.Value.(string)
 			}
@@ -124,7 +120,14 @@ func QueryReserveSingle(reserveID int32) (reserveData *datastruct.SingleReserve,
 	}
 	reserveData = new(datastruct.SingleReserve)
 	index := 0
-	reserveData.ID = getRowResp.PrimaryKey.PrimaryKeys[0].Value.(int32)
+	for _, reserveIDS := range getRowResp.PrimaryKey.PrimaryKeys {
+		// 在循环开始之前确保Column Name是预期的
+		if reserveIDS.ColumnName != "ID" {
+			continue
+		}
+		// 因为已知是"ID"，所以可以直接转换并赋值
+		reserveData.ID = int32(reserveIDS.Value.(int64))
+	}
 	for range getRowResp.Columns {
 		switch {
 		case getRowResp.Columns[index].ColumnName == "DoctorID":
@@ -144,7 +147,7 @@ func QueryReserveSingle(reserveID int32) (reserveData *datastruct.SingleReserve,
 		case getRowResp.Columns[index].ColumnName == "OpenID":
 			reserveData.OpenID = getRowResp.Columns[index].Value.(string)
 		default:
-			break
+			continue
 		}
 		index++
 	}

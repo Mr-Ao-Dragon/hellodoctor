@@ -140,8 +140,8 @@ func UserLogin(AuthData *datastruct.AuthStruct) (isSusses bool, expiresIn int64,
 	UpdatePk := new(tablestore.PrimaryKey)
 	UpdatePk.AddPrimaryKeyColumn("OpenID", AuthData.OpenID)
 	UpdateRowChange.PrimaryKey = UpdatePk
-	UpdateRowChange.PutColumn("LoginTime", int(NowUnix))
-	UpdateRowChange.PutColumn("ExpiresIn", int(expiresIn))
+	UpdateRowChange.PutColumn("LoginTime", NowUnix)
+	UpdateRowChange.PutColumn("ExpiresIn", expiresIn)
 	UpdateRowChange.PutColumn("SystemToken", AuthData.SystemToken)
 	UpdateRowRequest.UpdateRowChange = UpdateRowChange
 	_, err = client.UpdateRow(UpdateRowRequest)
@@ -166,10 +166,10 @@ func AddUser(OpenID string, PermissionLevel int8, systemToken string) (isSusses 
 	putRowChange.TableName = "user"
 	putPk := new(tablestore.PrimaryKey)
 	putPk.AddPrimaryKeyColumn("OpenID", OpenID)
-	putRowChange.AddColumn("LoginTime", int(NowUnix))
-	putRowChange.AddColumn("ExpiresIn", int(expiresIn))
+	putRowChange.AddColumn("LoginTime", NowUnix)
+	putRowChange.AddColumn("ExpiresIn", expiresIn)
 	putRowChange.AddColumn("SystemToken", systemToken)
-	putRowChange.AddColumn("permission", int(PermissionLevel))
+	putRowChange.AddColumn("permission", int64(PermissionLevel))
 	putRowChange.SetCondition(tablestore.RowExistenceExpectation_IGNORE)
 	putRowRequest.PutRowChange = putRowChange
 	putRowRequest.PutRowChange.PrimaryKey = putPk
