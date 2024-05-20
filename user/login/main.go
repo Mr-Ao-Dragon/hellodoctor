@@ -3,12 +3,10 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"log"
 	"net/http"
 	"os"
-	"runtime"
-
-	"github.com/aliyun/fc-runtime-go-sdk/fc"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/commonData/ContentType"
 
@@ -107,7 +105,6 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	repose.Headers["Location"] = "https://" + os.Getenv("H5Domain")
 	repose.IsBase64Encoded = false
 	repose.Body = string(QueryResultJson)
-	defer runtime.GC()
 	return
 }
 
