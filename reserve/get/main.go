@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"github.com/aliyun/fc-runtime-go-sdk/events"
 	"log"
 	"net/http"
 	"runtime"
@@ -16,17 +17,10 @@ import (
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
-func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
-	token, err := event.ReadToken()
-	if err != nil {
-		repose.StatusCode = http.StatusBadRequest
-		repose.Headers["ContentType"] = ContentType.TextUTF8
-		repose.Headers["AccessControlAllowOrigin"] = "*"
-		repose.IsBase64Encoded = false
-		repose.Body = "无法读取 Token"
-		return repose, nil
-	}
+func HandleHttpRequest(ctx context.Context, event events.HTTPTriggerEvent) (repose *events.HTTPTriggerResponse, err error) {
+	token := (*event.QueryParameters)["token"]
 	OpenID, err := dataProcess.CutOpenID(token)
+	repose = new(events.HTTPTriggerResponse)
 	if err != nil {
 		repose.StatusCode = http.StatusInternalServerError
 		repose.Headers["ContentType"] = ContentType.TextUTF8
@@ -39,8 +33,6 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		SystemToken: token,
 		OpenID:      OpenID,
 	}
-	repose = new(datastruct.UniversalRepose)
-	repose.Init()
 
 	log.Printf("数据已拷贝！")
 	log.Printf("form: %#v", Login)

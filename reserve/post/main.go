@@ -4,8 +4,8 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"github.com/aliyun/fc-runtime-go-sdk/events"
 	"net/http"
-	"runtime"
 	"strconv"
 
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
@@ -21,16 +21,9 @@ import (
 // ctx: 上下文信息
 // event: 包含请求参数的结构体
 // 返回值: 处理结果的结构体和可能发生的错误
-func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
+func handleRequest(ctx context.Context, event events.HTTPTriggerEvent) (repose *events.HTTPTriggerResponse, err error) {
 	// 验证登录状态
-	token, err := event.ReadToken()
-	if err != nil {
-		repose.StatusCode = http.StatusBadRequest
-		repose.Headers["ContentType"] = ContentType.TextUTF8
-		repose.IsBase64Encoded = false
-		repose.Body = "无法读取 Token"
-		return repose, nil
-	}
+	token := (*event.QueryParameters)["token"]
 	OpenID, err := dataProcess.CutOpenID(token)
 	auth := &datastruct.AuthStruct{
 		SystemToken: token,
@@ -48,12 +41,12 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 	}
 	// 复制请求数据到储备结构体
 	reserveData := new(datastruct.AddReserve)
-	reserveData.Token, err = event.ReadToken()
-	reserveData.DoctorID = event.QueryParameters["doctor_id"]
-	mobile, _ := strconv.Atoi(event.QueryParameters["mobile"])
+	reserveData.Token = token
+	reserveData.DoctorID = (*event.QueryParameters)["doctor_id"]
+	mobile, _ := strconv.Atoi((*event.QueryParameters)["mobile"])
 	reserveData.Mobile = int64(mobile)
-	reserveData.Name = event.QueryParameters["name"]
-	time, _ := strconv.Atoi(event.QueryParameters["time"])
+	reserveData.Name = (*event.QueryParameters)["name"]
+	time, _ := strconv.Atoi((*event.QueryParameters)["time"])
 	reserveData.Time = int64(time)
 	// 提交预约信息
 	newReserve, err := reserve.PostReserve(reserveData, auth)
@@ -63,7 +56,6 @@ func handleRequest(ctx context.Context, event datastruct.EventStruct) (repose *d
 	repose.Body = string(ReserveByte)
 	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.IsBase64Encoded = false
-	defer runtime.GC()
 	return repose, nil
 }
 

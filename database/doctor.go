@@ -85,12 +85,12 @@ func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 		os.Getenv("AccessKeyId"),
 		os.Getenv("AccessKeySecret"),
 	)
-	getRangeRequest := &tablestore.GetRangeRequest{}
-	rangeRowQueryCriteria := &tablestore.RangeRowQueryCriteria{}
+	getRangeRequest := new(tablestore.GetRangeRequest)
+	rangeRowQueryCriteria := new(tablestore.RangeRowQueryCriteria)
 	rangeRowQueryCriteria.TableName = "doctor"
-	rangeRowQueryCriteria.StartPrimaryKey = &tablestore.PrimaryKey{}
+	rangeRowQueryCriteria.StartPrimaryKey = new(tablestore.PrimaryKey)
 	rangeRowQueryCriteria.StartPrimaryKey.AddPrimaryKeyColumn("OpenID", tablestore.VT_INF_MIN)
-	rangeRowQueryCriteria.EndPrimaryKey = &tablestore.PrimaryKey{}
+	rangeRowQueryCriteria.EndPrimaryKey = new(tablestore.PrimaryKey)
 	rangeRowQueryCriteria.EndPrimaryKey.AddPrimaryKeyColumn("OpenID", tablestore.VT_INF_MAX)
 	rangeRowQueryCriteria.AddColumnToGet("Name")
 	rangeRowQueryCriteria.AddColumnToGet("Avatar")
@@ -105,7 +105,7 @@ func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 	}
 	// TODO: 优化该遍历
 	rows := getRangeResp.Rows
-	var resultData []datastruct.SingleDoctorDataStruct
+	queryResult = make([]datastruct.SingleDoctorDataStruct, 0)
 	for _, row := range rows {
 		var name, avatar, id, profile string
 		for _, col := range row.Columns {
@@ -137,8 +137,9 @@ func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 				Id:      id,
 				Profile: profile,
 			}
-			resultData = append(resultData, singleData)
+			queryResult = append(queryResult, singleData)
 		}
 	}
-	return resultData, nil
+	err = nil
+	return
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"github.com/aliyun/fc-runtime-go-sdk/events"
 	"net/http"
 	"runtime"
 
@@ -19,9 +20,8 @@ type QueryResult struct {
 	Data []datastruct.SingleDoctorDataStruct `json:"data"`
 }
 
-func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
-	repose = new(datastruct.UniversalRepose)
-	repose.Init()
+func HandleHttpRequest(ctx context.Context, event events.HTTPTriggerEvent) (repose *events.HTTPTriggerResponse, err error) {
+	repose = new(events.HTTPTriggerResponse)
 	Query, err := database.ListDoctor()
 	defer runtime.GC()
 	if err != nil {
@@ -38,6 +38,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	respBody := QueryResult{Code: http.StatusOK, Msg: "success", Data: Query}
 	respBodyJson, _ := json.Marshal(respBody)
 	repose.StatusCode = http.StatusOK
+	repose.Headers = make(map[string]string)
 	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.Body = string(respBodyJson)

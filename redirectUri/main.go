@@ -3,19 +3,16 @@ package main
 import (
 	"context"
 	"errors"
+	"github.com/aliyun/fc-runtime-go-sdk/events"
+	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"net/http"
 	"os"
-	"runtime"
-
-	"github.com/aliyun/fc-runtime-go-sdk/fc"
-
-	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 )
 
-func handleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
-	repose = new(datastruct.UniversalRepose)
-	repose.Init()
+func handleHttpRequest(ctx context.Context, event events.HTTPTriggerEvent) (repose *events.HTTPTriggerResponse, err error) {
+	repose = new(events.HTTPTriggerResponse)
 	repose.Body = os.Getenv("RUVerify")
+	repose.Headers = make(map[string]string)
 	if repose.Body == "" {
 		repose.StatusCode = http.StatusNotFound
 		repose.Headers["ContentType"] = "text/plain"
@@ -26,7 +23,6 @@ func handleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	repose.StatusCode = http.StatusOK
 	repose.Headers["AccessControlAllowOrigin"] = "text/plain"
 	repose.IsBase64Encoded = false
-	defer runtime.GC()
 	return repose, err
 }
 func main() {

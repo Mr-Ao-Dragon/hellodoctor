@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"github.com/aliyun/fc-runtime-go-sdk/events"
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
 	"log"
 	"net/http"
@@ -23,11 +24,9 @@ type ReposeBody struct {
 }
 
 // HandleHttpRequest TODO: 整理此处代码，目前版本代码可读性较差
-func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repose *datastruct.UniversalRepose, err error) {
+func HandleHttpRequest(ctx context.Context, event events.HTTPTriggerEvent) (repose events.HTTPTriggerResponse, err error) {
 	// Convert code to OpenID
-	repose = new(datastruct.UniversalRepose)
-	repose.Init()
-	code := event.QueryParameters["code"]
+	code := (*event.QueryParameters)["code"]
 
 	OpenID, err := user.CodeToOpenID(code)
 	if err != nil {
@@ -73,7 +72,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		return repose, err
 	}
 	Perm := int8(0)
-	if event.QueryParameters["init_password"] == os.Getenv("InitPass") {
+	if (*event.QueryParameters)["init_password"] == os.Getenv("InitPass") {
 		Perm = 5
 	}
 	// If a user exists, login, otherwise register
@@ -84,8 +83,10 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 		log.Printf("This user %s is created", OpenID)
 		QueryResult.Token, QueryResult.ExpiresIn, err = user.Register(OpenID, Perm)
 	}
+	log.Printf("the error is %+v", err)
 	if err != nil {
 		repose.StatusCode = http.StatusBadRequest
+		repose.Headers = make(map[string]string)
 		repose.Headers["ContentType"] = ContentType.JsonUTF8
 		respJson := struct {
 			Code    int    `json:"code"`
@@ -100,6 +101,7 @@ func HandleHttpRequest(ctx context.Context, event datastruct.EventStruct) (repos
 	}
 	QueryResultJson, _ := json.Marshal(QueryResult)
 	repose.StatusCode = http.StatusFound
+	repose.Headers = make(map[string]string)
 	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.Headers["AccessControlAllowOrigin"] = "*"
 	repose.Headers["Location"] = "https://" + os.Getenv("H5Domain")
