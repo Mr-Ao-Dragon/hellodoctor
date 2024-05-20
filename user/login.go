@@ -15,12 +15,13 @@ import (
 func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expiresIn int64, err error) {
 	retry := 0
 	var expressed bool
-	for isFinish := false; !isFinish || err == nil || retry >= 3 || authStruct == nil || expressed == true; {
+	isFinish := false
+	for !isFinish || err == nil || retry <= 3 || authStruct == nil || expressed == true {
 		isFinish, expiresIn, expressed, err = database.UserLogin(authStruct)
 		retry++
-	}
-	if retry == 3 && err != nil {
-		return "", 0, err
+		if retry == 4 {
+			return "", 0, errors.New("重试次数大于 " + string(rune(retry)))
+		}
 	}
 	systemAccessToken, err = gen.Token(16)
 	systemAccessToken = systemAccessToken + authStruct.OpenID
