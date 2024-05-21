@@ -97,6 +97,7 @@ func ListDoctor() (queryResult []datastruct.SingleDoctorDataStruct, err error) {
 	rangeRowQueryCriteria.AddColumnToGet("id")
 	rangeRowQueryCriteria.AddColumnToGet("Profile")
 	rangeRowQueryCriteria.Direction = tablestore.FORWARD
+	rangeRowQueryCriteria.ReturnSpecifiedPkOnly = true
 	rangeRowQueryCriteria.MaxVersion = 1
 	getRangeRequest.RangeRowQueryCriteria = rangeRowQueryCriteria
 	getRangeResp, err := client.GetRange(getRangeRequest)

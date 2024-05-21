@@ -4,10 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/aliyun/fc-runtime-go-sdk/events"
-	"net/http"
-	"runtime"
-
 	"github.com/aliyun/fc-runtime-go-sdk/fc"
+	"log"
+	"net/http"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/database"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/commonData/ContentType"
@@ -23,14 +22,14 @@ type QueryResult struct {
 func HandleHttpRequest(ctx context.Context, event events.HTTPTriggerEvent) (repose *events.HTTPTriggerResponse, err error) {
 	repose = new(events.HTTPTriggerResponse)
 	Query, err := database.ListDoctor()
-	defer runtime.GC()
 	if err != nil {
+		log.Printf("error is: %+v", err)
 		respBody := QueryResult{
 			Code: http.StatusInternalServerError,
 			Msg:  "Query failed",
 			Data: nil,
 		}
-		respBodyJson, err := json.Marshal(respBody)
+		respBodyJson, _ := json.Marshal(respBody)
 		repose.StatusCode = http.StatusInternalServerError
 		repose.Body = string(respBodyJson)
 		return repose, err
