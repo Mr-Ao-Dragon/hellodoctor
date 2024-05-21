@@ -2,6 +2,7 @@ package user
 
 import (
 	"errors"
+	"fmt"
 	"log"
 	"os"
 
@@ -16,11 +17,11 @@ func Login(authStruct *datastruct.AuthStruct) (systemAccessToken string, expires
 	retry := 0
 	var expressed bool
 	isFinish := false
-	for !isFinish || err == nil || retry <= 3 || authStruct == nil || expressed == true {
+	for !isFinish || err != nil || authStruct == nil || expressed == true {
 		isFinish, expiresIn, expressed, err = database.UserLogin(authStruct)
 		retry++
 		if retry == 4 {
-			return "", 0, errors.New("重试次数大于 " + string(rune(retry)))
+			return "", 0, errors.New(fmt.Sprintf("重试次数大于: %s，终止。", retry))
 		}
 	}
 	systemAccessToken, err = gen.Token(16)
