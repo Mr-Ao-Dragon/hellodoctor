@@ -60,7 +60,7 @@ export default {
       ready: true,
       wxLoginData: {
         appid: 'wx295f40fae672dd46',//填写appid
-        redirect_uri: 'https://api.'+window.location.hostname+'/v1/user/login',//填写这个网页的地址
+        redirect_uri: 'https://'+window.location.hostname,//填写这个网页的地址
         response_type: 'code',
         scope: 'snsapi_userinfo',
       }
