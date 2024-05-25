@@ -71,7 +71,7 @@ export default {
     this.ready = true;
     if (options && options.code) {
       const res = await request.postLogin(code)
-      uni.setStorageSync('token', res.access_token)
+      uni.setStorageSync('access_token', res.access_token)
       uni.setStorageSync('expries_in', res.expries_in)
     }
     else {
