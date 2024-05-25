@@ -19,7 +19,7 @@ import (
 
 // ReposeBody represents the JSON structure of the response body.
 type ReposeBody struct {
-	Token     string `json:"token"`
+	Token     string `json:"access_token"`
 	ExpiresIn int64  `json:"expires_in"`
 }
 
