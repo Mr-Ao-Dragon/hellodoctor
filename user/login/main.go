@@ -100,11 +100,10 @@ func HandleHttpRequest(ctx context.Context, event events.HTTPTriggerEvent) (repo
 		return repose, err
 	}
 	QueryResultJson, _ := json.Marshal(QueryResult)
-	repose.StatusCode = http.StatusFound
+	repose.StatusCode = http.StatusOK
 	repose.Headers = make(map[string]string)
 	repose.Headers["ContentType"] = ContentType.JsonUTF8
 	repose.Headers["AccessControlAllowOrigin"] = "*"
-	repose.Headers["Location"] = "https://" + os.Getenv("H5Domain")
 	repose.IsBase64Encoded = false
 	log.Printf("body is: %s", string(QueryResultJson))
 	repose.Body = string(QueryResultJson)
