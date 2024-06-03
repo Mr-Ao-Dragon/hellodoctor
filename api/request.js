@@ -19,7 +19,7 @@ axios.interceptors.response.use((response)=>{
     return Promise.reject(error)})
 const request = {
     //登录
-    postLogin:async(code)=>{
+    login:async(code)=>{
         return await axios.get(`/v1/user/login?token=${code}`)
     },
     //获取通知

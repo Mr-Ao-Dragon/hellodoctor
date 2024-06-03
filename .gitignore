@@ -9,3 +9,4 @@ env.sh
 env.ps1
 unpackage
 uniCloud-aliyun
+/node_modules/

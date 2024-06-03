@@ -26,6 +26,12 @@
 		},
 		{
 			"path": "pages/reserve"
+		},
+		{
+			"path": "pages/jump",
+			"style": {
+				"navigationBarTitleText": ""
+			}
 		}
 	],
 	"globalStyle": {
@@ -39,8 +45,7 @@
 		"selectedColor": "#19be6b",
 		"backgroundColor": "#FFFFFF",
 		"borderStyle": "black",
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index",
 				"iconPath": "static/img/footer/home.png",
 				"selectedIconPath": "static/img/footer/home_cur.png",
