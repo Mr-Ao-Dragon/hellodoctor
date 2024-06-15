@@ -2,19 +2,16 @@
 	<!--
   前置操作
   -->
-	<view
-		v-if="typeof accessToken !== 'undefined' && typeof expiresIn !== 'undefined' && expiresIn < Math.floor((new Date()).valueOf() / 1000) && !ready">
-		<!-- 当accessToken和expiresIn都定义，且expiresIn过期且ready为false时渲染的内容 -->
-    <wxlogin
-        :appid="wx295f40fae672dd46"
-        :scope="'snsapi_userinfo'"
-        :theme="'black'"
-        :redirect_uri='encodeURIComponent("https://"+window.location.hostname+"/jump")'
-        :self_redirect=true
-    ></wxlogin>
-	</view>
 
 	<view class="content">
+		<view
+			v-if="typeof accessToken !== 'undefined' && typeof expiresIn !== 'undefined' && expiresIn < Math.floor((new Date()).valueOf() / 1000) && !ready">
+			<!-- 当accessToken和expiresIn都定义，且expiresIn过期且ready为false时渲染的内容 -->
+			<wxlogin :appid="'wx295f40fae672dd46'" :scope="'snsapi_userinfo'" :theme="'black'"
+				:redirect_uri='encodeURIComponent("https://"+window.location.hostname+"/jump")' :self_redirect=true>
+			</wxlogin>
+		</view>
+
 		<view class="u-flex u-col-center u-row-between u-padding-20">
 			<view class="imglist">
 				<swiper class="swiper" :indicator-dots="true" :autoplay="true">
@@ -67,6 +64,7 @@
 
 <script>
 	import request from '../api/request';
+	import Vue from "vue"
 	import wxlogin from 'vue-wxlogin';
 	import {
 		getTime

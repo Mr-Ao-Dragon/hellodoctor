@@ -1,16 +1,15 @@
-<view
-	v-if="typeof accessToken !== 'undefined' && typeof expiresIn !== 'undefined' && expiresIn < Math.floor((new Date()).valueOf() / 1000) && !ready">
-	<!-- 当accessToken和expiresIn都定义，且expiresIn过期且ready为false时渲染的内容 -->
-	<wxlogin
-      :appid="wx295f40fae672dd46"
-      :scope="'snsapi_userinfo'"
-      :theme="'black'"
-      :redirect_uri='encodeURIComponent("https://"+window.location.hostname+"/jump")'
-      :self_redirect=true
-  ></wxlogin>
-</view>
+<template>
+	<view
+		v-if="typeof accessToken !== 'undefined' && typeof expiresIn !== 'undefined' && expiresIn < Math.floor((new Date()).valueOf() / 1000) && !ready">
+		<!-- 当accessToken和expiresIn都定义，且expiresIn过期且ready为false时渲染的内容 -->
+		<wxlogin :appid="wx295f40fae672dd46" :scope="'snsapi_userinfo'" :theme="'black'"
+			:redirect_uri='encodeURIComponent("https://"+window.location.hostname+"/jump")' :self_redirect=true>
+		</wxlogin>
+	</view>
+</template>
 <script>
 	import wxlogin from 'vue-wxlogin';
+	import Vue from 'vue';
 	Vue.component('wxlogin', wxlogin);
 	uni.setStorageSync('backUrl', window.location.href)
 	export default {
@@ -18,7 +17,7 @@
 		onShow() {
 			const token = uni.getStorageSync('token')
 			const expries_in = uni.getStorageSync('expries_in')
-			if (!token || !expries_in || expries_in < new Date().getTime()) {
+			if (token == undefined || !expries_in || expries_in < new Date().getTime()) {
 				console.log("未登录")
 				window.location.href = loginLink
 			}

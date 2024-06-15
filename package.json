@@ -1,8 +1,9 @@
 {
-  "dependencies": {
-    "axios": "^1.6.5",
-    "dayjs": "^1.11.10",
-    "jweixin-module": "^1.6.0",
-    "vue-wxlogin": "^1.0.5"
-  }
+	"dependencies": {
+		"vue": "^2.7.16",
+		"axios": "^1.6.5",
+		"dayjs": "^1.11.10",
+		"jweixin-module": "^1.6.0",
+		"vue-wxlogin": "^1.0.5"
+	}
 }
