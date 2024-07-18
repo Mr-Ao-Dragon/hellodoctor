@@ -7,3 +7,6 @@ playground/
 *env.sh
 unpackage
 node_modules
+/storybook.log
+/*.env.local
+develop.env.local
