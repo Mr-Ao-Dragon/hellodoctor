@@ -443,6 +443,7 @@ resources:
             qualifier: LATEST
           - path: /v1/rese/get
             functionName: get-reverse
+            qualifier: LATEST
           - path: /v1/health/lag
             functionName: health-lag-http
             qualifier: LATEST

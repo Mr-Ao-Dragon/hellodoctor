@@ -21,17 +21,22 @@ func QueryPermission(OpenID string) (PermissionLevel int8, err error) {
 	criteria.PrimaryKey = putPk
 	criteria.TableName = "user"
 	criteria.MaxVersion = 1
-	criteria.AddColumnToGet("")
+	criteria.AddColumnToGet("permission")
 	getRowRequest.SingleRowQueryCriteria = criteria
-	criteria.ColumnsToGet = []string{"permission"}
 	queryResult, err := client.GetRow(getRowRequest)
 	if err != nil {
 		return 0, err
 	}
-	if queryResult == nil {
+	if queryResult == nil || len(queryResult.Columns) == 0 {
 		return 0, errors.New("用户不存在")
 	}
-	return queryResult.Columns[0].Value.(int8), nil
+	for _, col := range queryResult.Columns {
+		switch col.ColumnName {
+		case "permission":
+			PermissionLevel = int8(col.Value.(int64))
+		}
+	}
+	return PermissionLevel, nil
 }
 
 func SetPermission(PermLevel int, OpenID string) (isSusses bool, err error) {

@@ -1,6 +1,7 @@
 package reserve
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 
@@ -30,4 +31,17 @@ func GetReserveByID(reserveID int32) (reserveData *datastruct.SingleReserve, err
 		return nil, err
 	}
 	return reserveData, nil
+}
+func GetReserveListWithDoctor(doctorID string) (reserveData *datastruct.InfoReserve, err error) {
+	reserveData = new(datastruct.InfoReserve)
+	reserveData.Data, err = database.QueryReserveListByDoctor(doctorID)
+	if err != nil {
+		reserveData.Data = nil
+		*reserveData.Msg = fmt.Sprintf("query error: %#v", err)
+		log.Print(*reserveData.Msg)
+		return reserveData, err
+	}
+	*reserveData.Code = 200
+	*reserveData.Msg = "success"
+	return
 }

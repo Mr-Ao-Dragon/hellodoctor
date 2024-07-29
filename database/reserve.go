@@ -2,8 +2,10 @@ package database
 
 import (
 	"errors"
+	"fmt"
 	"github.com/aliyun/aliyun-tablestore-go-sdk/tablestore"
 	"os"
+	"time"
 
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/datastruct"
 	"github.com/Mr-Ao-Dragon/hellodoctor/tool/gen"
@@ -129,22 +131,22 @@ func QueryReserveSingle(reserveID int32) (reserveData *datastruct.SingleReserve,
 		reserveData.ID = int32(reserveIDS.Value.(int64))
 	}
 	for range getRowResp.Columns {
-		switch {
-		case getRowResp.Columns[index].ColumnName == "DoctorID":
+		switch getRowResp.Columns[index].ColumnName {
+		case "DoctorID":
 			reserveData.DoctorID = getRowResp.Columns[index].Value.(string)
-		case getRowResp.Columns[index].ColumnName == "Mobile":
+		case "Mobile":
 			reserveData.Mobile = getRowResp.Columns[index].Value.(int64)
-		case getRowResp.Columns[index].ColumnName == "Name":
+		case "Name":
 			reserveData.Name = getRowResp.Columns[index].Value.(string)
-		case getRowResp.Columns[index].ColumnName == "Time":
+		case "Time":
 			reserveData.Time = getRowResp.Columns[index].Value.(int64)
-		case getRowResp.Columns[index].ColumnName == "DoctorAvatar":
+		case "DoctorAvatar":
 			reserveData.DocAvatar = getRowResp.Columns[index].Value.(string)
-		case getRowResp.Columns[index].ColumnName == "DoctorName":
+		case "DoctorName":
 			reserveData.DoctorName = getRowResp.Columns[index].Value.(string)
-		case getRowResp.Columns[index].ColumnName == "Status":
+		case "Status":
 			reserveData.Status = getRowResp.Columns[index].Value.(int8)
-		case getRowResp.Columns[index].ColumnName == "OpenID":
+		case "OpenID":
 			reserveData.OpenID = getRowResp.Columns[index].Value.(string)
 		default:
 			continue
@@ -172,4 +174,71 @@ func CancelReserve(reserveID int32) (err error) {
 		return err
 	}
 	return nil
+}
+
+func QueryReserveListByDoctor(doctor string) (queryResult []datastruct.SingleReserve, err error) {
+	client := tablestore.NewClient(
+		os.Getenv("EndPoint"),
+		os.Getenv("InstanceName"),
+		os.Getenv("AccessKeyId"),
+		os.Getenv("AccessKeySecret"),
+	)
+	rangeRequest := new(tablestore.GetRangeRequest)
+	rangeRowQueryCriteria := new(tablestore.RangeRowQueryCriteria)
+	rangeRowQueryCriteria.TableName = "reserve"
+	rangeRowQueryCriteria.MaxVersion = 1
+	rangeRowQueryCriteria.Direction = tablestore.FORWARD
+	filter := tablestore.NewCompositeColumnCondition(tablestore.LO_AND)
+	filter.AddFilter(tablestore.NewSingleColumnCondition("DoctorID", tablestore.CT_EQUAL, doctor))
+	filter.AddFilter(tablestore.NewSingleColumnCondition("time", tablestore.CT_GREATER_EQUAL, time.Now().Unix()))
+	rangeRowQueryCriteria.Filter = filter
+	startPK := new(tablestore.PrimaryKey)
+	startPK.AddPrimaryKeyColumn("ID", tablestore.VT_INF_MIN)
+	endPK := new(tablestore.PrimaryKey)
+	endPK.AddPrimaryKeyColumn("ID", tablestore.VT_INF_MAX)
+	rangeRowQueryCriteria.StartPrimaryKey = startPK
+	rangeRowQueryCriteria.EndPrimaryKey = endPK
+	rangeRowQueryCriteria.Limit = 1000
+	rangeRequest.RangeRowQueryCriteria = rangeRowQueryCriteria
+	var rangeResp *tablestore.GetRangeResponse
+	for {
+		rangeResp, err = client.GetRange(rangeRequest)
+		if rangeResp.NextStartPrimaryKey.PrimaryKeys == nil {
+			break
+		}
+		if err != nil {
+			return nil, err
+		}
+		rangeRequest.RangeRowQueryCriteria.StartPrimaryKey = rangeResp.NextStartPrimaryKey
+	}
+
+	for _, row := range rangeResp.Rows {
+		singleReserveData := new(datastruct.SingleReserve)
+		for _, PK := range row.PrimaryKey.PrimaryKeys {
+			if PK.Value == "ID" {
+				singleReserveData.ID = int32(PK.Value.(int64))
+			} else {
+				err = errors.New("table struct is not basic")
+				fmt.Printf("%#v\n", err)
+				continue
+			}
+		}
+		for _, col := range row.Columns {
+			switch col.ColumnName {
+			case "doctorID":
+				singleReserveData.DoctorID = col.Value.(string)
+			case "Mobile":
+				singleReserveData.Mobile = col.Value.(int64)
+			case "name":
+				singleReserveData.Name = col.Value.(string)
+			case "Time":
+				singleReserveData.Time = col.Value.(int64)
+			case "Status":
+				singleReserveData.Time = col.Value.(int64)
+			}
+		}
+		queryResult[singleReserveData.ID] = *singleReserveData
+	}
+	err = nil
+	return
 }

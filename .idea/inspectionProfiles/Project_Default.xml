@@ -5,6 +5,9 @@
       <functions>
         <function importPath="github.com/Mr-Ao-Dragon/hellodoctor/reserve" name="GetReserveByID" />
       </functions>
+      <methods>
+        <method importPath="github.com/aliyun/aliyun-tablestore-go-sdk/tablestore" receiver="*TableStoreClient" name="GetRange" />
+      </methods>
     </inspection_tool>
   </profile>
 </component>
